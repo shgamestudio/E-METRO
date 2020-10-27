@@ -11,3 +11,16 @@ G:\eMetro\e-Metro\eMetro\eMetro\obj\Debug\eMetro.csproj.CopyComplete
 G:\eMetro\e-Metro\eMetro\eMetro\obj\Debug\eMetro.exe
 G:\eMetro\e-Metro\eMetro\eMetro\obj\Debug\eMetro.pdb
 G:\eMetro\e-Metro\eMetro\eMetro\bin\Debug\FontAwesome.Sharp.dll
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\eMetro.exe.config
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\eMetro.exe
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\eMetro.pdb
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\Bunifu_UI_v1.5.3.dll
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\FontAwesome.Sharp.dll
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.csprojAssemblyReference.cache
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.Menu.resources
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.Properties.Resources.resources
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.csproj.GenerateResource.cache
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.csproj.CoreCompileInputs.cache
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.csproj.CopyComplete
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.exe
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.pdb

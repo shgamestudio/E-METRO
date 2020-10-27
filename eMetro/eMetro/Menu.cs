@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,8 @@ namespace eMetro
         private IconButton currentBtn;
         private IconButton clickedBtn;
         private Panel leftBorderBtn;
+        private Form currentChildForm;
+        private bool minim = false;
 
         //Struct
         private struct RGBColors
@@ -26,7 +29,7 @@ namespace eMetro
             public static Color color3 = Color.FromArgb(253, 138, 114);
             public static Color color4 = Color.FromArgb(95, 77, 221);
 
-            public static Color color44 = Color.FromArgb(255, 255, 255);
+            public static Color color44 = Color.FromArgb(79, 224, 220);
             public static Color color5 = Color.FromArgb(249, 88, 155);
             public static Color color6 = Color.FromArgb(24, 161, 251);
         }
@@ -60,10 +63,14 @@ namespace eMetro
                 currentBtn.Font = new Font("Calibri", 12);
                 //currentBtn.BackColor = Color.FromArgb(37, 36, 81);
                 //currentBtn.ForeColor = color;
-                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                 currentBtn.IconColor = color;
-                currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
-                currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+                if (minim == false)
+                {
+                    currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+                    
+                    currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+                    currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+                }
                 //Left border button
                 leftBorderBtn.BackColor = color;
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
@@ -96,6 +103,10 @@ namespace eMetro
             leftBorderBtn.Size = new Size(7, 60);
             leftBorderBtn.Visible = false;
             bunifuGradientPanel_menu.Controls.Add(leftBorderBtn);
+            //Form
+            this.Text = string.Empty;
+            this.ControlBox = false;
+            this.DoubleBuffered = true;
 
             //BDK
             iconButton_BDK.FlatAppearance.MouseOverBackColor = iconButton_BDK.BackColor;
@@ -178,7 +189,7 @@ namespace eMetro
         //Chỉnh nút menu
         private void IconButton_BDK_Click(object sender, EventArgs e)
         {
-            //ActivateButton(sender, RGBColors.color1);
+            ActivateButton(sender, RGBColors.color3);
             if (clickedBtn != (IconButton)sender)                         //thêm dòng if là oke
             {
                 setColor();
@@ -189,26 +200,35 @@ namespace eMetro
 
         private void IconButton_QLCT_Click(object sender, EventArgs e)
         {
-            //ActivateButton(sender, RGBColors.color2);
-            setColor();
-            IconButton theBtn = (IconButton)sender;
-            clickedBtn = theBtn;
+            ActivateButton(sender, RGBColors.color3);
+            if (clickedBtn != (IconButton)sender)                         //thêm dòng if là oke
+            {
+                setColor();
+                IconButton theBtn = (IconButton)sender;
+                clickedBtn = theBtn;
+            }
         }
 
         private void IconButton_QLG_Click(object sender, EventArgs e)
         {
-            //ActivateButton(sender, RGBColors.color3);
-            setColor();
-            IconButton theBtn = (IconButton)sender;
-            clickedBtn = theBtn;
+            if (clickedBtn != (IconButton)sender)                         //thêm dòng if là oke
+            {
+                ActivateButton(sender, RGBColors.color3);
+                setColor();
+                IconButton theBtn = (IconButton)sender;
+                clickedBtn = theBtn;
+            }
         }
 
         private void IconButton_QLTT_Click(object sender, EventArgs e)
         {
-            //ActivateButton(sender, RGBColors.color44);
-            setColor();
-            IconButton theBtn = (IconButton)sender;
-            clickedBtn = theBtn;
+            if (clickedBtn != (IconButton)sender)                         //thêm dòng if là oke
+            {
+                ActivateButton(sender, RGBColors.color3);
+                setColor();
+                IconButton theBtn = (IconButton)sender;
+                clickedBtn = theBtn;
+            }
         }
 
         //Mouse hover event
@@ -285,7 +305,7 @@ namespace eMetro
             IconButton theBtn = (IconButton)sender;
             if(theBtn != clickedBtn)
             {
-                theBtn.BackColor = Color.Red;
+                theBtn.BackColor = Color.FromArgb(165, 21, 80);
             }
         }
 
@@ -294,7 +314,7 @@ namespace eMetro
             IconButton theBtn = (IconButton)sender;
             if (theBtn != clickedBtn)
             {
-                theBtn.BackColor = Color.Red;
+                theBtn.BackColor = Color.FromArgb(165, 21, 80);
             }
         }
 
@@ -303,7 +323,7 @@ namespace eMetro
             IconButton theBtn = (IconButton)sender;
             if (theBtn != clickedBtn)
             {
-                theBtn.BackColor = Color.Red;
+                theBtn.BackColor = Color.FromArgb(165, 21, 80);
             }
         }
 
@@ -312,8 +332,115 @@ namespace eMetro
             IconButton theBtn = (IconButton)sender;
             if (theBtn != clickedBtn)
             {
-                theBtn.BackColor = Color.Red;
+                theBtn.BackColor = Color.FromArgb(165, 21, 80);
             }
         }
+
+        private void PictureBox_menusidebar_Click(object sender, EventArgs e)
+        {
+            minim = !minim;
+            if(bunifuGradientPanel_menu.Width == 270)
+            {
+                //
+                if (currentBtn != null)
+                {
+                    currentBtn.ForeColor = Color.Gainsboro;
+                    currentBtn.TextAlign = ContentAlignment.MiddleLeft;
+                    currentBtn.IconColor = RGBColors.color3;
+                    currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+                    currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+                }
+                //
+                bunifuSeparator_linesidebar.Width = 65;
+                bunifuGradientPanel_menu.Width = 83;
+                panel_sidebar.Width = 115; //104
+                //animation
+                bunifuGradientPanel_menu.Visible = false;
+                bunifuTransition_sidebar.Show(bunifuGradientPanel_menu);
+            }
+            else
+            {
+                //
+                if (currentBtn != null)
+                {
+                    currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+                    currentBtn.IconColor = RGBColors.color3;
+                    currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+                    currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+                }
+                //
+                bunifuSeparator_linesidebar.Width = 255;
+                bunifuGradientPanel_menu.Width = 270;
+                panel_sidebar.Width = 300;
+                //animation
+                bunifuGradientPanel_menu.Visible = false;
+                bunifuTransition_sidebar_back.Show(bunifuGradientPanel_menu);
+            }
+        }
+
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void Panel_top_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void OpenChildForm(Form childForm)
+        {
+            //if (iconCur)
+            //bunifuGradientPanel_home.gr
+        }
+
+        private void BunifuGradientPanel_home_MouseEnter(object sender, EventArgs e)
+        {
+            bunifuGradientPanel_home.GradientBottomLeft = Color.FromArgb(240, 31, 117);
+            bunifuGradientPanel_home.GradientBottomRight = Color.FromArgb(240, 31, 117);
+            bunifuGradientPanel_home.GradientTopLeft = Color.FromArgb(240, 31, 117);
+            bunifuGradientPanel_home.GradientTopRight = Color.FromArgb(30, 30, 46);
+        }
+
+        private void BunifuGradientPanel_home_MouseLeave(object sender, EventArgs e)
+        {
+            bunifuGradientPanel_home.GradientBottomLeft = Color.FromArgb(165, 21, 80);
+            bunifuGradientPanel_home.GradientBottomRight = Color.FromArgb(165, 21, 80);
+            bunifuGradientPanel_home.GradientTopLeft = Color.FromArgb(165, 21, 80);
+            bunifuGradientPanel_home.GradientTopRight = Color.FromArgb(30, 30, 46);
+        }
+
+        private void PictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            bunifuGradientPanel_home.GradientBottomLeft = Color.FromArgb(240, 31, 117);
+            bunifuGradientPanel_home.GradientBottomRight = Color.FromArgb(240, 31, 117);
+            bunifuGradientPanel_home.GradientTopLeft = Color.FromArgb(240, 31, 117);
+            bunifuGradientPanel_home.GradientTopRight = Color.FromArgb(30, 30, 46);
+        }
+
+        private void Label_home_btn_MouseEnter(object sender, EventArgs e)
+        {
+            bunifuGradientPanel_home.GradientBottomLeft = Color.FromArgb(240, 31, 117);
+            bunifuGradientPanel_home.GradientBottomRight = Color.FromArgb(240, 31, 117);
+            bunifuGradientPanel_home.GradientTopLeft = Color.FromArgb(240, 31, 117);
+            bunifuGradientPanel_home.GradientTopRight = Color.FromArgb(30, 30, 46);
+        }
+
+        private void BunifuGradientPanel_home_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+        private void Reset()
+        {
+            DisableButton();
+            setColor();
+            leftBorderBtn.Visible = false;
+
+        }
+
     }
 }

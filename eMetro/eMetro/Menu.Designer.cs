@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
+            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
             this.panel_top = new System.Windows.Forms.Panel();
             this.pictureBox_restore = new System.Windows.Forms.PictureBox();
             this.pictureBox_hide = new System.Windows.Forms.PictureBox();
@@ -43,9 +46,17 @@
             this.iconButton_QLCT = new FontAwesome.Sharp.IconButton();
             this.iconButton_BDK = new FontAwesome.Sharp.IconButton();
             this.bunifuSeparator_linesidebar = new Bunifu.Framework.UI.BunifuSeparator();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_home_btn = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_wrapper = new System.Windows.Forms.Panel();
+            this.bunifuElipse_sidebar = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuTransition_sidebar = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.bunifuTransition_sidebar_back = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.panel_wrapperform = new System.Windows.Forms.Panel();
+            this.bunifuElipse_wrapperform = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse_form = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuGradientPanel_home = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.bunifuElipse_home_btn = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_restore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_hide)).BeginInit();
@@ -55,6 +66,8 @@
             this.panel_sidebar.SuspendLayout();
             this.bunifuGradientPanel_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel_wrapper.SuspendLayout();
+            this.bunifuGradientPanel_home.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_top
@@ -66,15 +79,20 @@
             this.panel_top.Controls.Add(this.pictureBox_close);
             this.panel_top.Controls.Add(this.label1);
             this.panel_top.Controls.Add(this.pictureBox_menusidebar);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.panel_top, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.panel_top, BunifuAnimatorNS.DecorationType.None);
             this.panel_top.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_top.Location = new System.Drawing.Point(0, 0);
             this.panel_top.Name = "panel_top";
             this.panel_top.Size = new System.Drawing.Size(1400, 80);
             this.panel_top.TabIndex = 0;
+            this.panel_top.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_top_MouseDown);
             // 
             // pictureBox_restore
             // 
             this.pictureBox_restore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuTransition_sidebar.SetDecoration(this.pictureBox_restore, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.pictureBox_restore, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox_restore.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_restore.Image")));
             this.pictureBox_restore.Location = new System.Drawing.Point(1310, 20);
             this.pictureBox_restore.Name = "pictureBox_restore";
@@ -88,6 +106,8 @@
             // pictureBox_hide
             // 
             this.pictureBox_hide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuTransition_sidebar.SetDecoration(this.pictureBox_hide, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.pictureBox_hide, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox_hide.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_hide.Image")));
             this.pictureBox_hide.Location = new System.Drawing.Point(1274, 20);
             this.pictureBox_hide.Name = "pictureBox_hide";
@@ -100,6 +120,8 @@
             // pictureBox_maximize
             // 
             this.pictureBox_maximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuTransition_sidebar.SetDecoration(this.pictureBox_maximize, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.pictureBox_maximize, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox_maximize.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_maximize.Image")));
             this.pictureBox_maximize.Location = new System.Drawing.Point(1310, 20);
             this.pictureBox_maximize.Name = "pictureBox_maximize";
@@ -112,6 +134,8 @@
             // pictureBox_close
             // 
             this.pictureBox_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuTransition_sidebar.SetDecoration(this.pictureBox_close, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.pictureBox_close, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox_close.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_close.Image")));
             this.pictureBox_close.Location = new System.Drawing.Point(1346, 20);
             this.pictureBox_close.Name = "pictureBox_close";
@@ -124,6 +148,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.bunifuTransition_sidebar.SetDecoration(this.label1, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.label1, BunifuAnimatorNS.DecorationType.None);
             this.label1.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(68, 27);
@@ -134,6 +160,8 @@
             // 
             // pictureBox_menusidebar
             // 
+            this.bunifuTransition_sidebar.SetDecoration(this.pictureBox_menusidebar, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.pictureBox_menusidebar, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox_menusidebar.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_menusidebar.Image")));
             this.pictureBox_menusidebar.Location = new System.Drawing.Point(25, 23);
             this.pictureBox_menusidebar.Name = "pictureBox_menusidebar";
@@ -141,11 +169,14 @@
             this.pictureBox_menusidebar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_menusidebar.TabIndex = 0;
             this.pictureBox_menusidebar.TabStop = false;
+            this.pictureBox_menusidebar.Click += new System.EventHandler(this.PictureBox_menusidebar_Click);
             // 
             // panel_sidebar
             // 
             this.panel_sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
             this.panel_sidebar.Controls.Add(this.bunifuGradientPanel_menu);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.panel_sidebar, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.panel_sidebar, BunifuAnimatorNS.DecorationType.None);
             this.panel_sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_sidebar.Location = new System.Drawing.Point(0, 80);
             this.panel_sidebar.Name = "panel_sidebar";
@@ -156,27 +187,29 @@
             // 
             this.bunifuGradientPanel_menu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel_menu.BackgroundImage")));
             this.bunifuGradientPanel_menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuGradientPanel_menu.Controls.Add(this.bunifuGradientPanel_home);
             this.bunifuGradientPanel_menu.Controls.Add(this.iconButton_QLTT);
             this.bunifuGradientPanel_menu.Controls.Add(this.iconButton_QLG);
             this.bunifuGradientPanel_menu.Controls.Add(this.iconButton_QLCT);
             this.bunifuGradientPanel_menu.Controls.Add(this.iconButton_BDK);
             this.bunifuGradientPanel_menu.Controls.Add(this.bunifuSeparator_linesidebar);
-            this.bunifuGradientPanel_menu.Controls.Add(this.label2);
-            this.bunifuGradientPanel_menu.Controls.Add(this.pictureBox1);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.bunifuGradientPanel_menu, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.bunifuGradientPanel_menu, BunifuAnimatorNS.DecorationType.None);
             this.bunifuGradientPanel_menu.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
             this.bunifuGradientPanel_menu.GradientBottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
             this.bunifuGradientPanel_menu.GradientTopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
             this.bunifuGradientPanel_menu.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.bunifuGradientPanel_menu.Location = new System.Drawing.Point(14, 20);
+            this.bunifuGradientPanel_menu.Location = new System.Drawing.Point(22, 20);
             this.bunifuGradientPanel_menu.Name = "bunifuGradientPanel_menu";
             this.bunifuGradientPanel_menu.Quality = 10;
-            this.bunifuGradientPanel_menu.Size = new System.Drawing.Size(270, 784);
+            this.bunifuGradientPanel_menu.Size = new System.Drawing.Size(270, 774);
             this.bunifuGradientPanel_menu.TabIndex = 0;
             // 
             // iconButton_QLTT
             // 
-            this.iconButton_QLTT.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.iconButton_QLTT.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuTransition_sidebar_back.SetDecoration(this.iconButton_QLTT, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.iconButton_QLTT, BunifuAnimatorNS.DecorationType.None);
             this.iconButton_QLTT.FlatAppearance.BorderSize = 0;
             this.iconButton_QLTT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton_QLTT.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -204,8 +237,9 @@
             // 
             // iconButton_QLG
             // 
-            this.iconButton_QLG.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.iconButton_QLG.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuTransition_sidebar_back.SetDecoration(this.iconButton_QLG, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.iconButton_QLG, BunifuAnimatorNS.DecorationType.None);
             this.iconButton_QLG.FlatAppearance.BorderSize = 0;
             this.iconButton_QLG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton_QLG.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -233,8 +267,9 @@
             // 
             // iconButton_QLCT
             // 
-            this.iconButton_QLCT.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.iconButton_QLCT.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuTransition_sidebar_back.SetDecoration(this.iconButton_QLCT, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.iconButton_QLCT, BunifuAnimatorNS.DecorationType.None);
             this.iconButton_QLCT.FlatAppearance.BorderSize = 0;
             this.iconButton_QLCT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton_QLCT.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -263,6 +298,8 @@
             // iconButton_BDK
             // 
             this.iconButton_BDK.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuTransition_sidebar_back.SetDecoration(this.iconButton_BDK, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.iconButton_BDK, BunifuAnimatorNS.DecorationType.None);
             this.iconButton_BDK.FlatAppearance.BorderSize = 0;
             this.iconButton_BDK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton_BDK.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -291,6 +328,8 @@
             // bunifuSeparator_linesidebar
             // 
             this.bunifuSeparator_linesidebar.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuTransition_sidebar_back.SetDecoration(this.bunifuSeparator_linesidebar, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.bunifuSeparator_linesidebar, BunifuAnimatorNS.DecorationType.None);
             this.bunifuSeparator_linesidebar.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.bunifuSeparator_linesidebar.LineThickness = 1;
             this.bunifuSeparator_linesidebar.Location = new System.Drawing.Point(8, 70);
@@ -300,45 +339,154 @@
             this.bunifuSeparator_linesidebar.Transparency = 255;
             this.bunifuSeparator_linesidebar.Vertical = false;
             // 
-            // label2
+            // label_home_btn
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(67, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 21);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "E-METRO SUBWAY";
+            this.label_home_btn.AutoSize = true;
+            this.label_home_btn.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuTransition_sidebar.SetDecoration(this.label_home_btn, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.label_home_btn, BunifuAnimatorNS.DecorationType.None);
+            this.label_home_btn.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_home_btn.ForeColor = System.Drawing.SystemColors.Control;
+            this.label_home_btn.Location = new System.Drawing.Point(78, 14);
+            this.label_home_btn.Name = "label_home_btn";
+            this.label_home_btn.Size = new System.Drawing.Size(153, 21);
+            this.label_home_btn.TabIndex = 2;
+            this.label_home_btn.Text = "E-METRO SUBWAY";
+            this.label_home_btn.MouseEnter += new System.EventHandler(this.Label_home_btn_MouseEnter);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuTransition_sidebar.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(11, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(40, 40);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.PictureBox1_MouseEnter);
             // 
             // panel_wrapper
             // 
+            this.panel_wrapper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel_wrapper.Controls.Add(this.panel_wrapperform);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.panel_wrapper, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.panel_wrapper, BunifuAnimatorNS.DecorationType.None);
             this.panel_wrapper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_wrapper.Location = new System.Drawing.Point(300, 80);
             this.panel_wrapper.Name = "panel_wrapper";
             this.panel_wrapper.Size = new System.Drawing.Size(1100, 820);
             this.panel_wrapper.TabIndex = 2;
             // 
+            // bunifuElipse_sidebar
+            // 
+            this.bunifuElipse_sidebar.ElipseRadius = 20;
+            this.bunifuElipse_sidebar.TargetControl = this.bunifuGradientPanel_menu;
+            // 
+            // bunifuTransition_sidebar
+            // 
+            this.bunifuTransition_sidebar.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
+            this.bunifuTransition_sidebar.Cursor = null;
+            animation4.AnimateOnlyDifferences = true;
+            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
+            animation4.LeafCoeff = 0F;
+            animation4.MaxTime = 1F;
+            animation4.MinTime = 0F;
+            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
+            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
+            animation4.MosaicSize = 1;
+            animation4.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation4.RotateCoeff = 0F;
+            animation4.RotateLimit = 0F;
+            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
+            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
+            animation4.TimeCoeff = 2F;
+            animation4.TransparencyCoeff = 0F;
+            this.bunifuTransition_sidebar.DefaultAnimation = animation4;
+            // 
+            // bunifuTransition_sidebar_back
+            // 
+            this.bunifuTransition_sidebar_back.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
+            this.bunifuTransition_sidebar_back.Cursor = null;
+            animation3.AnimateOnlyDifferences = true;
+            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
+            animation3.LeafCoeff = 0F;
+            animation3.MaxTime = 1F;
+            animation3.MinTime = 0F;
+            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
+            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
+            animation3.MosaicSize = 0;
+            animation3.Padding = new System.Windows.Forms.Padding(0);
+            animation3.RotateCoeff = 0F;
+            animation3.RotateLimit = 0F;
+            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
+            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
+            animation3.TimeCoeff = 0F;
+            animation3.TransparencyCoeff = 0F;
+            this.bunifuTransition_sidebar_back.DefaultAnimation = animation3;
+            // 
+            // panel_wrapperform
+            // 
+            this.panel_wrapperform.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_wrapperform.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.bunifuTransition_sidebar_back.SetDecoration(this.panel_wrapperform, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.panel_wrapperform, BunifuAnimatorNS.DecorationType.None);
+            this.panel_wrapperform.Location = new System.Drawing.Point(6, 20);
+            this.panel_wrapperform.Name = "panel_wrapperform";
+            this.panel_wrapperform.Size = new System.Drawing.Size(1070, 774);
+            this.panel_wrapperform.TabIndex = 0;
+            // 
+            // bunifuElipse_wrapperform
+            // 
+            this.bunifuElipse_wrapperform.ElipseRadius = 20;
+            this.bunifuElipse_wrapperform.TargetControl = this.panel_wrapperform;
+            // 
+            // bunifuElipse_form
+            // 
+            this.bunifuElipse_form.ElipseRadius = 20;
+            this.bunifuElipse_form.TargetControl = this;
+            // 
+            // bunifuGradientPanel_home
+            // 
+            this.bunifuGradientPanel_home.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel_home.BackgroundImage")));
+            this.bunifuGradientPanel_home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuGradientPanel_home.Controls.Add(this.label_home_btn);
+            this.bunifuGradientPanel_home.Controls.Add(this.pictureBox1);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.bunifuGradientPanel_home, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.bunifuGradientPanel_home, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuGradientPanel_home.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.bunifuGradientPanel_home.GradientBottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
+            this.bunifuGradientPanel_home.GradientTopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
+            this.bunifuGradientPanel_home.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
+            this.bunifuGradientPanel_home.Location = new System.Drawing.Point(8, 8);
+            this.bunifuGradientPanel_home.Name = "bunifuGradientPanel_home";
+            this.bunifuGradientPanel_home.Quality = 10;
+            this.bunifuGradientPanel_home.Size = new System.Drawing.Size(252, 53);
+            this.bunifuGradientPanel_home.TabIndex = 8;
+            this.bunifuGradientPanel_home.Click += new System.EventHandler(this.BunifuGradientPanel_home_Click);
+            this.bunifuGradientPanel_home.MouseEnter += new System.EventHandler(this.BunifuGradientPanel_home_MouseEnter);
+            this.bunifuGradientPanel_home.MouseLeave += new System.EventHandler(this.BunifuGradientPanel_home_MouseLeave);
+            // 
+            // bunifuElipse_home_btn
+            // 
+            this.bunifuElipse_home_btn.ElipseRadius = 20;
+            this.bunifuElipse_home_btn.TargetControl = this.bunifuGradientPanel_home;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1400, 900);
             this.Controls.Add(this.panel_wrapper);
             this.Controls.Add(this.panel_sidebar);
             this.Controls.Add(this.panel_top);
+            this.bunifuTransition_sidebar_back.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -352,8 +500,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_menusidebar)).EndInit();
             this.panel_sidebar.ResumeLayout(false);
             this.bunifuGradientPanel_menu.ResumeLayout(false);
-            this.bunifuGradientPanel_menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel_wrapper.ResumeLayout(false);
+            this.bunifuGradientPanel_home.ResumeLayout(false);
+            this.bunifuGradientPanel_home.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -370,13 +520,21 @@
         private System.Windows.Forms.Panel panel_sidebar;
         private System.Windows.Forms.Panel panel_wrapper;
         private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel_menu;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_home_btn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator_linesidebar;
         private FontAwesome.Sharp.IconButton iconButton_BDK;
         private FontAwesome.Sharp.IconButton iconButton_QLTT;
         private FontAwesome.Sharp.IconButton iconButton_QLG;
         private FontAwesome.Sharp.IconButton iconButton_QLCT;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse_sidebar;
+        private BunifuAnimatorNS.BunifuTransition bunifuTransition_sidebar;
+        private BunifuAnimatorNS.BunifuTransition bunifuTransition_sidebar_back;
+        private System.Windows.Forms.Panel panel_wrapperform;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse_wrapperform;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse_form;
+        private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel_home;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse_home_btn;
     }
 }
 
