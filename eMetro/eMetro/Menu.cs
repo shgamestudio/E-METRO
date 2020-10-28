@@ -20,6 +20,7 @@ namespace eMetro
         private Panel leftBorderBtn;
         private Form currentChildForm;
         private bool minim = false;
+        private bool hometrig = true;
 
         //Struct
         private struct RGBColors
@@ -64,6 +65,8 @@ namespace eMetro
                 //currentBtn.BackColor = Color.FromArgb(37, 36, 81);
                 //currentBtn.ForeColor = color;
                 currentBtn.IconColor = color;
+                //Iconshow
+                iconPictureBox_showform.IconChar = currentBtn.IconChar;
                 if (minim == false)
                 {
                     currentBtn.TextAlign = ContentAlignment.MiddleCenter;
@@ -71,11 +74,21 @@ namespace eMetro
                     currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                     currentBtn.ImageAlign = ContentAlignment.MiddleRight;
                 }
+                if(hometrig == true)
+                {
+                    currentBtn.Font = new Font("Calibri", 14);
+                    currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+
+                    currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+                    currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+                    iconPictureBox_showform.IconChar = IconChar.Home;
+                }
                 //Left border button
                 leftBorderBtn.BackColor = color;
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
+              
             }
         }
 
@@ -83,9 +96,11 @@ namespace eMetro
 
         private void DisableButton()
         {
-            if (currentBtn != null)
+            if (currentBtn != null )
             {
+                
                 currentBtn.Font = new Font("Calibri", 11);
+                iconButton_homebtn.Font = new Font("Calibri", 14);
                 //currentBtn.BackColor = Color.FromArgb(31, 30, 68);
                 //currentBtn.BackColor = Color.Transparent;
                 currentBtn.ForeColor = Color.Gainsboro;
@@ -107,6 +122,13 @@ namespace eMetro
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
+            ActivateButton(iconButton_homebtn, Color.FromArgb(165, 21, 80));
+            IconButton theBtn = iconButton_homebtn;
+            if (theBtn != clickedBtn)
+            {
+                theBtn.BackColor = Color.FromArgb(165, 21, 80);
+            }
+            clickedBtn = theBtn;
 
             //BDK
             iconButton_BDK.FlatAppearance.MouseOverBackColor = iconButton_BDK.BackColor;
@@ -160,6 +182,19 @@ namespace eMetro
             {
                 iconButton_QLTT.FlatAppearance.MouseDownBackColor = iconButton_QLTT.BackColor;
             };
+            //home
+            iconButton_homebtn.FlatAppearance.MouseOverBackColor = iconButton_homebtn.BackColor;
+            iconButton_homebtn.BackColorChanged += (s7, e7) =>
+            {
+                iconButton_homebtn.FlatAppearance.MouseOverBackColor = iconButton_homebtn.BackColor;
+
+            };
+
+            iconButton_homebtn.FlatAppearance.MouseDownBackColor = iconButton_homebtn.BackColor;
+            iconButton_homebtn.BackColorChanged += (s8, e8) =>
+            {
+                iconButton_homebtn.FlatAppearance.MouseDownBackColor = iconButton_homebtn.BackColor;
+            };
         }
 
         private void PictureBox_hide_Click(object sender, EventArgs e)
@@ -189,6 +224,7 @@ namespace eMetro
         //Chỉnh nút menu
         private void IconButton_BDK_Click(object sender, EventArgs e)
         {
+            hometrig = false;
             ActivateButton(sender, RGBColors.color3);
             if (clickedBtn != (IconButton)sender)                         //thêm dòng if là oke
             {
@@ -196,10 +232,13 @@ namespace eMetro
                 IconButton theBtn = (IconButton)sender;
                 clickedBtn = theBtn;
             }
+            OpenChildForm(new test2(),iconButton_BDK.Text);
+            label_showform.Text = "Bảng điều khiển";
         }
 
         private void IconButton_QLCT_Click(object sender, EventArgs e)
         {
+            hometrig = false;
             ActivateButton(sender, RGBColors.color3);
             if (clickedBtn != (IconButton)sender)                         //thêm dòng if là oke
             {
@@ -207,10 +246,13 @@ namespace eMetro
                 IconButton theBtn = (IconButton)sender;
                 clickedBtn = theBtn;
             }
+            OpenChildForm(new test(), iconButton_QLCT.Text);
+            label_showform.Text = "Quản lý công ty";
         }
 
         private void IconButton_QLG_Click(object sender, EventArgs e)
         {
+            hometrig = false;
             if (clickedBtn != (IconButton)sender)                         //thêm dòng if là oke
             {
                 ActivateButton(sender, RGBColors.color3);
@@ -218,10 +260,13 @@ namespace eMetro
                 IconButton theBtn = (IconButton)sender;
                 clickedBtn = theBtn;
             }
+            OpenChildForm(new test2(), iconButton_QLG.Text);
+            label_showform.Text = "Quản lý ga tàu";
         }
 
         private void IconButton_QLTT_Click(object sender, EventArgs e)
         {
+            hometrig = false;
             if (clickedBtn != (IconButton)sender)                         //thêm dòng if là oke
             {
                 ActivateButton(sender, RGBColors.color3);
@@ -229,6 +274,8 @@ namespace eMetro
                 IconButton theBtn = (IconButton)sender;
                 clickedBtn = theBtn;
             }
+            OpenChildForm(new test(), iconButton_QLTT.Text);
+            label_showform.Text = "Quản lý tuyến tàu";
         }
 
         //Mouse hover event
@@ -361,7 +408,7 @@ namespace eMetro
             else
             {
                 //
-                if (currentBtn != null)
+                if (currentBtn != null && hometrig !=true)
                 {
                     currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                     currentBtn.IconColor = RGBColors.color3;
@@ -391,56 +438,88 @@ namespace eMetro
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void OpenChildForm(Form childForm)
+        private void OpenChildForm(Form childForm, string title_name)
         {
             //if (iconCur)
             //bunifuGradientPanel_home.gr
+            if(currentChildForm != null)
+            {
+                //open only form
+                currentChildForm.Close();
+            }
+            currentChildForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panel_wrapperform.Controls.Add(childForm);
+            panel_wrapperform.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+            //label_showform.Text = title_name;
         }
 
-        private void BunifuGradientPanel_home_MouseEnter(object sender, EventArgs e)
-        {
-            bunifuGradientPanel_home.GradientBottomLeft = Color.FromArgb(240, 31, 117);
-            bunifuGradientPanel_home.GradientBottomRight = Color.FromArgb(240, 31, 117);
-            bunifuGradientPanel_home.GradientTopLeft = Color.FromArgb(240, 31, 117);
-            bunifuGradientPanel_home.GradientTopRight = Color.FromArgb(30, 30, 46);
-        }
-
-        private void BunifuGradientPanel_home_MouseLeave(object sender, EventArgs e)
-        {
-            bunifuGradientPanel_home.GradientBottomLeft = Color.FromArgb(165, 21, 80);
-            bunifuGradientPanel_home.GradientBottomRight = Color.FromArgb(165, 21, 80);
-            bunifuGradientPanel_home.GradientTopLeft = Color.FromArgb(165, 21, 80);
-            bunifuGradientPanel_home.GradientTopRight = Color.FromArgb(30, 30, 46);
-        }
+     
 
         private void PictureBox1_MouseEnter(object sender, EventArgs e)
         {
-            bunifuGradientPanel_home.GradientBottomLeft = Color.FromArgb(240, 31, 117);
-            bunifuGradientPanel_home.GradientBottomRight = Color.FromArgb(240, 31, 117);
-            bunifuGradientPanel_home.GradientTopLeft = Color.FromArgb(240, 31, 117);
-            bunifuGradientPanel_home.GradientTopRight = Color.FromArgb(30, 30, 46);
+            iconButton_homebtn.BackColor = Color.FromArgb(165, 21, 80);
         }
 
-        private void Label_home_btn_MouseEnter(object sender, EventArgs e)
-        {
-            bunifuGradientPanel_home.GradientBottomLeft = Color.FromArgb(240, 31, 117);
-            bunifuGradientPanel_home.GradientBottomRight = Color.FromArgb(240, 31, 117);
-            bunifuGradientPanel_home.GradientTopLeft = Color.FromArgb(240, 31, 117);
-            bunifuGradientPanel_home.GradientTopRight = Color.FromArgb(30, 30, 46);
-        }
+      
 
-        private void BunifuGradientPanel_home_Click(object sender, EventArgs e)
-        {
-            Reset();
-        }
+       
 
         private void Reset()
         {
             DisableButton();
+            
             setColor();
             leftBorderBtn.Visible = false;
 
         }
 
+        private void IconButton_homebtn_Click(object sender, EventArgs e)
+        {
+            hometrig = true;
+            ActivateButton(sender, RGBColors.color3);
+
+            leftBorderBtn.Visible = false;
+            iconPictureBox_showform.IconChar = IconChar.Home;
+            label_showform.Text = "Trang chủ";
+            if (clickedBtn != (IconButton)sender)                         //thêm dòng if là oke
+            {
+                setColor();
+                IconButton theBtn = (IconButton)sender;
+                clickedBtn = theBtn;
+            }
+        }
+
+        private void IconButton_homebtn_MouseEnter(object sender, EventArgs e)
+        {
+            iconButton_homebtn.BackColor = Color.FromArgb(165, 21, 80);
+        }
+
+        private void IconButton_homebtn_MouseLeave(object sender, EventArgs e)
+        {
+            IconButton theBtn = (IconButton)sender;
+            if (theBtn != clickedBtn)
+            {
+                theBtn.BackColor = Color.Transparent;
+            }
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            hometrig = true;
+            ActivateButton(iconButton_homebtn, RGBColors.color3);
+
+            leftBorderBtn.Visible = false;
+            if (clickedBtn != iconButton_homebtn)                         //thêm dòng if là oke
+            {
+                setColor();
+                IconButton theBtn = iconButton_homebtn;
+                clickedBtn = theBtn;
+            }
+        }
     }
 }
