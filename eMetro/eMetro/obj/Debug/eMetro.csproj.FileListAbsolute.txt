@@ -26,3 +26,4 @@ G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.exe
 G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.pdb
 G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.test.resources
 G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.test2.resources
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.Congty.resources

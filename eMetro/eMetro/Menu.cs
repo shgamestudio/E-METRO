@@ -35,81 +35,7 @@ namespace eMetro
             public static Color color6 = Color.FromArgb(24, 161, 251);
         }
 
-        private void activehover(object senderbtn)
-        {
-            if(senderbtn !=null)
-            {
-                deactivehover();
-                currentBtn = (IconButton)senderbtn;               
-                currentBtn.BackColor = Color.FromArgb(165, 21, 80);
-            }
-        }
-
-        private void deactivehover()
-        {
-            if (currentBtn != null)
-            {
-                currentBtn.BackColor = Color.Transparent;
-            }
-        }
-
-        private void ActivateButton(object senderBtn, Color color)
-        {
-            if (senderBtn != null)
-            {
-                DisableButton();
-               
-                //Button
-                currentBtn = (IconButton)senderBtn;
-                currentBtn.Font = new Font("Calibri", 12);
-                //currentBtn.BackColor = Color.FromArgb(37, 36, 81);
-                //currentBtn.ForeColor = color;
-                currentBtn.IconColor = color;
-                //Iconshow
-                iconPictureBox_showform.IconChar = currentBtn.IconChar;
-                if (minim == false)
-                {
-                    currentBtn.TextAlign = ContentAlignment.MiddleCenter;
-                    
-                    currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
-                    currentBtn.ImageAlign = ContentAlignment.MiddleRight;
-                }
-                if(hometrig == true)
-                {
-                    currentBtn.Font = new Font("Calibri", 14);
-                    currentBtn.TextAlign = ContentAlignment.MiddleCenter;
-
-                    currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
-                    currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
-                    iconPictureBox_showform.IconChar = IconChar.Home;
-                }
-                //Left border button
-                leftBorderBtn.BackColor = color;
-                leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
-                leftBorderBtn.Visible = true;
-                leftBorderBtn.BringToFront();
-              
-            }
-        }
-
-
-
-        private void DisableButton()
-        {
-            if (currentBtn != null )
-            {
-                
-                currentBtn.Font = new Font("Calibri", 11);
-                iconButton_homebtn.Font = new Font("Calibri", 14);
-                //currentBtn.BackColor = Color.FromArgb(31, 30, 68);
-                //currentBtn.BackColor = Color.Transparent;
-                currentBtn.ForeColor = Color.Gainsboro;
-                currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.IconColor = Color.Gainsboro;
-                currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
-                currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            }
-        }
+       
 
         public Menu()
         {
@@ -130,6 +56,7 @@ namespace eMetro
             }
             clickedBtn = theBtn;
 
+            #region Ẩn hiệu ứng hover của button
             //BDK
             iconButton_BDK.FlatAppearance.MouseOverBackColor = iconButton_BDK.BackColor;
             iconButton_BDK.BackColorChanged += (s, e) =>
@@ -195,7 +122,72 @@ namespace eMetro
             {
                 iconButton_homebtn.FlatAppearance.MouseDownBackColor = iconButton_homebtn.BackColor;
             };
+            #endregion
         }
+
+        #region Hàm hiệu ứng khi nhấn nút
+
+        private void ActivateButton(object senderBtn, Color color)
+        {
+            if (senderBtn != null)
+            {
+                DisableButton();
+
+                //Button
+                currentBtn = (IconButton)senderBtn;
+                currentBtn.Font = new Font("Calibri", 12);
+                //currentBtn.BackColor = Color.FromArgb(37, 36, 81);
+                //currentBtn.ForeColor = color;
+                currentBtn.IconColor = color;
+                //Iconshow
+                iconPictureBox_showform.IconChar = currentBtn.IconChar;
+                if (minim == false)
+                {
+                    currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+
+                    currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+                    currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+                }
+                if (hometrig == true)
+                {
+                    currentBtn.Font = new Font("Calibri", 14);
+                    currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+
+                    currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+                    currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+                    iconPictureBox_showform.IconChar = IconChar.Home;
+                }
+                //Left border button
+                leftBorderBtn.BackColor = color;
+                leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
+                leftBorderBtn.Visible = true;
+                leftBorderBtn.BringToFront();
+
+            }
+        }
+
+
+
+        private void DisableButton()
+        {
+            if (currentBtn != null)
+            {
+
+                currentBtn.Font = new Font("Calibri", 11);
+                iconButton_homebtn.Font = new Font("Calibri", 14);
+                //currentBtn.BackColor = Color.FromArgb(31, 30, 68);
+                //currentBtn.BackColor = Color.Transparent;
+                currentBtn.ForeColor = Color.Gainsboro;
+                currentBtn.TextAlign = ContentAlignment.MiddleLeft;
+                currentBtn.IconColor = Color.Gainsboro;
+                currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+                currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            }
+        }
+
+        #endregion
+
+        #region Các nút tắt, mở rộng, thu nhỏ màn hình
 
         private void PictureBox_hide_Click(object sender, EventArgs e)
         {
@@ -221,6 +213,9 @@ namespace eMetro
             pictureBox_restore.Visible = true;
         }
 
+        #endregion
+
+        #region Event khi nhấn nút ở side bar
         //Chỉnh nút menu
         private void IconButton_BDK_Click(object sender, EventArgs e)
         {
@@ -246,7 +241,7 @@ namespace eMetro
                 IconButton theBtn = (IconButton)sender;
                 clickedBtn = theBtn;
             }
-            OpenChildForm(new test(), iconButton_QLCT.Text);
+            OpenChildForm(new Congty(), iconButton_QLCT.Text);
             label_showform.Text = "Quản lý công ty";
         }
 
@@ -278,11 +273,26 @@ namespace eMetro
             label_showform.Text = "Quản lý tuyến tàu";
         }
 
-        //Mouse hover event
-        private void IconButton_BDK_MouseHover(object sender, EventArgs e)
+        #endregion
+
+        #region Hiệu ứng khi con trỏ khi ấn nút
+
+        private void activehover(object senderbtn)
         {
-            //this.iconButton_BDK.BackColor = Color.FromArgb(165, 21, 80);
-            //activehover(sender);
+            if (senderbtn != null)
+            {
+                deactivehover();
+                currentBtn = (IconButton)senderbtn;
+                currentBtn.BackColor = Color.FromArgb(165, 21, 80);
+            }
+        }
+
+        private void deactivehover()
+        {
+            if (currentBtn != null)
+            {
+                currentBtn.BackColor = Color.Transparent;
+            }
         }
 
         private void IconButton_BDK_MouseLeave(object sender, EventArgs e)
@@ -295,17 +305,7 @@ namespace eMetro
             }
         }
 
-        public void setColor()
-        {
-            if (clickedBtn != default(IconButton))
-                clickedBtn.BackColor = Color.Transparent;
-            //Resetting clicked label because another (or the same) was just clicked.
-        }
-
-        private void IconButton_QLCT_MouseHover(object sender, EventArgs e)
-        {
-            //iconButton_QLCT.BackColor = Color.FromArgb(165, 21, 80);
-        }
+      
 
         private void IconButton_QLCT_MouseLeave(object sender, EventArgs e)
         {
@@ -317,10 +317,7 @@ namespace eMetro
             }
         }
 
-        private void IconButton_QLG_MouseHover(object sender, EventArgs e)
-        {
-            //iconButton_QLG.BackColor = Color.FromArgb(165, 21, 80);
-        }
+      
 
         private void IconButton_QLG_MouseLeave(object sender, EventArgs e)
         {
@@ -332,10 +329,7 @@ namespace eMetro
             }
         }
 
-        private void IconButton_QLTT_MouseHover(object sender, EventArgs e)
-        {
-            //iconButton_QLTT.BackColor = Color.FromArgb(165, 21, 80);
-        }
+       
 
         private void IconButton_QLTT_MouseLeave(object sender, EventArgs e)
         {
@@ -383,6 +377,14 @@ namespace eMetro
             }
         }
 
+        public void setColor()
+        {
+            if (clickedBtn != default(IconButton))
+                clickedBtn.BackColor = Color.Transparent;
+            //Resetting clicked label because another (or the same) was just clicked.
+        }
+        #endregion
+
         private void PictureBox_menusidebar_Click(object sender, EventArgs e)
         {
             minim = !minim;
@@ -426,16 +428,16 @@ namespace eMetro
         }
 
 
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
+        //[DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        //private extern static void ReleaseCapture();
 
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        //[DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        //private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         private void Panel_top_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            //ReleaseCapture();
+            //SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void OpenChildForm(Form childForm, string title_name)
@@ -465,17 +467,12 @@ namespace eMetro
             iconButton_homebtn.BackColor = Color.FromArgb(165, 21, 80);
         }
 
-      
-
-       
 
         private void Reset()
         {
             DisableButton();
-            
             setColor();
             leftBorderBtn.Visible = false;
-
         }
 
         private void IconButton_homebtn_Click(object sender, EventArgs e)
@@ -486,7 +483,7 @@ namespace eMetro
             leftBorderBtn.Visible = false;
             iconPictureBox_showform.IconChar = IconChar.Home;
             label_showform.Text = "Trang chủ";
-            if (clickedBtn != (IconButton)sender)                         //thêm dòng if là oke
+            if (clickedBtn != (IconButton)sender)                         //thêm dòng if 
             {
                 setColor();
                 IconButton theBtn = (IconButton)sender;
@@ -514,7 +511,7 @@ namespace eMetro
             ActivateButton(iconButton_homebtn, RGBColors.color3);
 
             leftBorderBtn.Visible = false;
-            if (clickedBtn != iconButton_homebtn)                         //thêm dòng if là oke
+            if (clickedBtn != iconButton_homebtn)                         //thêm dòng if 
             {
                 setColor();
                 IconButton theBtn = iconButton_homebtn;
