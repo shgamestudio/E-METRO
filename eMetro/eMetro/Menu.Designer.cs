@@ -106,7 +106,7 @@
             this.bunifuTransition_sidebar_back.SetDecoration(this.label_showform, BunifuAnimatorNS.DecorationType.None);
             this.label_showform.Font = new System.Drawing.Font("Cambria", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_showform.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label_showform.Location = new System.Drawing.Point(745, 29);
+            this.label_showform.Location = new System.Drawing.Point(732, 29);
             this.label_showform.Name = "label_showform";
             this.label_showform.Size = new System.Drawing.Size(138, 32);
             this.label_showform.TabIndex = 7;
@@ -123,7 +123,7 @@
             this.iconPictureBox_showform.IconColor = System.Drawing.Color.Gainsboro;
             this.iconPictureBox_showform.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox_showform.IconSize = 48;
-            this.iconPictureBox_showform.Location = new System.Drawing.Point(691, 22);
+            this.iconPictureBox_showform.Location = new System.Drawing.Point(678, 22);
             this.iconPictureBox_showform.Name = "iconPictureBox_showform";
             this.iconPictureBox_showform.Size = new System.Drawing.Size(48, 54);
             this.iconPictureBox_showform.TabIndex = 6;
