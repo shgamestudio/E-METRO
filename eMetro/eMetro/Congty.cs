@@ -78,28 +78,17 @@ namespace eMetro
             //     );
         }
 
-        private void BunifuTextbox_search_Enter(object sender, EventArgs e)
-        {
-            if (bunifuTextbox_search.text == "Tìm kiếm")
-            {
-                bunifuTextbox_search.text = "";
-                
-            }
-        }
-
-        private void BunifuTextbox_search_Leave(object sender, EventArgs e)
-        {
-            if (bunifuTextbox_search.text == "")
-            {
-                bunifuTextbox_search.text = "Tìm kiếm";
-
-            }
-        }
+     
 
         public void ShowAllCongty()
         {
             DataTable dt = bllCT.getAllCongty();
             bunifuCustomDataGrid_congty.DataSource = dt;
+           
+            bunifuCustomDataGrid_congty.Columns[0].Width = 125;
+            bunifuCustomDataGrid_congty.Columns[2].Width = 120;
+            bunifuCustomDataGrid_congty.Columns[3].Width = 250;
+            bunifuCustomDataGrid_congty.Columns[5].Width = 160;
         }
 
         private void Congty_Load(object sender, EventArgs e)
@@ -141,10 +130,57 @@ namespace eMetro
                 //_ID = Int32.Parse(dataGridView1.Rows[index].Cells[0].Value.ToString());
                 textBox_mact.Text = bunifuCustomDataGrid_congty.Rows[index].Cells["Mã công ty"].Value.ToString();
                 textBox_tenct.Text = bunifuCustomDataGrid_congty.Rows[index].Cells["Tên công ty"].Value.ToString();
-                textBox_sdtct.Text = bunifuCustomDataGrid_congty.Rows[index].Cells["Số điện thoại"].Value.ToString();
+                textBox_sdtct.Text = bunifuCustomDataGrid_congty.Rows[index].Cells["Số ĐT"].Value.ToString();
                 textBox_diachitrusoct.Text = bunifuCustomDataGrid_congty.Rows[index].Cells["Địa chỉ"].Value.ToString();
                 textBox_diachiwebct.Text = bunifuCustomDataGrid_congty.Rows[index].Cells["Website"].Value.ToString();
                 comboBox_tinhtrang.Text = bunifuCustomDataGrid_congty.Rows[index].Cells["Tình trạng"].Value.ToString();
+            }
+        }
+
+        private void TextBox_search_Enter(object sender, EventArgs e)
+        {
+            if (textBox_search.Text == "Tìm kiếm")
+            {
+                textBox_search.Text = "";
+                textBox_search.ForeColor = Color.Black;
+
+
+            }
+        }
+
+        private void TextBox_search_Leave(object sender, EventArgs e)
+        {
+            if (textBox_search.Text == "")
+            {
+                textBox_search.ForeColor = Color.DarkGray;
+                textBox_search.Text = "Tìm kiếm";
+
+            }
+        }
+
+        private void IconButton_capnhat_Click(object sender, EventArgs e)
+        {
+            DTO.Congty ct = new DTO.Congty();
+
+            ct.mact = textBox_mact.Text;
+            ct.tenct = textBox_tenct.Text;
+            ct.tinhtrang = comboBox_tinhtrang.Text;
+            ct.sdtct = textBox_sdtct.Text;
+            ct.diachitrusoct = textBox_diachitrusoct.Text;
+            ct.diachiwebct = textBox_diachiwebct.Text;
+
+            if (bllCT.UpdateCongty(ct))
+            {
+                ShowAllCongty();
+                textBox_mact.Clear();    
+                textBox_tenct.Clear();
+                textBox_sdtct.Clear();
+                textBox_diachitrusoct.Clear();
+                textBox_diachiwebct.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi xảy ra, xin hãy thử lại!", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
     }

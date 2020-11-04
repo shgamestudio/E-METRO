@@ -29,17 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Congty));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCustomDataGrid_congty = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuElipse_panel = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse_datarid = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse_dropdown = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDropdown_filter = new Bunifu.Framework.UI.BunifuDropdown();
             this.bunifuElipse_textbox_search = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuTextbox_search = new Bunifu.Framework.UI.BunifuTextbox();
+            this.textBox_search = new System.Windows.Forms.TextBox();
             this.iconButton_them = new FontAwesome.Sharp.IconButton();
             this.groupBox_thaotac = new System.Windows.Forms.GroupBox();
             this.iconButton_tracuu = new FontAwesome.Sharp.IconButton();
@@ -50,6 +49,7 @@
             this.label_mact = new System.Windows.Forms.Label();
             this.textBox_mact = new System.Windows.Forms.TextBox();
             this.groupBox_chitiet = new System.Windows.Forms.GroupBox();
+            this.comboBox_tinhtrang = new System.Windows.Forms.ComboBox();
             this.textBox_diachiwebct = new System.Windows.Forms.TextBox();
             this.label_diachiwebct = new System.Windows.Forms.Label();
             this.textBox_diachitrusoct = new System.Windows.Forms.TextBox();
@@ -65,7 +65,6 @@
             this.bunifuElipse_diachitrusoct = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse_diachiwebct = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse_tinhtrang = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.comboBox_tinhtrang = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid_congty)).BeginInit();
             this.groupBox_thaotac.SuspendLayout();
             this.groupBox_chitiet.SuspendLayout();
@@ -74,8 +73,8 @@
             // bunifuCustomDataGrid_congty
             // 
             this.bunifuCustomDataGrid_congty.AllowUserToAddRows = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            this.bunifuCustomDataGrid_congty.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.bunifuCustomDataGrid_congty.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.bunifuCustomDataGrid_congty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -85,28 +84,28 @@
             this.bunifuCustomDataGrid_congty.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGrid_congty.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.bunifuCustomDataGrid_congty.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid_congty.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGrid_congty.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.bunifuCustomDataGrid_congty.ColumnHeadersHeight = 50;
             this.bunifuCustomDataGrid_congty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.bunifuCustomDataGrid_congty.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.bunifuCustomDataGrid_congty.DefaultCellStyle = dataGridViewCellStyle3;
             this.bunifuCustomDataGrid_congty.DoubleBuffered = true;
             this.bunifuCustomDataGrid_congty.EnableHeadersVisualStyles = false;
             this.bunifuCustomDataGrid_congty.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuCustomDataGrid_congty.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
+            this.bunifuCustomDataGrid_congty.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
             this.bunifuCustomDataGrid_congty.HeaderForeColor = System.Drawing.Color.White;
             this.bunifuCustomDataGrid_congty.Location = new System.Drawing.Point(0, 0);
             this.bunifuCustomDataGrid_congty.MultiSelect = false;
@@ -150,7 +149,7 @@
         "Ten",
         "Ho",
         "Bua chu"};
-            this.bunifuDropdown_filter.Location = new System.Drawing.Point(37, 48);
+            this.bunifuDropdown_filter.Location = new System.Drawing.Point(37, 40);
             this.bunifuDropdown_filter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuDropdown_filter.Name = "bunifuDropdown_filter";
             this.bunifuDropdown_filter.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
@@ -163,26 +162,23 @@
             // bunifuElipse_textbox_search
             // 
             this.bunifuElipse_textbox_search.ElipseRadius = 20;
-            this.bunifuElipse_textbox_search.TargetControl = this.bunifuTextbox_search;
+            this.bunifuElipse_textbox_search.TargetControl = this.textBox_search;
             // 
-            // bunifuTextbox_search
+            // textBox_search
             // 
-            this.bunifuTextbox_search.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBox_search.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuTextbox_search.BackColor = System.Drawing.Color.White;
-            this.bunifuTextbox_search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuTextbox_search.BackgroundImage")));
-            this.bunifuTextbox_search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuTextbox_search.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuTextbox_search.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuTextbox_search.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuTextbox_search.Icon")));
-            this.bunifuTextbox_search.Location = new System.Drawing.Point(227, 48);
-            this.bunifuTextbox_search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bunifuTextbox_search.Name = "bunifuTextbox_search";
-            this.bunifuTextbox_search.Size = new System.Drawing.Size(764, 40);
-            this.bunifuTextbox_search.TabIndex = 3;
-            this.bunifuTextbox_search.text = "Tìm kiếm";
-            this.bunifuTextbox_search.Enter += new System.EventHandler(this.BunifuTextbox_search_Enter);
-            this.bunifuTextbox_search.Leave += new System.EventHandler(this.BunifuTextbox_search_Leave);
+            this.textBox_search.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_search.ForeColor = System.Drawing.Color.DarkGray;
+            this.textBox_search.Location = new System.Drawing.Point(227, 40);
+            this.textBox_search.Multiline = true;
+            this.textBox_search.Name = "textBox_search";
+            this.textBox_search.Size = new System.Drawing.Size(764, 40);
+            this.textBox_search.TabIndex = 17;
+            this.textBox_search.Text = "Tìm kiếm";
+            this.textBox_search.Enter += new System.EventHandler(this.TextBox_search_Enter);
+            this.textBox_search.Leave += new System.EventHandler(this.TextBox_search_Leave);
             // 
             // iconButton_them
             // 
@@ -198,7 +194,7 @@
             this.iconButton_them.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_them.IconSize = 42;
             this.iconButton_them.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton_them.Location = new System.Drawing.Point(495, 133);
+            this.iconButton_them.Location = new System.Drawing.Point(404, 127);
             this.iconButton_them.Name = "iconButton_them";
             this.iconButton_them.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton_them.Rotation = 0D;
@@ -214,10 +210,10 @@
             // 
             this.groupBox_thaotac.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_thaotac.Controls.Add(this.textBox_search);
             this.groupBox_thaotac.Controls.Add(this.iconButton_tracuu);
             this.groupBox_thaotac.Controls.Add(this.iconButton_capnhat);
             this.groupBox_thaotac.Controls.Add(this.iconButton_them);
-            this.groupBox_thaotac.Controls.Add(this.bunifuTextbox_search);
             this.groupBox_thaotac.Controls.Add(this.bunifuDropdown_filter);
             this.groupBox_thaotac.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_thaotac.ForeColor = System.Drawing.SystemColors.ControlLight;
@@ -242,7 +238,7 @@
             this.iconButton_tracuu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_tracuu.IconSize = 42;
             this.iconButton_tracuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton_tracuu.Location = new System.Drawing.Point(227, 133);
+            this.iconButton_tracuu.Location = new System.Drawing.Point(67, 127);
             this.iconButton_tracuu.Name = "iconButton_tracuu";
             this.iconButton_tracuu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton_tracuu.Rotation = 0D;
@@ -267,7 +263,7 @@
             this.iconButton_capnhat.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_capnhat.IconSize = 42;
             this.iconButton_capnhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton_capnhat.Location = new System.Drawing.Point(771, 133);
+            this.iconButton_capnhat.Location = new System.Drawing.Point(741, 127);
             this.iconButton_capnhat.Name = "iconButton_capnhat";
             this.iconButton_capnhat.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton_capnhat.Rotation = 0D;
@@ -277,6 +273,7 @@
             this.iconButton_capnhat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton_capnhat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton_capnhat.UseVisualStyleBackColor = false;
+            this.iconButton_capnhat.Click += new System.EventHandler(this.IconButton_capnhat_Click);
             // 
             // bunifuElipse_them
             // 
@@ -295,6 +292,7 @@
             // 
             // label_mact
             // 
+            this.label_mact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label_mact.AutoSize = true;
             this.label_mact.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_mact.ForeColor = System.Drawing.SystemColors.ControlLight;
@@ -306,8 +304,9 @@
             // 
             // textBox_mact
             // 
+            this.textBox_mact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox_mact.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_mact.Location = new System.Drawing.Point(148, 28);
+            this.textBox_mact.Location = new System.Drawing.Point(139, 28);
             this.textBox_mact.Multiline = true;
             this.textBox_mact.Name = "textBox_mact";
             this.textBox_mact.ReadOnly = true;
@@ -339,8 +338,23 @@
             this.groupBox_chitiet.TabStop = false;
             this.groupBox_chitiet.Text = "Chi tiết";
             // 
+            // comboBox_tinhtrang
+            // 
+            this.comboBox_tinhtrang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comboBox_tinhtrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_tinhtrang.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_tinhtrang.FormattingEnabled = true;
+            this.comboBox_tinhtrang.Items.AddRange(new object[] {
+            "Hoạt động",
+            "Không hoạt động"});
+            this.comboBox_tinhtrang.Location = new System.Drawing.Point(135, 87);
+            this.comboBox_tinhtrang.Name = "comboBox_tinhtrang";
+            this.comboBox_tinhtrang.Size = new System.Drawing.Size(159, 29);
+            this.comboBox_tinhtrang.TabIndex = 17;
+            // 
             // textBox_diachiwebct
             // 
+            this.textBox_diachiwebct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox_diachiwebct.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_diachiwebct.Location = new System.Drawing.Point(712, 28);
             this.textBox_diachiwebct.Multiline = true;
@@ -350,6 +364,7 @@
             // 
             // label_diachiwebct
             // 
+            this.label_diachiwebct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label_diachiwebct.AutoSize = true;
             this.label_diachiwebct.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_diachiwebct.ForeColor = System.Drawing.SystemColors.ControlLight;
@@ -361,6 +376,7 @@
             // 
             // textBox_diachitrusoct
             // 
+            this.textBox_diachitrusoct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox_diachitrusoct.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_diachitrusoct.Location = new System.Drawing.Point(624, 87);
             this.textBox_diachitrusoct.Multiline = true;
@@ -370,6 +386,7 @@
             // 
             // label_diachitrusoct
             // 
+            this.label_diachitrusoct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label_diachitrusoct.AutoSize = true;
             this.label_diachitrusoct.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_diachitrusoct.ForeColor = System.Drawing.SystemColors.ControlLight;
@@ -381,6 +398,7 @@
             // 
             // textBox_sdtct
             // 
+            this.textBox_sdtct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox_sdtct.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_sdtct.Location = new System.Drawing.Point(376, 87);
             this.textBox_sdtct.Multiline = true;
@@ -390,6 +408,7 @@
             // 
             // label_sdtct
             // 
+            this.label_sdtct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label_sdtct.AutoSize = true;
             this.label_sdtct.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_sdtct.ForeColor = System.Drawing.SystemColors.ControlLight;
@@ -401,6 +420,7 @@
             // 
             // textBox_tenct
             // 
+            this.textBox_tenct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBox_tenct.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_tenct.Location = new System.Drawing.Point(376, 28);
             this.textBox_tenct.Multiline = true;
@@ -410,10 +430,11 @@
             // 
             // label_tenct
             // 
+            this.label_tenct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label_tenct.AutoSize = true;
             this.label_tenct.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_tenct.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label_tenct.Location = new System.Drawing.Point(250, 28);
+            this.label_tenct.Location = new System.Drawing.Point(249, 28);
             this.label_tenct.Name = "label_tenct";
             this.label_tenct.Size = new System.Drawing.Size(120, 25);
             this.label_tenct.TabIndex = 11;
@@ -421,6 +442,7 @@
             // 
             // label_tinhtrang
             // 
+            this.label_tinhtrang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label_tinhtrang.AutoSize = true;
             this.label_tinhtrang.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_tinhtrang.ForeColor = System.Drawing.SystemColors.ControlLight;
@@ -460,19 +482,6 @@
             this.bunifuElipse_tinhtrang.ElipseRadius = 20;
             this.bunifuElipse_tinhtrang.TargetControl = this.comboBox_tinhtrang;
             // 
-            // comboBox_tinhtrang
-            // 
-            this.comboBox_tinhtrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_tinhtrang.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_tinhtrang.FormattingEnabled = true;
-            this.comboBox_tinhtrang.Items.AddRange(new object[] {
-            "Hoạt động",
-            "Không hoạt động"});
-            this.comboBox_tinhtrang.Location = new System.Drawing.Point(147, 87);
-            this.comboBox_tinhtrang.Name = "comboBox_tinhtrang";
-            this.comboBox_tinhtrang.Size = new System.Drawing.Size(159, 29);
-            this.comboBox_tinhtrang.TabIndex = 17;
-            // 
             // Congty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -489,6 +498,7 @@
             this.Shown += new System.EventHandler(this.Congty_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid_congty)).EndInit();
             this.groupBox_thaotac.ResumeLayout(false);
+            this.groupBox_thaotac.PerformLayout();
             this.groupBox_chitiet.ResumeLayout(false);
             this.groupBox_chitiet.PerformLayout();
             this.ResumeLayout(false);
@@ -504,7 +514,6 @@
         private FontAwesome.Sharp.IconButton iconButton_them;
         private System.Windows.Forms.GroupBox groupBox_thaotac;
         private FontAwesome.Sharp.IconButton iconButton_capnhat;
-        private Bunifu.Framework.UI.BunifuTextbox bunifuTextbox_search;
         private Bunifu.Framework.UI.BunifuDropdown bunifuDropdown_filter;
         private FontAwesome.Sharp.IconButton iconButton_tracuu;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse_them;
@@ -529,5 +538,6 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse_diachiwebct;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse_tinhtrang;
         private System.Windows.Forms.ComboBox comboBox_tinhtrang;
+        private System.Windows.Forms.TextBox textBox_search;
     }
 }

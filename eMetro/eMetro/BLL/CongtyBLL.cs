@@ -23,5 +23,9 @@ namespace eMetro.BLL
         {
             return dalCT.InsertCongty(ct);
         }
+        public bool UpdateCongty(DTO.Congty ct)
+        {
+            return dalCT.UpdateCongty(ct);
+        }
     }
 }

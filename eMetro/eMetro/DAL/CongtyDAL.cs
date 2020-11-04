@@ -22,7 +22,7 @@ namespace eMetro.DAL
         {
             //B1: Tạo câu lệnh Sql để lấy toàn bộ sân bay
             //string sql = "SELECT * FROM SANBAY";
-            string sql = "SELECT mact[Mã công ty], tenct[Tên công ty], sdtct[Số điện thoại], diachitrusoct[Địa chỉ], diachiwebct[Website], tinhtrang[Tình trạng] FROM CONGTY";
+            string sql = "SELECT mact[Mã công ty], tenct[Tên công ty], sdtct[Số ĐT], diachitrusoct[Địa chỉ], diachiwebct[Website], tinhtrang[Tình trạng] FROM CONGTY";
             //B2: Tạo một kết nối đến Sql
             SqlConnection con = dc.GetConnect();
             //B3: Khởi tạo đối tượng của lớp SqlDataAdapter
@@ -95,7 +95,30 @@ namespace eMetro.DAL
             return true;
         }
 
-        
+        public bool UpdateCongty(DTO.Congty ct)
+        {
+            string sql = "UPDATE CONGTY SET tenct=@TENCT, sdtct=@SDTCT, diachitrusoct=@DIACHITRUSOCT, diachiwebct=@DIACHIWEBCT,tinhtrang=@TINHTRANG WHERE mact=@MACT";
+            SqlConnection con = dc.GetConnect();
+            try
+            {
+                cmd = new SqlCommand(sql, con);
+                con.Open();                                                                                                                    
+                cmd.Parameters.Add("@MACT", SqlDbType.VarChar).Value = ct.mact;
+                cmd.Parameters.Add("@TENCT", SqlDbType.NVarChar).Value = ct.tenct;
+                cmd.Parameters.Add("@SDTCT", SqlDbType.VarChar).Value = ct.sdtct;
+                cmd.Parameters.Add("@DIACHITRUSOCT", SqlDbType.NVarChar).Value = ct.diachitrusoct;
+                cmd.Parameters.Add("@DIACHIWEBCT", SqlDbType.NVarChar).Value = ct.diachiwebct;
+                cmd.Parameters.Add("@TINHTRANG", SqlDbType.NVarChar).Value = ct.tinhtrang;
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
+
 
 
     }
