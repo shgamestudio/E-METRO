@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\CongtyBLL.cs" />
+    <Compile Include="BLL\GaBLL.cs" />
     <Compile Include="Congty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,7 +67,15 @@
     </Compile>
     <Compile Include="DAL\CongtyDAL.cs" />
     <Compile Include="DAL\DataConnection.cs" />
+    <Compile Include="DAL\GaDAL.cs" />
     <Compile Include="DTO\Congty.cs" />
+    <Compile Include="DTO\Ga.cs" />
+    <Compile Include="Ga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ga.Designer.cs">
+      <DependentUpon>Ga.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +104,9 @@
     </Compile>
     <EmbeddedResource Include="Congty.resx">
       <DependentUpon>Congty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ga.resx">
+      <DependentUpon>Ga.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

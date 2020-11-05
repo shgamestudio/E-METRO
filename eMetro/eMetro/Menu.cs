@@ -255,7 +255,7 @@ namespace eMetro
                 IconButton theBtn = (IconButton)sender;
                 clickedBtn = theBtn;
             }
-            OpenChildForm(new test2(), iconButton_QLG.Text);
+            OpenChildForm(new Ga(), iconButton_QLG.Text);
             label_showform.Text = "Quản lý ga tàu";
         }
 

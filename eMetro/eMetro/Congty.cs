@@ -203,10 +203,11 @@ namespace eMetro
                 textBox_sdtct.Clear();
                 textBox_diachitrusoct.Clear();
                 textBox_diachiwebct.Clear();
+                this.Alert("Thêm thành công", Notification.Alert.enmType.Success);
             }
             else
             {
-                MessageBox.Show("Có lỗi xảy ra, xin hãy thử lại!", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                this.Alert("Thêm thất bại", Notification.Alert.enmType.Error);
             }
         }
 
