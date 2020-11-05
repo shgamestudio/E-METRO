@@ -27,5 +27,9 @@ namespace eMetro.BLL
         {
             return dalCT.UpdateCongty(ct);
         }
+        public DataTable FindCongty(string ct, string field_search)
+        {
+            return dalCT.FindCongty(ct,field_search);
+        }
     }
 }

@@ -96,30 +96,56 @@ namespace eMetro
             ShowAllCongty();
         }
 
+        private bool CheckData()
+        {
+            //if (string.IsNullOrEmpty(textBox_masb.Text) || string.IsNullOrEmpty(textBox_tensb.Text))
+            if (string.IsNullOrEmpty(textBox_tenct.Text) || string.IsNullOrEmpty(textBox_sdtct.Text) 
+                || string.IsNullOrEmpty(textBox_diachitrusoct.Text) || string.IsNullOrEmpty(textBox_diachiwebct.Text) )
+            {
+                this.Alert("Thông tin nhập bị thiếu", Notification.Alert.enmType.Warning);
+                textBox_tenct.Focus(); //để con trỏ vào đây
+                return false;
+            }
+            return true;
+        }
+
         private void IconButton_them_Click(object sender, EventArgs e)
         {
-            DTO.Congty ct = new DTO.Congty();         
-            ct.tenct = textBox_tenct.Text;
-            ct.sdtct = textBox_sdtct.Text;
-            ct.diachitrusoct = textBox_diachitrusoct.Text;
-            ct.diachiwebct = textBox_diachiwebct.Text;
-            ct.tinhtrang = comboBox_tinhtrang.Text;
             
 
-            if (bllCT.InsertCongty(ct))
+            if (CheckData())
             {
-                ShowAllCongty();
-                textBox_mact.Clear();    
-                textBox_tenct.Clear();
-                //comboBox_tinhtrang.Clear();
-                textBox_sdtct.Clear();
-                textBox_diachitrusoct.Clear();
-                textBox_diachiwebct.Clear();
+                DTO.Congty ct = new DTO.Congty();
+                ct.tenct = textBox_tenct.Text;
+                ct.sdtct = textBox_sdtct.Text;
+                ct.diachitrusoct = textBox_diachitrusoct.Text;
+                ct.diachiwebct = textBox_diachiwebct.Text;
+                ct.tinhtrang = comboBox_tinhtrang.Text;
+
+                if (bllCT.InsertCongty(ct))
+                {
+                    ShowAllCongty();
+                    textBox_mact.Clear();
+                    textBox_tenct.Clear();
+                    //comboBox_tinhtrang.Clear();
+                    textBox_sdtct.Clear();
+                    textBox_diachitrusoct.Clear();
+                    textBox_diachiwebct.Clear();
+                    this.Alert("Thêm thành công", Notification.Alert.enmType.Success);
+                }
+                else
+                {
+                    this.Alert("Thêm thất bại", Notification.Alert.enmType.Error);
+                }
             }
-            else
-            {
-                MessageBox.Show("Có lỗi xảy ra, xin hãy thử lại!", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
+           
+           
+        }
+
+        public void Alert(string msg, Notification.Alert.enmType type)
+        {
+            Notification.Alert frm = new Notification.Alert();
+            frm.showAlert(msg, type);
         }
 
         private void BunifuCustomDataGrid_congty_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -183,5 +209,57 @@ namespace eMetro
                 MessageBox.Show("Có lỗi xảy ra, xin hãy thử lại!", "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
+
+        private void IconButton_tracuu_Click(object sender, EventArgs e)
+        {
+            string value = textBox_search.Text;
+            string field_search="";
+
+            switch (bunifuDropdown_filter.selectedIndex)
+            {
+                case 0:
+                    field_search = "Tất cả";
+                    break;
+                case 1:
+                    field_search = "mact";
+                    break;
+                case 2:
+                   field_search = "tenct";
+                    break;
+                case 3:
+                    field_search = "sdtct";
+                    break;
+                case 4:
+                    field_search = "diachitrusoct";
+                    break;
+                case 5:
+                    field_search = "diachiwebct";
+                    break;
+                case 6:
+                    field_search = "tinhtrang";
+                    break;
+            }
+
+            if (!string.IsNullOrEmpty(value)) //không rỗng
+            {
+                DataTable dt = bllCT.FindCongty(value, field_search);
+                bunifuCustomDataGrid_congty.DataSource = dt;
+            }
+            else
+            ShowAllCongty();
+            
+
+        }
+
+        private void TextBox_search_TextChanged(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(textBox_search.Text))
+            {
+                ShowAllCongty();
+
+            }
+        }
+
+       
     }
 }

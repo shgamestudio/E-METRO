@@ -28,3 +28,4 @@ G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.test.resources
 G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.test2.resources
 G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.Congty.resources
 G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\AdvancedDataGridView.dll
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.Notification.Alert.resources

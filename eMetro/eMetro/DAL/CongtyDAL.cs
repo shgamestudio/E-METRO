@@ -119,7 +119,42 @@ namespace eMetro.DAL
             return true;
         }
 
+        public DataTable FindCongty(string ct, string field_search)
+        {
+           
+            
+            string sql;
 
+           
+            if(field_search=="Tất cả")
+            {
+                if(ct == "Tìm kiếm")
+                {
+                    ct = "";
+                }
+                sql = "SELECT mact[Mã công ty], tenct[Tên công ty], sdtct[Số ĐT], diachitrusoct[Địa chỉ], diachiwebct[Website], tinhtrang[Tình trạng] FROM CONGTY WHERE mact like N'%" + ct + "%' OR tenct like N'%" + ct + "%' OR sdtct like N'%" + ct + "%' " +
+                    "OR diachitrusoct like N'%" + ct + "%' OR diachiwebct like N'%" + ct + "%' OR tinhtrang like N'%" + ct + "%'";
+            }
+            else
+            {
+                sql = "SELECT mact[Mã công ty], tenct[Tên công ty], sdtct[Số ĐT], diachitrusoct[Địa chỉ], diachiwebct[Website], tinhtrang[Tình trạng] FROM CONGTY WHERE " + field_search + " like N'%" + ct + "%' ";
+            }
+
+       
+            //string sql = "SELECT * FROM FOOD WHERE PRICE = " + int.Parse(fd);          //tìm kiếm theo giá
+
+            SqlConnection con = dc.GetConnect();
+            //B3: khởi tạo đối tượng của lớp sql data adapter
+            da = new SqlDataAdapter(sql, con);
+            //B4: mở kết nối
+            con.Open();
+            //B5: đổ dữ liệu từ sql data adapter vào data table
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            //B6: đóng kết nối
+            con.Close();
+            return dt;
+        }
 
     }
 }
