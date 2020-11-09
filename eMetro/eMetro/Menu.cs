@@ -269,7 +269,7 @@ namespace eMetro
                 IconButton theBtn = (IconButton)sender;
                 clickedBtn = theBtn;
             }
-            OpenChildForm(new test(), iconButton_QLTT.Text);
+            OpenChildForm(new Tuyentau(), iconButton_QLTT.Text);
             label_showform.Text = "Quản lý tuyến tàu";
         }
 

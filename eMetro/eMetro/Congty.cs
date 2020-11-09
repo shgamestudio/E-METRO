@@ -186,28 +186,33 @@ namespace eMetro
 
         private void IconButton_capnhat_Click(object sender, EventArgs e)
         {
-            DTO.Congty ct = new DTO.Congty();
-
-            ct.mact = textBox_mact.Text;
-            ct.tenct = textBox_tenct.Text;
-            ct.tinhtrang = comboBox_tinhtrang.Text;
-            ct.sdtct = textBox_sdtct.Text;
-            ct.diachitrusoct = textBox_diachitrusoct.Text;
-            ct.diachiwebct = textBox_diachiwebct.Text;
-
-            if (bllCT.UpdateCongty(ct))
+            if (CheckData())
             {
-                ShowAllCongty();
-                textBox_mact.Clear();    
-                textBox_tenct.Clear();
-                textBox_sdtct.Clear();
-                textBox_diachitrusoct.Clear();
-                textBox_diachiwebct.Clear();
-                this.Alert("Thêm thành công", Notification.Alert.enmType.Success);
-            }
-            else
-            {
-                this.Alert("Thêm thất bại", Notification.Alert.enmType.Error);
+
+
+                DTO.Congty ct = new DTO.Congty();
+
+                ct.mact = textBox_mact.Text;
+                ct.tenct = textBox_tenct.Text;
+                ct.tinhtrang = comboBox_tinhtrang.Text;
+                ct.sdtct = textBox_sdtct.Text;
+                ct.diachitrusoct = textBox_diachitrusoct.Text;
+                ct.diachiwebct = textBox_diachiwebct.Text;
+
+                if (bllCT.UpdateCongty(ct))
+                {
+                    ShowAllCongty();
+                    textBox_mact.Clear();
+                    textBox_tenct.Clear();
+                    textBox_sdtct.Clear();
+                    textBox_diachitrusoct.Clear();
+                    textBox_diachiwebct.Clear();
+                    this.Alert("Thêm thành công", Notification.Alert.enmType.Success);
+                }
+                else
+                {
+                    this.Alert("Thêm thất bại", Notification.Alert.enmType.Error);
+                }
             }
         }
 

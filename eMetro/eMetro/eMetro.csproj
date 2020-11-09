@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="BLL\CongtyBLL.cs" />
     <Compile Include="BLL\GaBLL.cs" />
+    <Compile Include="BLL\TuyentauBLL.cs" />
     <Compile Include="Congty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,8 +69,15 @@
     <Compile Include="DAL\CongtyDAL.cs" />
     <Compile Include="DAL\DataConnection.cs" />
     <Compile Include="DAL\GaDAL.cs" />
+    <Compile Include="DAL\TuyentauDAL.cs" />
     <Compile Include="DTO\Congty.cs" />
     <Compile Include="DTO\Ga.cs" />
+    <Compile Include="DTO\Tuyentau.cs" />
+    <Compile Include="EMETRODataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EMETRODataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Ga.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +110,12 @@
     <Compile Include="test2.Designer.cs">
       <DependentUpon>test2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tuyentau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tuyentau.Designer.cs">
+      <DependentUpon>Tuyentau.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Congty.resx">
       <DependentUpon>Congty.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +144,20 @@
     <EmbeddedResource Include="test2.resx">
       <DependentUpon>test2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tuyentau.resx">
+      <DependentUpon>Tuyentau.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="EMETRODataSet.xsc">
+      <DependentUpon>EMETRODataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EMETRODataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EMETRODataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EMETRODataSet.xss">
+      <DependentUpon>EMETRODataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

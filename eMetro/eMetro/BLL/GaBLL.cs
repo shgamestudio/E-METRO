@@ -27,5 +27,9 @@ namespace eMetro.BLL
         {
             return dalGA.UpdateGa(ga);
         }
+        public DataTable FindGa(string ct, string field_search)
+        {
+            return dalGA.FindGa(ct, field_search);
+        }
     }
 }

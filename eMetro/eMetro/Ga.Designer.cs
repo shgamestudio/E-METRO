@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCustomDataGrid_ga = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuElipse_form = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse_datagrid = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -75,8 +75,8 @@
             this.bunifuCustomDataGrid_ga.AllowUserToAddRows = false;
             this.bunifuCustomDataGrid_ga.AllowUserToDeleteRows = false;
             this.bunifuCustomDataGrid_ga.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.bunifuCustomDataGrid_ga.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            this.bunifuCustomDataGrid_ga.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.bunifuCustomDataGrid_ga.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -85,24 +85,24 @@
             this.bunifuCustomDataGrid_ga.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGrid_ga.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.bunifuCustomDataGrid_ga.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid_ga.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGrid_ga.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.bunifuCustomDataGrid_ga.ColumnHeadersHeight = 50;
             this.bunifuCustomDataGrid_ga.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.bunifuCustomDataGrid_ga.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.bunifuCustomDataGrid_ga.DefaultCellStyle = dataGridViewCellStyle21;
             this.bunifuCustomDataGrid_ga.DoubleBuffered = true;
             this.bunifuCustomDataGrid_ga.EnableHeadersVisualStyles = false;
             this.bunifuCustomDataGrid_ga.GridColor = System.Drawing.Color.WhiteSmoke;
@@ -136,7 +136,7 @@
             // 
             this.pictureBox_bando.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox_bando.Image = global::eMetro.Properties.Resources.success;
+            this.pictureBox_bando.BackColor = System.Drawing.Color.Gainsboro;
             this.pictureBox_bando.Location = new System.Drawing.Point(646, 1);
             this.pictureBox_bando.Name = "pictureBox_bando";
             this.pictureBox_bando.Size = new System.Drawing.Size(394, 308);
@@ -150,7 +150,7 @@
             this.label_tinhtrang.AutoSize = true;
             this.label_tinhtrang.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_tinhtrang.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label_tinhtrang.Location = new System.Drawing.Point(818, 312);
+            this.label_tinhtrang.Location = new System.Drawing.Point(803, 312);
             this.label_tinhtrang.Name = "label_tinhtrang";
             this.label_tinhtrang.Size = new System.Drawing.Size(80, 25);
             this.label_tinhtrang.TabIndex = 10;
@@ -313,6 +313,8 @@
             this.iconButton_tracuu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton_tracuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton_tracuu.UseVisualStyleBackColor = false;
+            this.iconButton_tracuu.TextChanged += new System.EventHandler(this.IconButton_tracuu_TextChanged);
+            this.iconButton_tracuu.Click += new System.EventHandler(this.IconButton_tracuu_Click);
             // 
             // iconButton_capnhat
             // 
@@ -390,6 +392,9 @@
             this.textBox_search.Size = new System.Drawing.Size(721, 40);
             this.textBox_search.TabIndex = 26;
             this.textBox_search.Text = "Tìm kiếm";
+            this.textBox_search.TextChanged += new System.EventHandler(this.TextBox_search_TextChanged);
+            this.textBox_search.Enter += new System.EventHandler(this.TextBox_search_Enter);
+            this.textBox_search.Leave += new System.EventHandler(this.TextBox_search_Leave);
             // 
             // bunifuDropdown_filter
             // 
@@ -401,11 +406,9 @@
             this.bunifuDropdown_filter.ForeColor = System.Drawing.Color.White;
             this.bunifuDropdown_filter.Items = new string[] {
         "Tất cả",
-        "Mã công ty",
-        "Tên công ty",
-        "SĐT",
-        "Địa chỉ trụ sở chính ",
-        "Website",
+        "Mã ga",
+        "Tên ga",
+        "Mô tả vị trí",
         "Tình trạng"};
             this.bunifuDropdown_filter.Location = new System.Drawing.Point(99, 23);
             this.bunifuDropdown_filter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -481,7 +484,7 @@
             this.iconButton_chonanh.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton_chonanh.IconSize = 30;
             this.iconButton_chonanh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton_chonanh.Location = new System.Drawing.Point(775, 340);
+            this.iconButton_chonanh.Location = new System.Drawing.Point(760, 340);
             this.iconButton_chonanh.Name = "iconButton_chonanh";
             this.iconButton_chonanh.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton_chonanh.Rotation = 0D;

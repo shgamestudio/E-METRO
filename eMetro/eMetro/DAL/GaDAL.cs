@@ -119,5 +119,42 @@ namespace eMetro.DAL
             return dt;
         }
 
+        public DataTable FindGa(string g, string field_search)
+        {
+
+
+            string sql;
+
+
+            if (field_search == "Tất cả")
+            {
+                if (g == "Tìm kiếm")
+                {
+                    g = "";
+                }
+                sql = "SELECT maga[Mã ga], tenga[Tên ga], motavitri[Mô tả vị trí], bando[Bản đồ], tinhtrang[Tình trạng] FROM GA WHERE MAGA like N'%" + g + "%' OR TENGA like N'%" + g + "%' OR MOTAVITRI like N'%" + g + "%' " +
+                    "OR tinhtrang like N'%" + g + "%'";
+            }
+            else
+            {
+                sql = "SELECT maga[Mã ga], tenga[Tên ga],  motavitri[Mô tả vị trí], bando[Bản đồ], tinhtrang[Tình trạng] FROM GA WHERE " + field_search + " like N'%" + g + "%' ";
+            }
+
+
+            //string sql = "SELECT * FROM FOOD WHERE PRICE = " + int.Parse(fd);          //tìm kiếm theo giá
+
+            SqlConnection con = dc.GetConnect();
+            //B3: khởi tạo đối tượng của lớp sql data adapter
+            da = new SqlDataAdapter(sql, con);
+            //B4: mở kết nối
+            con.Open();
+            //B5: đổ dữ liệu từ sql data adapter vào data table
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            //B6: đóng kết nối
+            con.Close();
+            return dt;
+        }
+
     }
 }
