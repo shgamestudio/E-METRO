@@ -34,7 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox_congty = new System.Windows.Forms.ComboBox();
-            this.comboBox_xpp = new System.Windows.Forms.ComboBox();
+            this.comboBox_gaxp = new System.Windows.Forms.ComboBox();
             this.comboBox_ltt = new System.Windows.Forms.ComboBox();
             this.comboBox_gakt = new System.Windows.Forms.ComboBox();
             this.comboBox_tinhtrang = new System.Windows.Forms.ComboBox();
@@ -59,26 +59,14 @@
             this.label_tenct = new System.Windows.Forms.Label();
             this.label_tentt = new System.Windows.Forms.Label();
             this.label_matt = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.iconButton_chonanh = new FontAwesome.Sharp.IconButton();
             this.bunifuCustomDataGrid_congty = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.advancedDataGridView_tuyentau = new Zuby.ADGV.AdvancedDataGridView();
-            this.mATTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mACTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tENTTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mAGAXPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mAGAKTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mALTTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gHICHUDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gIAVEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gIOBDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gIOKTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tHOIGIANCHODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tINHTRANGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tUYENTAUBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eMETRODataSet = new eMetro.EMETRODataSet();
             this.tUYENTAUTableAdapter = new eMetro.EMETRODataSetTableAdapters.TUYENTAUTableAdapter();
+            this.comboBox_fieldsearch = new System.Windows.Forms.ComboBox();
+            this.textBox_search = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid_congty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView_tuyentau)).BeginInit();
@@ -91,7 +79,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.comboBox_congty);
-            this.groupBox1.Controls.Add(this.comboBox_xpp);
+            this.groupBox1.Controls.Add(this.comboBox_gaxp);
             this.groupBox1.Controls.Add(this.comboBox_ltt);
             this.groupBox1.Controls.Add(this.comboBox_gakt);
             this.groupBox1.Controls.Add(this.comboBox_tinhtrang);
@@ -136,17 +124,17 @@
             this.comboBox_congty.Size = new System.Drawing.Size(190, 29);
             this.comboBox_congty.TabIndex = 56;
             // 
-            // comboBox_xpp
+            // comboBox_gaxp
             // 
-            this.comboBox_xpp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.comboBox_xpp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_xpp.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_xpp.FormattingEnabled = true;
-            this.comboBox_xpp.Location = new System.Drawing.Point(226, 230);
-            this.comboBox_xpp.Name = "comboBox_xpp";
-            this.comboBox_xpp.Size = new System.Drawing.Size(159, 29);
-            this.comboBox_xpp.TabIndex = 55;
-            this.comboBox_xpp.SelectedIndexChanged += new System.EventHandler(this.ComboBox_xpp_SelectedIndexChanged);
+            this.comboBox_gaxp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comboBox_gaxp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_gaxp.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_gaxp.FormattingEnabled = true;
+            this.comboBox_gaxp.Location = new System.Drawing.Point(226, 230);
+            this.comboBox_gaxp.Name = "comboBox_gaxp";
+            this.comboBox_gaxp.Size = new System.Drawing.Size(159, 29);
+            this.comboBox_gaxp.TabIndex = 55;
+            this.comboBox_gaxp.SelectedIndexChanged += new System.EventHandler(this.ComboBox_xpp_SelectedIndexChanged);
             // 
             // comboBox_ltt
             // 
@@ -439,41 +427,6 @@
             this.label_matt.TabIndex = 25;
             this.label_matt.Text = "Mã tuyến tàu:";
             // 
-            // textBox9
-            // 
-            this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(648, 296);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(379, 29);
-            this.textBox9.TabIndex = 21;
-            // 
-            // iconButton_chonanh
-            // 
-            this.iconButton_chonanh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton_chonanh.BackColor = System.Drawing.Color.SeaGreen;
-            this.iconButton_chonanh.FlatAppearance.BorderSize = 0;
-            this.iconButton_chonanh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton_chonanh.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton_chonanh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_chonanh.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton_chonanh.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.iconButton_chonanh.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton_chonanh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_chonanh.IconSize = 25;
-            this.iconButton_chonanh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton_chonanh.Location = new System.Drawing.Point(459, 295);
-            this.iconButton_chonanh.Name = "iconButton_chonanh";
-            this.iconButton_chonanh.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton_chonanh.Rotation = 0D;
-            this.iconButton_chonanh.Size = new System.Drawing.Size(170, 30);
-            this.iconButton_chonanh.TabIndex = 32;
-            this.iconButton_chonanh.Text = "    Tìm kiếm";
-            this.iconButton_chonanh.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton_chonanh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton_chonanh.UseVisualStyleBackColor = false;
-            // 
             // bunifuCustomDataGrid_congty
             // 
             this.bunifuCustomDataGrid_congty.AllowUserToAddRows = false;
@@ -540,22 +493,7 @@
             this.advancedDataGridView_tuyentau.AllowUserToDeleteRows = false;
             this.advancedDataGridView_tuyentau.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.advancedDataGridView_tuyentau.AutoGenerateColumns = false;
             this.advancedDataGridView_tuyentau.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.advancedDataGridView_tuyentau.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.mATTDataGridViewTextBoxColumn,
-            this.mACTDataGridViewTextBoxColumn,
-            this.tENTTDataGridViewTextBoxColumn,
-            this.mAGAXPDataGridViewTextBoxColumn,
-            this.mAGAKTDataGridViewTextBoxColumn,
-            this.mALTTDataGridViewTextBoxColumn,
-            this.gHICHUDataGridViewTextBoxColumn,
-            this.gIAVEDataGridViewTextBoxColumn,
-            this.gIOBDDataGridViewTextBoxColumn,
-            this.gIOKTDataGridViewTextBoxColumn,
-            this.tHOIGIANCHODataGridViewTextBoxColumn,
-            this.tINHTRANGDataGridViewTextBoxColumn});
-            this.advancedDataGridView_tuyentau.DataSource = this.tUYENTAUBindingSource;
             this.advancedDataGridView_tuyentau.FilterAndSortEnabled = true;
             this.advancedDataGridView_tuyentau.Location = new System.Drawing.Point(459, 21);
             this.advancedDataGridView_tuyentau.Name = "advancedDataGridView_tuyentau";
@@ -566,114 +504,6 @@
             this.advancedDataGridView_tuyentau.SortStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.SortEventArgs>(this.AdvancedDataGridView_tuyentau_SortStringChanged);
             this.advancedDataGridView_tuyentau.FilterStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.FilterEventArgs>(this.AdvancedDataGridView_tuyentau_FilterStringChanged);
             this.advancedDataGridView_tuyentau.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AdvancedDataGridView_tuyentau_CellClick);
-            // 
-            // mATTDataGridViewTextBoxColumn
-            // 
-            this.mATTDataGridViewTextBoxColumn.DataPropertyName = "MATT";
-            this.mATTDataGridViewTextBoxColumn.HeaderText = "Mã tuyến tàu";
-            this.mATTDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.mATTDataGridViewTextBoxColumn.Name = "mATTDataGridViewTextBoxColumn";
-            this.mATTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.mATTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // mACTDataGridViewTextBoxColumn
-            // 
-            this.mACTDataGridViewTextBoxColumn.DataPropertyName = "MACT";
-            this.mACTDataGridViewTextBoxColumn.HeaderText = "Công ty";
-            this.mACTDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.mACTDataGridViewTextBoxColumn.Name = "mACTDataGridViewTextBoxColumn";
-            this.mACTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.mACTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // tENTTDataGridViewTextBoxColumn
-            // 
-            this.tENTTDataGridViewTextBoxColumn.DataPropertyName = "TENTT";
-            this.tENTTDataGridViewTextBoxColumn.HeaderText = "Tên tuyến";
-            this.tENTTDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.tENTTDataGridViewTextBoxColumn.Name = "tENTTDataGridViewTextBoxColumn";
-            this.tENTTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tENTTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // mAGAXPDataGridViewTextBoxColumn
-            // 
-            this.mAGAXPDataGridViewTextBoxColumn.DataPropertyName = "MAGAXP";
-            this.mAGAXPDataGridViewTextBoxColumn.HeaderText = "Ga xuất phát";
-            this.mAGAXPDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.mAGAXPDataGridViewTextBoxColumn.Name = "mAGAXPDataGridViewTextBoxColumn";
-            this.mAGAXPDataGridViewTextBoxColumn.ReadOnly = true;
-            this.mAGAXPDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // mAGAKTDataGridViewTextBoxColumn
-            // 
-            this.mAGAKTDataGridViewTextBoxColumn.DataPropertyName = "MAGAKT";
-            this.mAGAKTDataGridViewTextBoxColumn.HeaderText = "Ga kết thúc";
-            this.mAGAKTDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.mAGAKTDataGridViewTextBoxColumn.Name = "mAGAKTDataGridViewTextBoxColumn";
-            this.mAGAKTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.mAGAKTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // mALTTDataGridViewTextBoxColumn
-            // 
-            this.mALTTDataGridViewTextBoxColumn.DataPropertyName = "MALTT";
-            this.mALTTDataGridViewTextBoxColumn.HeaderText = "Mã loại tuyến tàu";
-            this.mALTTDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.mALTTDataGridViewTextBoxColumn.Name = "mALTTDataGridViewTextBoxColumn";
-            this.mALTTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.mALTTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // gHICHUDataGridViewTextBoxColumn
-            // 
-            this.gHICHUDataGridViewTextBoxColumn.DataPropertyName = "GHICHU";
-            this.gHICHUDataGridViewTextBoxColumn.HeaderText = "Ghi chú";
-            this.gHICHUDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.gHICHUDataGridViewTextBoxColumn.Name = "gHICHUDataGridViewTextBoxColumn";
-            this.gHICHUDataGridViewTextBoxColumn.ReadOnly = true;
-            this.gHICHUDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // gIAVEDataGridViewTextBoxColumn
-            // 
-            this.gIAVEDataGridViewTextBoxColumn.DataPropertyName = "GIAVE";
-            this.gIAVEDataGridViewTextBoxColumn.HeaderText = "Giá vé";
-            this.gIAVEDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.gIAVEDataGridViewTextBoxColumn.Name = "gIAVEDataGridViewTextBoxColumn";
-            this.gIAVEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.gIAVEDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // gIOBDDataGridViewTextBoxColumn
-            // 
-            this.gIOBDDataGridViewTextBoxColumn.DataPropertyName = "GIOBD";
-            this.gIOBDDataGridViewTextBoxColumn.HeaderText = "Giờ bắt đầu";
-            this.gIOBDDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.gIOBDDataGridViewTextBoxColumn.Name = "gIOBDDataGridViewTextBoxColumn";
-            this.gIOBDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.gIOBDDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // gIOKTDataGridViewTextBoxColumn
-            // 
-            this.gIOKTDataGridViewTextBoxColumn.DataPropertyName = "GIOKT";
-            this.gIOKTDataGridViewTextBoxColumn.HeaderText = "Giờ kết thúc";
-            this.gIOKTDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.gIOKTDataGridViewTextBoxColumn.Name = "gIOKTDataGridViewTextBoxColumn";
-            this.gIOKTDataGridViewTextBoxColumn.ReadOnly = true;
-            this.gIOKTDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // tHOIGIANCHODataGridViewTextBoxColumn
-            // 
-            this.tHOIGIANCHODataGridViewTextBoxColumn.DataPropertyName = "THOIGIANCHO";
-            this.tHOIGIANCHODataGridViewTextBoxColumn.HeaderText = "Thời gian chờ";
-            this.tHOIGIANCHODataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.tHOIGIANCHODataGridViewTextBoxColumn.Name = "tHOIGIANCHODataGridViewTextBoxColumn";
-            this.tHOIGIANCHODataGridViewTextBoxColumn.ReadOnly = true;
-            this.tHOIGIANCHODataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // tINHTRANGDataGridViewTextBoxColumn
-            // 
-            this.tINHTRANGDataGridViewTextBoxColumn.DataPropertyName = "TINHTRANG";
-            this.tINHTRANGDataGridViewTextBoxColumn.HeaderText = "Tình trạng";
-            this.tINHTRANGDataGridViewTextBoxColumn.MinimumWidth = 22;
-            this.tINHTRANGDataGridViewTextBoxColumn.Name = "tINHTRANGDataGridViewTextBoxColumn";
-            this.tINHTRANGDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tINHTRANGDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // tUYENTAUBindingSource
             // 
@@ -689,17 +519,41 @@
             // 
             this.tUYENTAUTableAdapter.ClearBeforeFill = true;
             // 
+            // comboBox_fieldsearch
+            // 
+            this.comboBox_fieldsearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comboBox_fieldsearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_fieldsearch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_fieldsearch.FormattingEnabled = true;
+            this.comboBox_fieldsearch.Location = new System.Drawing.Point(459, 307);
+            this.comboBox_fieldsearch.Name = "comboBox_fieldsearch";
+            this.comboBox_fieldsearch.Size = new System.Drawing.Size(147, 29);
+            this.comboBox_fieldsearch.TabIndex = 56;
+            this.comboBox_fieldsearch.TextChanged += new System.EventHandler(this.ComboBox_fieldsearch_TextChanged);
+            // 
+            // textBox_search
+            // 
+            this.textBox_search.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBox_search.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_search.Location = new System.Drawing.Point(627, 307);
+            this.textBox_search.Multiline = true;
+            this.textBox_search.Name = "textBox_search";
+            this.textBox_search.Size = new System.Drawing.Size(400, 29);
+            this.textBox_search.TabIndex = 57;
+            this.textBox_search.TextChanged += new System.EventHandler(this.TextBox_search_TextChanged);
+            this.textBox_search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_search_KeyPress);
+            // 
             // Tuyentau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(1054, 735);
-            this.Controls.Add(this.iconButton_chonanh);
+            this.Controls.Add(this.textBox_search);
+            this.Controls.Add(this.comboBox_fieldsearch);
             this.Controls.Add(this.advancedDataGridView_tuyentau);
             this.Controls.Add(this.bunifuCustomDataGrid_congty);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox8);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Tuyentau";
@@ -719,7 +573,6 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label_giobd;
         private System.Windows.Forms.Label label_giave;
         private System.Windows.Forms.Label label_ghichu;
@@ -734,7 +587,6 @@
         private System.Windows.Forms.Label label_giokt;
         private System.Windows.Forms.DateTimePicker dateTimePicker_giobd;
         private System.Windows.Forms.DateTimePicker dateTimePicker_giokt;
-        private FontAwesome.Sharp.IconButton iconButton_chonanh;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton iconButton2;
         private Bunifu.Framework.UI.BunifuCustomDataGrid bunifuCustomDataGrid_congty;
@@ -743,18 +595,6 @@
         private EMETRODataSet eMETRODataSet;
         private System.Windows.Forms.BindingSource tUYENTAUBindingSource;
         private EMETRODataSetTableAdapters.TUYENTAUTableAdapter tUYENTAUTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mATTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mACTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tENTTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mAGAXPDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mAGAKTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mALTTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gHICHUDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gIAVEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gIOBDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gIOKTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tHOIGIANCHODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tINHTRANGDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox textBox_matt;
         private System.Windows.Forms.TextBox textBox_tgcho;
         private System.Windows.Forms.TextBox textBox_giave;
@@ -763,7 +603,9 @@
         private System.Windows.Forms.ComboBox comboBox_tinhtrang;
         private System.Windows.Forms.ComboBox comboBox_gakt;
         private System.Windows.Forms.ComboBox comboBox_ltt;
-        private System.Windows.Forms.ComboBox comboBox_xpp;
+        private System.Windows.Forms.ComboBox comboBox_gaxp;
         private System.Windows.Forms.ComboBox comboBox_congty;
+        private System.Windows.Forms.ComboBox comboBox_fieldsearch;
+        private System.Windows.Forms.TextBox textBox_search;
     }
 }

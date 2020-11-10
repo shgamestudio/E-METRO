@@ -29,12 +29,34 @@ namespace eMetro.DAL
             return (String)dt.Rows[0][0];
         }
 
+        public string Search_MAGAbyTENGA(string str)
+        {
+            SqlConnection con = dc.GetConnect();
+
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format("SELECT MAGA FROM GA WHERE TENGA like '%{0}%' ", str);
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            return (String)dt.Rows[0][0];
+        }
+
         public string Search_TenlttbyMALTT(string str)
         {
             SqlConnection con = dc.GetConnect();
 
             DataTable dt = new DataTable();
             string sqlQuery = string.Format("SELECT TENLTT FROM LOAITUYENTAU WHERE MALTT='{0}' ", str);
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            return (String)dt.Rows[0][0];
+        }
+
+        public string Search_MALTTbyTenLTT(string str)
+        {
+            SqlConnection con = dc.GetConnect();
+
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format("SELECT MALTT FROM LOAITUYENTAU WHERE TENLTT like '%{0}%' ", str);
             SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
             da.Fill(dt);
             return (String)dt.Rows[0][0];
@@ -50,5 +72,36 @@ namespace eMetro.DAL
             da.Fill(dt);
             return (String)dt.Rows[0][0];
         }
+
+        public string Search_MACTbyTenCT(string str)
+        {
+            SqlConnection con = dc.GetConnect();
+
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format("SELECT MACT FROM CONGTY WHERE TENCT like '%{0}%' ", str);
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            return (String)dt.Rows[0][0];
+        }
+
+        //test
+        //public DataTable gettuyentau()
+        //{
+        //    //B1: Tạo câu lệnh Sql để lấy toàn bộ sân bay
+        //    //string sql = "SELECT * FROM SANBAY";
+        //    string sql = "SELECT matt[Mã tuyến tàu], tentt[Tên ga] FROM TUYENTAU";
+        //    //B2: Tạo một kết nối đến Sql
+        //    SqlConnection con = dc.GetConnect();
+        //    //B3: Khởi tạo đối tượng của lớp SqlDataAdapter
+        //    da = new SqlDataAdapter(sql, con);
+        //    //B4: Mở kết nối
+        //    con.Open();
+        //    //B5: Đổ dữ liệu từ SqlDataAdapter vào DataTable
+        //    DataTable dt = new DataTable();
+        //    da.Fill(dt);
+        //    //B6: Đóng kết nối
+        //    con.Close();
+        //    return dt;
+        //}
     }
 }

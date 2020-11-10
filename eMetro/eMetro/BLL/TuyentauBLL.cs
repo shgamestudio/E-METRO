@@ -19,14 +19,26 @@ namespace eMetro.BLL
         {
             return dalTT.Search_TengabyMAGA(str);
         }
-         public string Search_TenlttbyMALTT(string str)
+        public string Search_MAGAbyTENGA(string str)
+        {
+            return dalTT.Search_MAGAbyTENGA(str);
+        }
+        public string Search_TenlttbyMALTT(string str)
         {
             return dalTT.Search_TenlttbyMALTT(str);
+        }
+        public string Search_MALTTbyTenLTT(string str)
+        {
+            return dalTT.Search_MALTTbyTenLTT(str);
         }
 
         public string Search_TenCTbyMACT(string str)
         {
             return dalTT.Search_TenCTbyMACT(str);
+        }
+        public string Search_MACTbyTenCT(string str)
+        {
+            return dalTT.Search_MACTbyTenCT(str);
         }
     }
 }
