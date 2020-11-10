@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox_congty = new System.Windows.Forms.ComboBox();
             this.comboBox_xpp = new System.Windows.Forms.ComboBox();
             this.comboBox_ltt = new System.Windows.Forms.ComboBox();
             this.comboBox_gakt = new System.Windows.Forms.ComboBox();
@@ -40,7 +41,6 @@
             this.textBox_tgcho = new System.Windows.Forms.TextBox();
             this.textBox_giave = new System.Windows.Forms.TextBox();
             this.textBox_ghichu = new System.Windows.Forms.TextBox();
-            this.textBox_tenct = new System.Windows.Forms.TextBox();
             this.textBox_tentt = new System.Windows.Forms.TextBox();
             this.textBox_matt = new System.Windows.Forms.TextBox();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -90,6 +90,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.comboBox_congty);
             this.groupBox1.Controls.Add(this.comboBox_xpp);
             this.groupBox1.Controls.Add(this.comboBox_ltt);
             this.groupBox1.Controls.Add(this.comboBox_gakt);
@@ -97,7 +98,6 @@
             this.groupBox1.Controls.Add(this.textBox_tgcho);
             this.groupBox1.Controls.Add(this.textBox_giave);
             this.groupBox1.Controls.Add(this.textBox_ghichu);
-            this.groupBox1.Controls.Add(this.textBox_tenct);
             this.groupBox1.Controls.Add(this.textBox_tentt);
             this.groupBox1.Controls.Add(this.textBox_matt);
             this.groupBox1.Controls.Add(this.iconButton2);
@@ -124,6 +124,17 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết";
+            // 
+            // comboBox_congty
+            // 
+            this.comboBox_congty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comboBox_congty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_congty.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_congty.FormattingEnabled = true;
+            this.comboBox_congty.Location = new System.Drawing.Point(195, 155);
+            this.comboBox_congty.Name = "comboBox_congty";
+            this.comboBox_congty.Size = new System.Drawing.Size(190, 29);
+            this.comboBox_congty.TabIndex = 56;
             // 
             // comboBox_xpp
             // 
@@ -197,13 +208,6 @@
             this.textBox_ghichu.Name = "textBox_ghichu";
             this.textBox_ghichu.Size = new System.Drawing.Size(190, 29);
             this.textBox_ghichu.TabIndex = 48;
-            // 
-            // textBox_tenct
-            // 
-            this.textBox_tenct.Location = new System.Drawing.Point(195, 151);
-            this.textBox_tenct.Name = "textBox_tenct";
-            this.textBox_tenct.Size = new System.Drawing.Size(190, 29);
-            this.textBox_tenct.TabIndex = 44;
             // 
             // textBox_tentt
             // 
@@ -755,11 +759,11 @@
         private System.Windows.Forms.TextBox textBox_tgcho;
         private System.Windows.Forms.TextBox textBox_giave;
         private System.Windows.Forms.TextBox textBox_ghichu;
-        private System.Windows.Forms.TextBox textBox_tenct;
         private System.Windows.Forms.TextBox textBox_tentt;
         private System.Windows.Forms.ComboBox comboBox_tinhtrang;
         private System.Windows.Forms.ComboBox comboBox_gakt;
         private System.Windows.Forms.ComboBox comboBox_ltt;
         private System.Windows.Forms.ComboBox comboBox_xpp;
+        private System.Windows.Forms.ComboBox comboBox_congty;
     }
 }

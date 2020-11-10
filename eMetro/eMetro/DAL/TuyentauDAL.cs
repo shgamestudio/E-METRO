@@ -39,5 +39,16 @@ namespace eMetro.DAL
             da.Fill(dt);
             return (String)dt.Rows[0][0];
         }
+
+        public string Search_TenCTbyMACT(string str)
+        {
+            SqlConnection con = dc.GetConnect();
+
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format("SELECT TENCT FROM CONGTY WHERE MACT='{0}' ", str);
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            return (String)dt.Rows[0][0];
+        }
     }
 }

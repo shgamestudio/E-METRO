@@ -44,10 +44,25 @@ namespace eMetro
 
             DataTable table = new DataTable();
             da.Fill(table);
-         
+
             comboBox_xpp.DataSource = table;
             comboBox_xpp.DisplayMember = "TENGA";
             comboBox_xpp.ValueMember = "MAGA";
+        }
+
+        private void ShowAllcongty()
+        {
+            SqlConnection con = dc.GetConnect();
+            cmd = new SqlCommand("Select * from CONGTY WHERE TINHTRANG=N'Hoạt động'", con);
+            da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+
+            DataTable table = new DataTable();
+            da.Fill(table);
+         
+            comboBox_congty.DataSource = table;
+            comboBox_congty.DisplayMember = "TENCT";
+            comboBox_congty.ValueMember = "MACT";
         }
 
         private void ShowAllGakt()
@@ -87,11 +102,11 @@ namespace eMetro
                 //_ID = Int32.Parse(dataGridView1.Rows[index].Cells[0].Value.ToString());
                 textBox_matt.Text = advancedDataGridView_tuyentau.Rows[index].Cells["mACTDataGridViewTextBoxColumn"].Value.ToString();
                 textBox_tentt.Text = advancedDataGridView_tuyentau.Rows[index].Cells["tENTTDataGridViewTextBoxColumn"].Value.ToString();
-                textBox_tenct.Text = advancedDataGridView_tuyentau.Rows[index].Cells["mACTDataGridViewTextBoxColumn"].Value.ToString();
+                comboBox_congty.Text = bllTT.Search_TenCTbyMACT(advancedDataGridView_tuyentau.Rows[index].Cells["mACTDataGridViewTextBoxColumn"].Value.ToString());
                 //string t = advancedDataGridView_tuyentau.Rows[index].Cells["mAGAXPDataGridViewTextBoxColumn"].Value.ToString();
                 comboBox_xpp.Text = bllTT.Search_TengabyMAGA(advancedDataGridView_tuyentau.Rows[index].Cells["mAGAXPDataGridViewTextBoxColumn"].Value.ToString());
                 comboBox_gakt.Text = bllTT.Search_TengabyMAGA(advancedDataGridView_tuyentau.Rows[index].Cells["mAGAKTDataGridViewTextBoxColumn"].Value.ToString());
-                comboBox_ltt.Text = advancedDataGridView_tuyentau.Rows[index].Cells["mALTTDataGridViewTextBoxColumn"].Value.ToString();
+                comboBox_ltt.Text = bllTT.Search_TenlttbyMALTT(advancedDataGridView_tuyentau.Rows[index].Cells["mALTTDataGridViewTextBoxColumn"].Value.ToString());
 
                 textBox_ghichu.Text = advancedDataGridView_tuyentau.Rows[index].Cells["gHICHUDataGridViewTextBoxColumn"].Value.ToString();
                 textBox_giave.Text = advancedDataGridView_tuyentau.Rows[index].Cells["gIAVEDataGridViewTextBoxColumn"].Value.ToString();
@@ -172,10 +187,10 @@ namespace eMetro
 
         private void ComboBox_gakt_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (comboBox_xpp.Text == comboBox_gakt.Text)
-            //{
-            //    ShowComboBoxGaxp(comboBox_gakt.SelectedValue.ToString());
-            //}
+            if (comboBox_xpp.Text == comboBox_gakt.Text)
+            {
+                ShowComboBoxGaxp(comboBox_gakt.SelectedValue.ToString());
+            }
         }
 
      
@@ -185,16 +200,17 @@ namespace eMetro
             this.ShowAllGaxp();
             this.ShowAllGakt();
             this.ShowAllLoaitt();
+            this.ShowAllcongty();
             comboBox_gakt.SelectedIndex = 2;
         }
 
         private void ComboBox_xpp_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (comboBox_xpp.Text == comboBox_gakt.Text)
-            //{
-            //    ShowComboBoxGakt(comboBox_xpp.SelectedValue.ToString());
+            if (comboBox_xpp.Text == comboBox_gakt.Text)
+            {
+                ShowComboBoxGakt(comboBox_xpp.SelectedValue.ToString());
 
-            //}
+            }
         }
     }
 }
