@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\CongtyBLL.cs" />
+    <Compile Include="BLL\CTTuyentauBLL.cs" />
     <Compile Include="BLL\GaBLL.cs" />
     <Compile Include="BLL\TuyentauBLL.cs" />
     <Compile Include="Congty.cs">
@@ -67,10 +68,12 @@
       <DependentUpon>Congty.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL\CongtyDAL.cs" />
+    <Compile Include="DAL\CTTuyentauDAL.cs" />
     <Compile Include="DAL\DataConnection.cs" />
     <Compile Include="DAL\GaDAL.cs" />
     <Compile Include="DAL\TuyentauDAL.cs" />
     <Compile Include="DTO\Congty.cs" />
+    <Compile Include="DTO\CTTuyentau.cs" />
     <Compile Include="DTO\Ga.cs" />
     <Compile Include="DTO\Tuyentau.cs" />
     <Compile Include="EMETRODataSet.Designer.cs">

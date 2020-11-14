@@ -40,5 +40,10 @@ namespace eMetro.BLL
         {
             return dalTT.Search_MACTbyTenCT(str);
         }
+
+        public DataTable gettuyentau()
+        {
+            return dalTT.gettuyentau();
+        }
     }
 }

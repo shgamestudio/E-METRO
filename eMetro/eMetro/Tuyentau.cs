@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,14 +20,18 @@ namespace eMetro
         SqlCommand cmd;
         SqlDataAdapter da;
         BLL.TuyentauBLL bllTT;
+        BLL.CTTuyentauBLL bllCTTT;
         DataTable dty;
         bool check_num = false;
+        DTO.CTTuyentau dtoCTTuyentau;
         public Tuyentau()
         {
             InitializeComponent();
             dc = new DAL.DataConnection();
             bllTT = new BLL.TuyentauBLL();
+            bllCTTT = new BLL.CTTuyentauBLL();
             dty = new DataTable();
+            dtoCTTuyentau = new DTO.CTTuyentau();
         }
 
         private void Tuyentau_Load(object sender, EventArgs e)
@@ -40,34 +45,41 @@ namespace eMetro
             //this.ShowAllGakt();
             //advancedDataGridView_tuyentau.DataSource = dty;
 
-            this.tUYENTAUBindingSource.DataSource = gettuyentau();
+            this.tUYENTAUBindingSource.DataSource = bllTT.gettuyentau();
             this.advancedDataGridView_tuyentau.DataSource = this.tUYENTAUBindingSource;
 
+            
+            //SqlConnection con = dc.GetConnect();
+            //cmd = new SqlCommand("Select * from GA WHERE TINHTRANG=N'Hoạt động'", con);
+            //da = new SqlDataAdapter();
+            //da.SelectCommand = cmd;
+
+           
         }
 
-        public DataTable gettuyentau()
-        {
-            //B1: Tạo câu lệnh Sql để lấy toàn bộ sân bay
-            //string sql = "SELECT * FROM SANBAY";
-            string sql = "SELECT TT.MATT[Mã tuyến tàu], TT.TENTT[Tên tuyến tàu], CT.TENCT[Tên công ty], G1.TENGA[Ga xuất phát], G2.TENGA[Ga kết thúc], LTT.TENLTT[Loại tuyến tàu], TT.GHICHU[Ghi chú], TT.GIAVE[Giá vé], TT.GIOBD[Giờ bắt đầu], TT.GIOKT[Giờ kết thúc], TT.THOIGIANCHO[Thời gian chờ], TT.TINHTRANG[Tình trạng] " +
-                "FROM TUYENTAU TT " +
-                "INNER JOIN GA G1 ON TT.MAGAXP = G1.MAGA " +
-                "INNER JOIN GA G2 ON TT.MAGAKT = G2.MAGA " +
-                "INNER JOIN CONGTY CT ON TT.MACT = CT.MACT " +
-                "INNER JOIN LOAITUYENTAU LTT ON LTT.MALTT = TT.MALTT";
-            //B2: Tạo một kết nối đến Sql
-            SqlConnection con = dc.GetConnect();
-            //B3: Khởi tạo đối tượng của lớp SqlDataAdapter
-            da = new SqlDataAdapter(sql, con);
-            //B4: Mở kết nối
-            con.Open();
-            //B5: Đổ dữ liệu từ SqlDataAdapter vào DataTable
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            //B6: Đóng kết nối
-            con.Close();
-            return dt;
-        }
+        //public DataTable gettuyentau()
+        //{
+        //    //B1: Tạo câu lệnh Sql để lấy toàn bộ sân bay
+        //    //string sql = "SELECT * FROM SANBAY";
+        //    string sql = "SELECT TT.MATT[Mã tuyến tàu], TT.TENTT[Tên tuyến tàu], CT.TENCT[Tên công ty], G1.TENGA[Ga xuất phát], G2.TENGA[Ga kết thúc], LTT.TENLTT[Loại tuyến tàu], TT.GHICHU[Ghi chú], TT.GIAVE[Giá vé], TT.GIOBD[Giờ bắt đầu], TT.GIOKT[Giờ kết thúc], TT.THOIGIANCHO[Thời gian chờ], TT.TINHTRANG[Tình trạng] " +
+        //        "FROM TUYENTAU TT " +
+        //        "INNER JOIN GA G1 ON TT.MAGAXP = G1.MAGA " +
+        //        "INNER JOIN GA G2 ON TT.MAGAKT = G2.MAGA " +
+        //        "INNER JOIN CONGTY CT ON TT.MACT = CT.MACT " +
+        //        "INNER JOIN LOAITUYENTAU LTT ON LTT.MALTT = TT.MALTT";
+        //    //B2: Tạo một kết nối đến Sql
+        //    SqlConnection con = dc.GetConnect();
+        //    //B3: Khởi tạo đối tượng của lớp SqlDataAdapter
+        //    da = new SqlDataAdapter(sql, con);
+        //    //B4: Mở kết nối
+        //    con.Open();
+        //    //B5: Đổ dữ liệu từ SqlDataAdapter vào DataTable
+        //    DataTable dt = new DataTable();
+        //    da.Fill(dt);
+        //    //B6: Đóng kết nối
+        //    con.Close();
+        //    return dt;
+        //}
 
         private void ShowListField()
         {
@@ -136,6 +148,19 @@ namespace eMetro
             comboBox_ltt.ValueMember = "MALTT";
         }
 
+
+        private DataTable getall_TENGA()
+        {
+            SqlConnection con = dc.GetConnect();
+            cmd = new SqlCommand("Select TENGA[Tên ga] from GA WHERE TINHTRANG=N'Hoạt động'", con);
+            da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+
+            DataTable table = new DataTable();
+            da.Fill(table);
+            return table;
+        }
+
         private void AdvancedDataGridView_tuyentau_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
@@ -158,6 +183,39 @@ namespace eMetro
                 dateTimePicker_giokt.Value = DateTime.ParseExact(advancedDataGridView_tuyentau.Rows[index].Cells["Giờ kết thúc"].Value.ToString(), "HH:mm",
                                          System.Globalization.CultureInfo.InvariantCulture);
                 comboBox_tinhtrang.Text = advancedDataGridView_tuyentau.Rows[index].Cells["Tình trạng"].Value.ToString();
+                //bunifuCustomDataGrid_CTTUYENTAU.DataSource = bllCTTT.getAllCTTuyentau(advancedDataGridView_tuyentau.Rows[index].Cells["Mã tuyến tàu"].Value.ToString());   *tam cmd lại
+
+                bunifuCustomDataGrid_CTTUYENTAU.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                bunifuCustomDataGrid_CTTUYENTAU.Rows.Clear();
+                bunifuCustomDataGrid_CTTUYENTAU.Refresh();
+                ArrayList StringList = new ArrayList();
+                SqlConnection con = dc.GetConnect();
+                DataTable dt = new DataTable();
+                string sqlQuery = string.Format("SELECT CT.MATT[Mã tuyến tàu], G.TENGA[Tên ga], CT.STTGA[Thứ tự ga], CT.TGDUNG[Thời gian dừng], CT.GHICHU[Ghi chú] FROM CTTUYENTAU CT JOIN GA G ON CT.MAGATG = G.MAGA WHERE CT.MATT = '{0}' ORDER BY STTGA ASC", advancedDataGridView_tuyentau.Rows[index].Cells["Mã tuyến tàu"].Value.ToString());
+                SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+
+
+                DataTable table = new DataTable();
+                da.Fill(table);
+
+                
+                foreach (DataRow item in getall_TENGA().Rows)
+                {
+                    StringList.Add(item["Tên ga"].ToString());
+                }
+                foreach (DataRow item in table.Rows)
+                {
+                    int n = bunifuCustomDataGrid_CTTUYENTAU.Rows.Add();
+                    var CellSample = new DataGridViewComboBoxCell();
+                    CellSample.DataSource = StringList;
+                    bunifuCustomDataGrid_CTTUYENTAU.Rows[n].Cells[1].Value = item[0].ToString();
+                    
+                    bunifuCustomDataGrid_CTTUYENTAU.Rows[n].Cells[2] = CellSample;
+                    bunifuCustomDataGrid_CTTUYENTAU.Rows[n].Cells[2].Value = item["Tên ga"].ToString();
+                    bunifuCustomDataGrid_CTTUYENTAU.Rows[n].Cells[3].Value = item["Thứ tự ga"].ToString();
+                    bunifuCustomDataGrid_CTTUYENTAU.Rows[n].Cells[4].Value = item["Thời gian dừng"].ToString();
+                    bunifuCustomDataGrid_CTTUYENTAU.Rows[n].Cells[5].Value = item["Ghi chú"].ToString();
+                }
             }
         }
 
@@ -175,6 +233,11 @@ namespace eMetro
         //dateTimePicker3.Value = DateTime.ParseExact(u, "HH:mm:ss",
         //                           System.Globalization.CultureInfo.InvariantCulture);
 
+        public void Alert(string msg, Notification.Alert.enmType type)
+        {
+            Notification.Alert frm = new Notification.Alert();
+            frm.showAlert(msg, type);
+        }
 
 
         public void ShowComboBoxGaxp(string gakt)
@@ -422,5 +485,126 @@ namespace eMetro
                 }
             }
         }
+
+      
+
+        private void IconButton_xoaCTTT_Click(object sender, EventArgs e)
+        {
+            int total = bunifuCustomDataGrid_CTTUYENTAU.Rows.Cast<DataGridViewRow>().Where(p => Convert.ToBoolean(p.Cells["select"].Value) == true).Count();
+            if (total > 0)
+            {
+                for (int i = bunifuCustomDataGrid_CTTUYENTAU.RowCount - 1; i >= 0; i--)
+                {
+                    DataGridViewRow row = bunifuCustomDataGrid_CTTUYENTAU.Rows[i];
+                    if (Convert.ToBoolean(row.Cells["select"].Value) == true)
+                    {
+                        bunifuCustomDataGrid_CTTUYENTAU.Rows.Remove(row);
+                    }
+                }
+            }
+        }
+
+        private void IconButton_ThemCTTT_Click(object sender, EventArgs e)
+        {
+            ArrayList StringList = new ArrayList();
+
+            foreach (DataRow item in getall_TENGA().Rows)
+            {
+                StringList.Add(item["Tên ga"].ToString());
+            }
+            int n = bunifuCustomDataGrid_CTTUYENTAU.Rows.Add();
+            var CellSample = new DataGridViewComboBoxCell();
+            CellSample.DataSource = StringList;
+
+
+            bunifuCustomDataGrid_CTTUYENTAU.Rows[n].Cells[1].Value = textBox_matt.Text;
+            bunifuCustomDataGrid_CTTUYENTAU.Rows[n].Cells[2] = CellSample;
+
+
+            int k = bunifuCustomDataGrid_CTTUYENTAU.RowCount;
+            bunifuCustomDataGrid_CTTUYENTAU.Rows[n].Cells[3].Value = (bunifuCustomDataGrid_CTTUYENTAU.RowCount ).ToString();
+            
+        }
+
+        public bool checker_DatagridIsempty()
+        {
+            //for (int i = 0; i < bunifuCustomDataGrid_CTTUYENTAU.Rows.Count; i++)
+            //{
+            //    string value_stt = bunifuCustomDataGrid_CTTUYENTAU.Rows[i].Cells[4].Value.ToString();
+            //    string value_ghichu = bunifuCustomDataGrid_CTTUYENTAU.Rows[i].Cells[5].Value.ToString();
+
+            //    if (string.IsNullOrWhiteSpace(value_stt)|| string.IsNullOrWhiteSpace(value_ghichu))
+            //    {
+
+            //        return false;
+            //    }
+            //}
+
+            //// If we have reached this far, then none of the cells were empty.
+            //return true;
+
+            bool flag = true;
+            foreach (DataGridViewRow row in bunifuCustomDataGrid_CTTUYENTAU.Rows)
+            {
+                if (Convert.ToString(row.Cells["Column4"].Value) == string.Empty|| Convert.ToString(row.Cells["Column5"].Value) == string.Empty)
+                    flag = false;
+            }
+
+            
+            return flag;
+           
+        }
+
+        private void IconButton_luuCTTT_Click(object sender, EventArgs e)
+        {
+            int check_count = 0;
+            if(checker_DatagridIsempty())
+            {
+                if (bunifuCustomDataGrid_CTTUYENTAU.Rows.Count > 0)
+                {
+                    bllCTTT.Delete_CTTT(textBox_matt.Text);
+                    foreach (DataGridViewRow row in bunifuCustomDataGrid_CTTUYENTAU.Rows)
+                    {
+
+                        dtoCTTuyentau = new DTO.CTTuyentau();
+                        dtoCTTuyentau.matt = textBox_matt.Text;
+                        //string test = row.Cells[2].Value.ToString();
+                        dtoCTTuyentau.magatg = bllTT.Search_MAGAbyTENGA(row.Cells[2].Value.ToString());
+                        dtoCTTuyentau.sttga = int.Parse(row.Cells[3].Value.ToString());
+                        dtoCTTuyentau.tgdung = int.Parse(row.Cells[4].Value.ToString());
+                        dtoCTTuyentau.ghichu = row.Cells[5].Value.ToString();
+                        if (bllCTTT.Edit_CTTT(dtoCTTuyentau))
+                        {
+                            check_count++;
+                        }
+                        
+                    }
+                    if (check_count == bunifuCustomDataGrid_CTTUYENTAU.Rows.Count)
+                    {
+                        check_count = 0;
+                        this.Alert("Lưu thành công", Notification.Alert.enmType.Success);
+                    }
+                    else
+                    {
+                        this.Alert("Lưu thất bại", Notification.Alert.enmType.Error);
+                    }
+                }
+                else
+                {
+                    bllCTTT.Delete_CTTT(textBox_matt.Text);
+                    this.Alert("Lưu thành công", Notification.Alert.enmType.Success);
+                }
+            }
+            else
+            {
+                this.Alert("Thông tin bị thiếu", Notification.Alert.enmType.Error);
+            }
+
+        }
+
+
+
+
+
     }
 }

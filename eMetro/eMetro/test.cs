@@ -16,5 +16,10 @@ namespace eMetro
         {
             InitializeComponent();
         }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

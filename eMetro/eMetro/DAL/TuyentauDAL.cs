@@ -34,7 +34,7 @@ namespace eMetro.DAL
             SqlConnection con = dc.GetConnect();
 
             DataTable dt = new DataTable();
-            string sqlQuery = string.Format("SELECT MAGA FROM GA WHERE TENGA like '%{0}%' ", str);
+            string sqlQuery = string.Format("SELECT MAGA FROM GA WHERE TENGA =N'{0}' ", str);
             SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
             da.Fill(dt);
             return (String)dt.Rows[0][0];
@@ -84,24 +84,34 @@ namespace eMetro.DAL
             return (String)dt.Rows[0][0];
         }
 
-        //test
-        //public DataTable gettuyentau()
-        //{
-        //    //B1: Tạo câu lệnh Sql để lấy toàn bộ sân bay
-        //    //string sql = "SELECT * FROM SANBAY";
-        //    string sql = "SELECT matt[Mã tuyến tàu], tentt[Tên ga] FROM TUYENTAU";
-        //    //B2: Tạo một kết nối đến Sql
-        //    SqlConnection con = dc.GetConnect();
-        //    //B3: Khởi tạo đối tượng của lớp SqlDataAdapter
-        //    da = new SqlDataAdapter(sql, con);
-        //    //B4: Mở kết nối
-        //    con.Open();
-        //    //B5: Đổ dữ liệu từ SqlDataAdapter vào DataTable
-        //    DataTable dt = new DataTable();
-        //    da.Fill(dt);
-        //    //B6: Đóng kết nối
-        //    con.Close();
-        //    return dt;
-        //}
+        public DataTable gettuyentau()
+        {
+            //B1: Tạo câu lệnh Sql để lấy toàn bộ sân bay
+            //string sql = "SELECT * FROM SANBAY";
+            string sql = "SELECT TT.MATT[Mã tuyến tàu], TT.TENTT[Tên tuyến tàu], CT.TENCT[Tên công ty], G1.TENGA[Ga xuất phát], G2.TENGA[Ga kết thúc], LTT.TENLTT[Loại tuyến tàu], TT.GHICHU[Ghi chú], TT.GIAVE[Giá vé], TT.GIOBD[Giờ bắt đầu], TT.GIOKT[Giờ kết thúc], TT.THOIGIANCHO[Thời gian chờ], TT.TINHTRANG[Tình trạng] " +
+                "FROM TUYENTAU TT " +
+                "INNER JOIN GA G1 ON TT.MAGAXP = G1.MAGA " +
+                "INNER JOIN GA G2 ON TT.MAGAKT = G2.MAGA " +
+                "INNER JOIN CONGTY CT ON TT.MACT = CT.MACT " +
+                "INNER JOIN LOAITUYENTAU LTT ON LTT.MALTT = TT.MALTT";
+            //B2: Tạo một kết nối đến Sql
+            SqlConnection con = dc.GetConnect();
+            //B3: Khởi tạo đối tượng của lớp SqlDataAdapter
+            da = new SqlDataAdapter(sql, con);
+            //B4: Mở kết nối
+            con.Open();
+            //B5: Đổ dữ liệu từ SqlDataAdapter vào DataTable
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            //B6: Đóng kết nối
+            con.Close();
+            return dt;
+        }
+
+        public bool Check_Tuyentau_CT()
+        {
+            return false;
+        }
+
     }
 }
