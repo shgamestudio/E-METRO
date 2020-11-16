@@ -41,7 +41,7 @@
             this.lblMsg.AutoSize = true;
             this.lblMsg.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMsg.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblMsg.Location = new System.Drawing.Point(115, 42);
+            this.lblMsg.Location = new System.Drawing.Point(115, 35);
             this.lblMsg.Name = "lblMsg";
             this.lblMsg.Size = new System.Drawing.Size(107, 21);
             this.lblMsg.TabIndex = 0;

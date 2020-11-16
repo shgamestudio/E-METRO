@@ -159,6 +159,22 @@ namespace eMetro
             DataTable table = new DataTable();
             da.Fill(table);
             return table;
+
+
+
+        }
+
+        private DataTable getall_TENGA_exceptXPKT(string xp, string kt)
+        {
+        
+            SqlConnection _con = dc.GetConnect();
+           
+            string sql = string.Format("Select TENGA[Tên ga] from GA WHERE TINHTRANG=N'Hoạt động' AND TENGA != N'{0}' AND TENGA != N'{1}' ", xp, kt);
+
+            SqlDataAdapter da = new SqlDataAdapter(sql, _con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
         }
 
         private void AdvancedDataGridView_tuyentau_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -243,14 +259,6 @@ namespace eMetro
         public void ShowComboBoxGaxp(string gakt)
         {
 
-
-            //SqlConnection con = dc.GetConnect();
-            //cmd = new SqlCommand("Select * from GA WHERE TINHTRANG=N'Hoạt động' AND ", con);
-            //da = new SqlDataAdapter();
-            //da.SelectCommand = cmd;
-
-            //DataTable table = new DataTable();
-
             SqlConnection con = dc.GetConnect();
             DataTable dt = new DataTable();
             string sqlQuery = string.Format("Select * from GA WHERE TINHTRANG=N'Hoạt động' AND MAGA != '{0}'", gakt);
@@ -268,12 +276,7 @@ namespace eMetro
         {
 
 
-            //SqlConnection con = dc.GetConnect();
-            //cmd = new SqlCommand("Select * from GA WHERE TINHTRANG=N'Hoạt động' AND ", con);
-            //da = new SqlDataAdapter();
-            //da.SelectCommand = cmd;
-
-            //DataTable table = new DataTable();
+          
 
             SqlConnection con = dc.GetConnect();
             DataTable dt = new DataTable();
@@ -506,9 +509,10 @@ namespace eMetro
 
         private void IconButton_ThemCTTT_Click(object sender, EventArgs e)
         {
+          
             ArrayList StringList = new ArrayList();
 
-            foreach (DataRow item in getall_TENGA().Rows)
+            foreach (DataRow item in getall_TENGA_exceptXPKT(comboBox_gaxp.Text, comboBox_gakt.Text).Rows)
             {
                 StringList.Add(item["Tên ga"].ToString());
             }
@@ -526,22 +530,9 @@ namespace eMetro
             
         }
 
-        public bool checker_DatagridIsempty()
+        public bool checker_DatagridIsemptyOrDup()
         {
-            //for (int i = 0; i < bunifuCustomDataGrid_CTTUYENTAU.Rows.Count; i++)
-            //{
-            //    string value_stt = bunifuCustomDataGrid_CTTUYENTAU.Rows[i].Cells[4].Value.ToString();
-            //    string value_ghichu = bunifuCustomDataGrid_CTTUYENTAU.Rows[i].Cells[5].Value.ToString();
-
-            //    if (string.IsNullOrWhiteSpace(value_stt)|| string.IsNullOrWhiteSpace(value_ghichu))
-            //    {
-
-            //        return false;
-            //    }
-            //}
-
-            //// If we have reached this far, then none of the cells were empty.
-            //return true;
+           
 
             bool flag = true;
             foreach (DataGridViewRow row in bunifuCustomDataGrid_CTTUYENTAU.Rows)
@@ -550,7 +541,20 @@ namespace eMetro
                     flag = false;
             }
 
+
+            List<string> GaList = new List<string>();
             
+            foreach (DataGridViewRow row in bunifuCustomDataGrid_CTTUYENTAU.Rows)
+            {
+               
+                GaList.Add(row.Cells["Column2"].Value.ToString()); 
+            }
+    
+            if (GaList.Count != GaList.Distinct().Count())
+            {
+                flag = false;
+            }
+
             return flag;
            
         }
@@ -558,53 +562,132 @@ namespace eMetro
         private void IconButton_luuCTTT_Click(object sender, EventArgs e)
         {
             int check_count = 0;
-            if(checker_DatagridIsempty())
+            if (textBox_matt.Text != "")
             {
-                if (bunifuCustomDataGrid_CTTUYENTAU.Rows.Count > 0)
+                if (checker_DatagridIsemptyOrDup())
                 {
-                    bllCTTT.Delete_CTTT(textBox_matt.Text);
-                    foreach (DataGridViewRow row in bunifuCustomDataGrid_CTTUYENTAU.Rows)
+                    if (bunifuCustomDataGrid_CTTUYENTAU.Rows.Count > 0)
                     {
-
-                        dtoCTTuyentau = new DTO.CTTuyentau();
-                        dtoCTTuyentau.matt = textBox_matt.Text;
-                        //string test = row.Cells[2].Value.ToString();
-                        dtoCTTuyentau.magatg = bllTT.Search_MAGAbyTENGA(row.Cells[2].Value.ToString());
-                        dtoCTTuyentau.sttga = int.Parse(row.Cells[3].Value.ToString());
-                        dtoCTTuyentau.tgdung = int.Parse(row.Cells[4].Value.ToString());
-                        dtoCTTuyentau.ghichu = row.Cells[5].Value.ToString();
-                        if (bllCTTT.Edit_CTTT(dtoCTTuyentau))
+                        bllCTTT.Delete_CTTT(textBox_matt.Text);
+                        foreach (DataGridViewRow row in bunifuCustomDataGrid_CTTUYENTAU.Rows)
                         {
-                            check_count++;
+
+                            dtoCTTuyentau = new DTO.CTTuyentau();
+                            dtoCTTuyentau.matt = textBox_matt.Text;
+                            //string test = row.Cells[2].Value.ToString();
+                            dtoCTTuyentau.magatg = bllTT.Search_MAGAbyTENGA(row.Cells[2].Value.ToString());
+                            dtoCTTuyentau.sttga = int.Parse(row.Cells[3].Value.ToString());
+                            dtoCTTuyentau.tgdung = int.Parse(row.Cells[4].Value.ToString());
+                            dtoCTTuyentau.ghichu = row.Cells[5].Value.ToString();
+                            if (bllCTTT.Edit_CTTT(dtoCTTuyentau))
+                            {
+                                check_count++;
+                            }
+
                         }
-                        
-                    }
-                    if (check_count == bunifuCustomDataGrid_CTTUYENTAU.Rows.Count)
-                    {
-                        check_count = 0;
-                        this.Alert("Lưu thành công", Notification.Alert.enmType.Success);
+                        if (check_count == bunifuCustomDataGrid_CTTUYENTAU.Rows.Count)
+                        {
+                            check_count = 0;
+                            this.Alert("Lưu thành công", Notification.Alert.enmType.Success);
+                        }
+                        else
+                        {
+                            this.Alert("Lưu thất bại", Notification.Alert.enmType.Error);
+                        }
                     }
                     else
                     {
-                        this.Alert("Lưu thất bại", Notification.Alert.enmType.Error);
+                        bllCTTT.Delete_CTTT(textBox_matt.Text);
+                        this.Alert("Lưu thành công", Notification.Alert.enmType.Success);
                     }
                 }
                 else
                 {
-                    bllCTTT.Delete_CTTT(textBox_matt.Text);
-                    this.Alert("Lưu thành công", Notification.Alert.enmType.Success);
+                    this.Alert("Thông tin bị thiếu hoặc trùng", Notification.Alert.enmType.Error);
                 }
             }
             else
             {
-                this.Alert("Thông tin bị thiếu", Notification.Alert.enmType.Error);
+                this.Alert("Chưa chọn tuyến tàu", Notification.Alert.enmType.Info);
             }
+        }
+
+        private void IconButton_capnhatTT_Click(object sender, EventArgs e)
+        {
 
         }
 
+        private bool CheckData()
+        {
+            //if (string.IsNullOrEmpty(textBox_masb.Text) || string.IsNullOrEmpty(textBox_tensb.Text))
+            if (string.IsNullOrEmpty(textBox_tentt.Text) || string.IsNullOrEmpty(textBox_ghichu.Text)
+                || string.IsNullOrEmpty(textBox_giave.Text) )
+            {
+                this.Alert("Thông tin nhập bị thiếu", Notification.Alert.enmType.Warning);
+                textBox_tentt.Focus(); //để con trỏ vào đây
+                return false;
+            }
+            return true;
+        }
 
+        private void IconButton_themTT_Click(object sender, EventArgs e)
+        {
+            if(bllTT.Check_Exist_Tuyentau_CT(comboBox_gaxp.Text,comboBox_gakt.Text))
+            {
+                if (CheckData())
+                {
+                    DTO.Tuyentau tt = new DTO.Tuyentau();
+                    tt.tenct = comboBox_congty.SelectedValue.ToString();
+                    tt.tentt = textBox_tentt.Text;
+                    tt.tengaxp = comboBox_gaxp.SelectedValue.ToString();
+                    tt.tengakt = comboBox_gakt.SelectedValue.ToString();
+                    tt.tenltt = comboBox_ltt.SelectedValue.ToString();
+                    tt.ghichu = textBox_ghichu.Text;
+                    tt.giave = decimal.Parse(textBox_giave.Text);
+                    tt.giobd = dateTimePicker_giobd.Text;
+                    tt.giokt = dateTimePicker_giokt.Text;
+                    tt.thoigianchocb = textBox_tgcho.Text;
+                    tt.tinhtrang = comboBox_tinhtrang.Text;
 
+                    if (bllTT.InsertTuyenTau(tt))
+                    {
+                        this.tUYENTAUBindingSource.DataSource = bllTT.gettuyentau();
+                        this.advancedDataGridView_tuyentau.DataSource = this.tUYENTAUBindingSource;
+                        textBox_matt.Clear();
+                        textBox_tentt.Clear();
+                        textBox_ghichu.Clear();
+                        textBox_giave.Clear();
+                        textBox_tgcho.Clear();
+                        //comboBox_tinhtrang.Clear();
+                     
+                        this.Alert("Thêm thành công", Notification.Alert.enmType.Success);
+                    }
+                    else
+                    {
+                        this.Alert("Thêm thất bại", Notification.Alert.enmType.Error);
+                    }
+                }
+            }
+            else
+            {
+                this.Alert("Tuyến tàu đã có công ty\r\nkhác đăng ký trước đó", Notification.Alert.enmType.Warning);
+            }
+        }
 
+        private void TextBox_giave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
 
+        private void TextBox_tgcho_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

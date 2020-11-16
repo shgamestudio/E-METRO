@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuCustomDataGrid_congty = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuElipse_panel = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse_datarid = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -40,6 +40,10 @@
             this.bunifuElipse_textbox_search = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.textBox_search = new System.Windows.Forms.TextBox();
             this.groupBox_thaotac = new System.Windows.Forms.GroupBox();
+            this.label_cot = new System.Windows.Forms.Label();
+            this.iconButton_tracuu = new FontAwesome.Sharp.IconButton();
+            this.iconButton_capnhat = new FontAwesome.Sharp.IconButton();
+            this.iconButton_them = new FontAwesome.Sharp.IconButton();
             this.bunifuElipse_them = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse_capnhat = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse_tracuu = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -62,10 +66,6 @@
             this.bunifuElipse_diachitrusoct = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse_diachiwebct = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse_tinhtrang = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.label_cot = new System.Windows.Forms.Label();
-            this.iconButton_tracuu = new FontAwesome.Sharp.IconButton();
-            this.iconButton_capnhat = new FontAwesome.Sharp.IconButton();
-            this.iconButton_them = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid_congty)).BeginInit();
             this.groupBox_thaotac.SuspendLayout();
             this.groupBox_chitiet.SuspendLayout();
@@ -75,8 +75,8 @@
             // 
             this.bunifuCustomDataGrid_congty.AllowUserToAddRows = false;
             this.bunifuCustomDataGrid_congty.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.bunifuCustomDataGrid_congty.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.bunifuCustomDataGrid_congty.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.bunifuCustomDataGrid_congty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -86,24 +86,24 @@
             this.bunifuCustomDataGrid_congty.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGrid_congty.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.bunifuCustomDataGrid_congty.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid_congty.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGrid_congty.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.bunifuCustomDataGrid_congty.ColumnHeadersHeight = 50;
             this.bunifuCustomDataGrid_congty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.bunifuCustomDataGrid_congty.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.bunifuCustomDataGrid_congty.DefaultCellStyle = dataGridViewCellStyle6;
             this.bunifuCustomDataGrid_congty.DoubleBuffered = true;
             this.bunifuCustomDataGrid_congty.EnableHeadersVisualStyles = false;
             this.bunifuCustomDataGrid_congty.GridColor = System.Drawing.Color.WhiteSmoke;
@@ -204,6 +204,95 @@
             this.groupBox_thaotac.TabIndex = 6;
             this.groupBox_thaotac.TabStop = false;
             this.groupBox_thaotac.Text = "Thao tác";
+            // 
+            // label_cot
+            // 
+            this.label_cot.AutoSize = true;
+            this.label_cot.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_cot.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label_cot.Location = new System.Drawing.Point(48, 45);
+            this.label_cot.Name = "label_cot";
+            this.label_cot.Size = new System.Drawing.Size(48, 25);
+            this.label_cot.TabIndex = 18;
+            this.label_cot.Text = "Cột:";
+            // 
+            // iconButton_tracuu
+            // 
+            this.iconButton_tracuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.iconButton_tracuu.BackColor = System.Drawing.Color.SeaGreen;
+            this.iconButton_tracuu.FlatAppearance.BorderSize = 0;
+            this.iconButton_tracuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton_tracuu.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.iconButton_tracuu.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton_tracuu.ForeColor = System.Drawing.Color.Gainsboro;
+            this.iconButton_tracuu.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.iconButton_tracuu.IconColor = System.Drawing.Color.Gainsboro;
+            this.iconButton_tracuu.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton_tracuu.IconSize = 42;
+            this.iconButton_tracuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton_tracuu.Location = new System.Drawing.Point(103, 127);
+            this.iconButton_tracuu.Name = "iconButton_tracuu";
+            this.iconButton_tracuu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.iconButton_tracuu.Rotation = 0D;
+            this.iconButton_tracuu.Size = new System.Drawing.Size(213, 70);
+            this.iconButton_tracuu.TabIndex = 7;
+            this.iconButton_tracuu.Text = "    Tra cứu";
+            this.iconButton_tracuu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton_tracuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton_tracuu.UseVisualStyleBackColor = false;
+            this.iconButton_tracuu.Click += new System.EventHandler(this.IconButton_tracuu_Click);
+            // 
+            // iconButton_capnhat
+            // 
+            this.iconButton_capnhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.iconButton_capnhat.BackColor = System.Drawing.Color.SeaGreen;
+            this.iconButton_capnhat.FlatAppearance.BorderSize = 0;
+            this.iconButton_capnhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton_capnhat.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.iconButton_capnhat.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton_capnhat.ForeColor = System.Drawing.Color.Gainsboro;
+            this.iconButton_capnhat.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.iconButton_capnhat.IconColor = System.Drawing.Color.Gainsboro;
+            this.iconButton_capnhat.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton_capnhat.IconSize = 42;
+            this.iconButton_capnhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton_capnhat.Location = new System.Drawing.Point(789, 127);
+            this.iconButton_capnhat.Name = "iconButton_capnhat";
+            this.iconButton_capnhat.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.iconButton_capnhat.Rotation = 0D;
+            this.iconButton_capnhat.Size = new System.Drawing.Size(220, 70);
+            this.iconButton_capnhat.TabIndex = 6;
+            this.iconButton_capnhat.Text = "     Cập nhật";
+            this.iconButton_capnhat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton_capnhat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton_capnhat.UseVisualStyleBackColor = false;
+            this.iconButton_capnhat.Click += new System.EventHandler(this.IconButton_capnhat_Click);
+            // 
+            // iconButton_them
+            // 
+            this.iconButton_them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.iconButton_them.BackColor = System.Drawing.Color.SeaGreen;
+            this.iconButton_them.FlatAppearance.BorderSize = 0;
+            this.iconButton_them.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton_them.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.iconButton_them.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton_them.ForeColor = System.Drawing.Color.Gainsboro;
+            this.iconButton_them.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.iconButton_them.IconColor = System.Drawing.Color.Gainsboro;
+            this.iconButton_them.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton_them.IconSize = 42;
+            this.iconButton_them.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton_them.Location = new System.Drawing.Point(446, 127);
+            this.iconButton_them.Name = "iconButton_them";
+            this.iconButton_them.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.iconButton_them.Rotation = 0D;
+            this.iconButton_them.Size = new System.Drawing.Size(220, 70);
+            this.iconButton_them.TabIndex = 5;
+            this.iconButton_them.Text = "     Thêm mới";
+            this.iconButton_them.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton_them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton_them.UseVisualStyleBackColor = false;
+            this.iconButton_them.Click += new System.EventHandler(this.IconButton_them_Click);
             // 
             // bunifuElipse_them
             // 
@@ -335,6 +424,7 @@
             this.textBox_sdtct.Name = "textBox_sdtct";
             this.textBox_sdtct.Size = new System.Drawing.Size(151, 29);
             this.textBox_sdtct.TabIndex = 11;
+            this.textBox_sdtct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_sdtct_KeyPress);
             // 
             // label_sdtct
             // 
@@ -411,95 +501,6 @@
             // 
             this.bunifuElipse_tinhtrang.ElipseRadius = 20;
             this.bunifuElipse_tinhtrang.TargetControl = this.comboBox_tinhtrang;
-            // 
-            // label_cot
-            // 
-            this.label_cot.AutoSize = true;
-            this.label_cot.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_cot.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label_cot.Location = new System.Drawing.Point(48, 45);
-            this.label_cot.Name = "label_cot";
-            this.label_cot.Size = new System.Drawing.Size(48, 25);
-            this.label_cot.TabIndex = 18;
-            this.label_cot.Text = "Cột:";
-            // 
-            // iconButton_tracuu
-            // 
-            this.iconButton_tracuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.iconButton_tracuu.BackColor = System.Drawing.Color.SeaGreen;
-            this.iconButton_tracuu.FlatAppearance.BorderSize = 0;
-            this.iconButton_tracuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton_tracuu.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton_tracuu.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_tracuu.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton_tracuu.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.iconButton_tracuu.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton_tracuu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_tracuu.IconSize = 42;
-            this.iconButton_tracuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton_tracuu.Location = new System.Drawing.Point(103, 127);
-            this.iconButton_tracuu.Name = "iconButton_tracuu";
-            this.iconButton_tracuu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton_tracuu.Rotation = 0D;
-            this.iconButton_tracuu.Size = new System.Drawing.Size(213, 70);
-            this.iconButton_tracuu.TabIndex = 7;
-            this.iconButton_tracuu.Text = "    Tra cứu";
-            this.iconButton_tracuu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton_tracuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton_tracuu.UseVisualStyleBackColor = false;
-            this.iconButton_tracuu.Click += new System.EventHandler(this.IconButton_tracuu_Click);
-            // 
-            // iconButton_capnhat
-            // 
-            this.iconButton_capnhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.iconButton_capnhat.BackColor = System.Drawing.Color.SeaGreen;
-            this.iconButton_capnhat.FlatAppearance.BorderSize = 0;
-            this.iconButton_capnhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton_capnhat.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton_capnhat.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_capnhat.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton_capnhat.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.iconButton_capnhat.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton_capnhat.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_capnhat.IconSize = 42;
-            this.iconButton_capnhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton_capnhat.Location = new System.Drawing.Point(789, 127);
-            this.iconButton_capnhat.Name = "iconButton_capnhat";
-            this.iconButton_capnhat.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton_capnhat.Rotation = 0D;
-            this.iconButton_capnhat.Size = new System.Drawing.Size(220, 70);
-            this.iconButton_capnhat.TabIndex = 6;
-            this.iconButton_capnhat.Text = "     Cập nhật";
-            this.iconButton_capnhat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton_capnhat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton_capnhat.UseVisualStyleBackColor = false;
-            this.iconButton_capnhat.Click += new System.EventHandler(this.IconButton_capnhat_Click);
-            // 
-            // iconButton_them
-            // 
-            this.iconButton_them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.iconButton_them.BackColor = System.Drawing.Color.SeaGreen;
-            this.iconButton_them.FlatAppearance.BorderSize = 0;
-            this.iconButton_them.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton_them.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconButton_them.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton_them.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconButton_them.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.iconButton_them.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconButton_them.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton_them.IconSize = 42;
-            this.iconButton_them.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton_them.Location = new System.Drawing.Point(446, 127);
-            this.iconButton_them.Name = "iconButton_them";
-            this.iconButton_them.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton_them.Rotation = 0D;
-            this.iconButton_them.Size = new System.Drawing.Size(220, 70);
-            this.iconButton_them.TabIndex = 5;
-            this.iconButton_them.Text = "     Thêm mới";
-            this.iconButton_them.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton_them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton_them.UseVisualStyleBackColor = false;
-            this.iconButton_them.Click += new System.EventHandler(this.IconButton_them_Click);
             // 
             // Congty
             // 

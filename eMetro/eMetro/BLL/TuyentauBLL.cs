@@ -45,5 +45,13 @@ namespace eMetro.BLL
         {
             return dalTT.gettuyentau();
         }
+        public bool Check_Exist_Tuyentau_CT(string xp, string kt)
+        {
+            return dalTT.Check_Exist_Tuyentau_CT(xp,kt);
+        }
+        public bool InsertTuyenTau(DTO.Tuyentau tt)
+        {
+            return dalTT.InsertTuyenTau(tt);
+        }
     }
 }
