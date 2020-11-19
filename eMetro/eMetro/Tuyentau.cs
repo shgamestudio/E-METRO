@@ -36,50 +36,14 @@ namespace eMetro
 
         private void Tuyentau_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'eMETRODataSet.TUYENTAU' table. You can move, or remove it, as needed.
-            //this.tUYENTAUTableAdapter.Fill(this.eMETRODataSet.TUYENTAU); 
-            //code chính
-
-
-            //this.ShowAllGaxp();
-            //this.ShowAllGakt();
-            //advancedDataGridView_tuyentau.DataSource = dty;
+            // TODO: This line of code loads data into the 'eMETRODataSet.TUYENTAU' table. You can move, or remove it, as needed.      
 
             this.tUYENTAUBindingSource.DataSource = bllTT.gettuyentau();
             this.advancedDataGridView_tuyentau.DataSource = this.tUYENTAUBindingSource;
 
-            
-            //SqlConnection con = dc.GetConnect();
-            //cmd = new SqlCommand("Select * from GA WHERE TINHTRANG=N'Hoạt động'", con);
-            //da = new SqlDataAdapter();
-            //da.SelectCommand = cmd;
-
-           
         }
 
-        //public DataTable gettuyentau()
-        //{
-        //    //B1: Tạo câu lệnh Sql để lấy toàn bộ sân bay
-        //    //string sql = "SELECT * FROM SANBAY";
-        //    string sql = "SELECT TT.MATT[Mã tuyến tàu], TT.TENTT[Tên tuyến tàu], CT.TENCT[Tên công ty], G1.TENGA[Ga xuất phát], G2.TENGA[Ga kết thúc], LTT.TENLTT[Loại tuyến tàu], TT.GHICHU[Ghi chú], TT.GIAVE[Giá vé], TT.GIOBD[Giờ bắt đầu], TT.GIOKT[Giờ kết thúc], TT.THOIGIANCHO[Thời gian chờ], TT.TINHTRANG[Tình trạng] " +
-        //        "FROM TUYENTAU TT " +
-        //        "INNER JOIN GA G1 ON TT.MAGAXP = G1.MAGA " +
-        //        "INNER JOIN GA G2 ON TT.MAGAKT = G2.MAGA " +
-        //        "INNER JOIN CONGTY CT ON TT.MACT = CT.MACT " +
-        //        "INNER JOIN LOAITUYENTAU LTT ON LTT.MALTT = TT.MALTT";
-        //    //B2: Tạo một kết nối đến Sql
-        //    SqlConnection con = dc.GetConnect();
-        //    //B3: Khởi tạo đối tượng của lớp SqlDataAdapter
-        //    da = new SqlDataAdapter(sql, con);
-        //    //B4: Mở kết nối
-        //    con.Open();
-        //    //B5: Đổ dữ liệu từ SqlDataAdapter vào DataTable
-        //    DataTable dt = new DataTable();
-        //    da.Fill(dt);
-        //    //B6: Đóng kết nối
-        //    con.Close();
-        //    return dt;
-        //}
+      
 
         private void ShowListField()
         {
@@ -614,7 +578,84 @@ namespace eMetro
 
         private void IconButton_capnhatTT_Click(object sender, EventArgs e)
         {
+            if (bllTT.Check_Exist_Tuyentau_CT_When_Update(comboBox_gaxp.Text, comboBox_gakt.Text,textBox_matt.Text))
+            {
+                if (CheckData())
+                {
+                    DTO.Tuyentau tt = new DTO.Tuyentau();
+                    tt.matt = textBox_matt.Text;
+                    tt.tenct = comboBox_congty.SelectedValue.ToString();
+                    tt.tentt = textBox_tentt.Text;
+                    tt.tengaxp = comboBox_gaxp.SelectedValue.ToString();
+                    tt.tengakt = comboBox_gakt.SelectedValue.ToString();
+                    tt.tenltt = comboBox_ltt.SelectedValue.ToString();
+                    tt.ghichu = textBox_ghichu.Text;
+                    tt.giave = decimal.Parse(textBox_giave.Text);
+                    tt.giobd = dateTimePicker_giobd.Text;
+                    tt.giokt = dateTimePicker_giokt.Text;
+                    tt.thoigianchocb = textBox_tgcho.Text;
+                    tt.tinhtrang = comboBox_tinhtrang.Text;
 
+                    if (bllTT.UpdateTuyentau(tt))
+                    {
+                        this.tUYENTAUBindingSource.DataSource = bllTT.gettuyentau();
+                        this.advancedDataGridView_tuyentau.DataSource = this.tUYENTAUBindingSource;
+                        textBox_matt.Clear();
+                        textBox_tentt.Clear();
+                        textBox_ghichu.Clear();
+                        textBox_giave.Clear();
+                        textBox_tgcho.Clear();
+                        //comboBox_tinhtrang.Clear();
+
+                        this.Alert("Cập nhật thành công", Notification.Alert.enmType.Success);
+                    }
+                    else
+                    {
+                        this.Alert("Cập nhật thất bại", Notification.Alert.enmType.Error);
+                    }
+                }
+            }            
+            else if (bllTT.Check_Exist_Tuyentau_CT(comboBox_gaxp.Text, comboBox_gakt.Text))
+            {
+                if (CheckData())
+                {
+                    DTO.Tuyentau tt = new DTO.Tuyentau();
+                    tt.matt = textBox_matt.Text;
+                    tt.tenct = comboBox_congty.SelectedValue.ToString();
+                    tt.tentt = textBox_tentt.Text;
+                    tt.tengaxp = comboBox_gaxp.SelectedValue.ToString();
+                    tt.tengakt = comboBox_gakt.SelectedValue.ToString();
+                    tt.tenltt = comboBox_ltt.SelectedValue.ToString();
+                    tt.ghichu = textBox_ghichu.Text;
+                    tt.giave = decimal.Parse(textBox_giave.Text);
+                    tt.giobd = dateTimePicker_giobd.Text;
+                    tt.giokt = dateTimePicker_giokt.Text;
+                    tt.thoigianchocb = textBox_tgcho.Text;
+                    tt.tinhtrang = comboBox_tinhtrang.Text;
+
+                    if (bllTT.UpdateTuyentau(tt))
+                    {
+                        this.tUYENTAUBindingSource.DataSource = bllTT.gettuyentau();
+                        this.advancedDataGridView_tuyentau.DataSource = this.tUYENTAUBindingSource;
+                        textBox_matt.Clear();
+                        textBox_tentt.Clear();
+                        textBox_ghichu.Clear();
+                        textBox_giave.Clear();
+                        textBox_tgcho.Clear();
+                        //comboBox_tinhtrang.Clear();
+
+                        this.Alert("Cập nhật thành công", Notification.Alert.enmType.Success);
+                    }
+                    else
+                    {
+                        this.Alert("Cập nhật thất bại", Notification.Alert.enmType.Error);
+                    }
+                }
+            }
+            else
+            {
+                this.Alert("Tuyến tàu đã có công ty\r\nkhác đăng ký trước đó", Notification.Alert.enmType.Warning);
+            }
         }
 
         private bool CheckData()

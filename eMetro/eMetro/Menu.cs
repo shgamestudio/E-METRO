@@ -227,7 +227,7 @@ namespace eMetro
                 IconButton theBtn = (IconButton)sender;
                 clickedBtn = theBtn;
             }
-            OpenChildForm(new test2(),iconButton_BDK.Text);
+            OpenChildForm(new Banve(),iconButton_BDK.Text);
             label_showform.Text = "Bảng điều khiển";
         }
 

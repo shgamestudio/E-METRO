@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Banve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Banve.Designer.cs">
+      <DependentUpon>Banve.cs</DependentUpon>
+    </Compile>
     <Compile Include="BLL\CongtyBLL.cs" />
     <Compile Include="BLL\CTTuyentauBLL.cs" />
     <Compile Include="BLL\GaBLL.cs" />
@@ -76,6 +82,7 @@
     <Compile Include="DTO\CTTuyentau.cs" />
     <Compile Include="DTO\Ga.cs" />
     <Compile Include="DTO\Tuyentau.cs" />
+    <Compile Include="DTO\Ve.cs" />
     <Compile Include="EMETRODataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -119,6 +126,14 @@
     <Compile Include="Tuyentau.Designer.cs">
       <DependentUpon>Tuyentau.cs</DependentUpon>
     </Compile>
+    <Compile Include="TuyentauDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TuyentauDataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Banve.resx">
+      <DependentUpon>Banve.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Congty.resx">
       <DependentUpon>Congty.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +186,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TuyentauDataSet.xsc">
+      <DependentUpon>TuyentauDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TuyentauDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TuyentauDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TuyentauDataSet.xss">
+      <DependentUpon>TuyentauDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

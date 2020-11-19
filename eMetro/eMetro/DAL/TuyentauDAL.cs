@@ -108,12 +108,31 @@ namespace eMetro.DAL
             return dt;
         }
 
+        public DataTable gettuyentau_banve()
+        {
+            //B1: Tạo câu lệnh Sql để lấy toàn bộ sân bay
+            //string sql = "SELECT * FROM SANBAY";
+            string sql = "SELECT p.MATT[Mã tuyến tàu], p.TENTT[Tên tuyến tàu], ct.TENCT[Tên công ty],G1.TENGA[Ga xuất phát], STUFF((SELECT ';' + b.TENGA FROM  CTTUYENTAU a INNER JOIN GA b ON a.MAGATG = b.MAGA WHERE a.MATT = p.MATT FOR XML PATH ('')), 1, 1, '')  AS [Ga trung gian],   G2.TENGA[Ga kết thúc], LTT.TENLTT[Loại tuyến tàu], p.GHICHU[Ghi chú], p.GIOBD[Giờ bắt đầu], p.GIOKT[Giờ kết thúc], p.THOIGIANCHO[Thời gian chờ] FROM TUYENTAU AS p JOIN CONGTY AS ct ON ct.MACT = p.MACT INNER JOIN GA G1 ON p.MAGAXP = G1.MAGA INNER JOIN GA G2 ON p.MAGAKT = G2.MAGA INNER JOIN LOAITUYENTAU LTT ON LTT.MALTT = p.MALTT WHERE p.TINHTRANG = N'Hoạt động' GROUP BY p.MATT, p.TENTT, p.THOIGIANCHO, ct.TENCT, G1.TENGA, G2.TENGA, LTT.TENLTT, p.GHICHU, p.GIOBD, p.GIOKT, p.THOIGIANCHO";
+            //B2: Tạo một kết nối đến Sql
+            SqlConnection con = dc.GetConnect();
+            //B3: Khởi tạo đối tượng của lớp SqlDataAdapter
+            da = new SqlDataAdapter(sql, con);
+            //B4: Mở kết nối
+            con.Open();
+            //B5: Đổ dữ liệu từ SqlDataAdapter vào DataTable
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            //B6: Đóng kết nối
+            con.Close();
+            return dt;
+        }
+
         public bool Check_Exist_Tuyentau_CT(string xp, string kt)
         {         
             SqlConnection con = dc.GetConnect();
 
             DataTable dt = new DataTable();
-            string sqlQuery = string.Format("SELECT CASE WHEN EXISTS (SELECT TT.MATT FROM TUYENTAU TT JOIN GA G1 ON G1.MAGA = TT.MAGAXP JOIN GA G2 ON G2.MAGA = TT.MAGAKT  WHERE G1.TENGA=N'{0}' AND G2.TENGA=N'{1}') THEN '1' WHEN NOT EXISTS (SELECT TT.MATT FROM TUYENTAU TT JOIN GA G1 ON G1.MAGA = TT.MAGAXP JOIN GA G2 ON G2.MAGA = TT.MAGAKT WHERE G1.TENGA=N'{0}' AND G2.TENGA=N'{1}') THEN '0' END AS [ketqua]", xp,kt);
+            string sqlQuery = string.Format("SELECT CASE WHEN EXISTS (SELECT TT.MATT FROM TUYENTAU TT JOIN GA G1 ON G1.MAGA = TT.MAGAXP JOIN GA G2 ON G2.MAGA = TT.MAGAKT  WHERE (G1.TENGA=N'{0}' AND G2.TENGA=N'{1}') OR (G1.TENGA=N'{1}' AND G2.TENGA=N'{0}')) THEN '1' WHEN NOT EXISTS (SELECT TT.MATT FROM TUYENTAU TT JOIN GA G1 ON G1.MAGA = TT.MAGAXP JOIN GA G2 ON G2.MAGA = TT.MAGAKT WHERE (G1.TENGA=N'{0}' AND G2.TENGA=N'{1}') OR (G1.TENGA=N'{1}' AND G2.TENGA=N'{0}')) THEN '0' END AS [ketqua]", xp,kt);
             SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
             da.Fill(dt);
             if ((String)dt.Rows[0][0]=="1")
@@ -126,6 +145,32 @@ namespace eMetro.DAL
             }
            
         }
+
+        //public bool check_update_gaxp_gakt(string xp, string kt)
+        //{
+
+        //    return true;
+        //}
+
+        public bool Check_Exist_Tuyentau_CT_When_Update(string xp, string kt, string matt)
+        {
+            SqlConnection con = dc.GetConnect();
+
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format("SELECT CASE WHEN EXISTS (SELECT TT.MATT FROM TUYENTAU TT JOIN GA G1 ON G1.MAGA = TT.MAGAXP JOIN GA G2 ON G2.MAGA = TT.MAGAKT  WHERE G1.TENGA=N'{0}' AND G2.TENGA=N'{1}' AND TT.MATT=N'{2}') THEN '1' WHEN NOT EXISTS (SELECT TT.MATT FROM TUYENTAU TT JOIN GA G1 ON G1.MAGA = TT.MAGAXP JOIN GA G2 ON G2.MAGA = TT.MAGAKT WHERE G1.TENGA=N'{0}' AND G2.TENGA=N'{1}' AND TT.MATT=N'{2}') THEN '0' END AS [ketqua]", xp, kt, matt);
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            if ((String)dt.Rows[0][0] == "1")
+            {
+                return true; //KHONG DOI
+            }
+            else
+            {
+                return false; //CO DOI
+            }
+
+        }
+
 
         public bool InsertTuyenTau(DTO.Tuyentau tt)
         {
@@ -140,6 +185,38 @@ namespace eMetro.DAL
                 cmd.Parameters.AddWithValue("@MATT", TaoMaTT());
                 cmd.Parameters.AddWithValue("@MACT", tt.tenct);
                 cmd.Parameters.AddWithValue("@TENTT", tt.tentt);
+                cmd.Parameters.AddWithValue("@MAGAXP", tt.tengaxp);
+                cmd.Parameters.AddWithValue("@MAGAKT", tt.tengakt);
+                cmd.Parameters.AddWithValue("@MALTT", tt.tenltt);
+                cmd.Parameters.AddWithValue("@GHICHU", tt.ghichu);
+                cmd.Parameters.AddWithValue("@GIAVE", tt.giave);
+                cmd.Parameters.AddWithValue("@GIOBD", tt.giobd);
+                cmd.Parameters.AddWithValue("@GIOKT", tt.giokt);
+                cmd.Parameters.AddWithValue("@THOIGIANCHO", tt.thoigianchocb);
+                cmd.Parameters.AddWithValue("@TINHTRANG", tt.tinhtrang);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool UpdateTuyentau(DTO.Tuyentau tt)
+        {
+
+            //string sql = "INSERT INTO GA (maga, tenga, motavitri, bando, tinhtrang) VALUES (@MAGA, @TENGA, @MOTAVITRI, @BANDO, @TINHTRANG)", con;
+            SqlConnection con = dc.GetConnect();
+            try
+            {
+                //cmd = new SqlCommand(sql, con);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE TUYENTAU SET tentt=@TENTT, mact=@MACT, magaxp=@MAGAXP, magakt=@MAGAKT, maltt=@MALTT, ghichu=@GHICHU, giave=@GIAVE, giobd=@GIOBD, giokt=@GIOKT, thoigiancho=@THOIGIANCHO, tinhtrang=@TINHTRANG WHERE matt=@MATT", con);
+                cmd.Parameters.AddWithValue("@MATT", tt.matt);
+                cmd.Parameters.AddWithValue("@TENTT", tt.tentt);
+                cmd.Parameters.AddWithValue("@MACT", tt.tenct);
                 cmd.Parameters.AddWithValue("@MAGAXP", tt.tengaxp);
                 cmd.Parameters.AddWithValue("@MAGAKT", tt.tengakt);
                 cmd.Parameters.AddWithValue("@MALTT", tt.tenltt);
