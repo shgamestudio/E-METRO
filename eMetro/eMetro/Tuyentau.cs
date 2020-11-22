@@ -154,9 +154,11 @@ namespace eMetro
                 comboBox_gaxp.Text = advancedDataGridView_tuyentau.Rows[index].Cells["Ga xuất phát"].Value.ToString();
                 comboBox_gakt.Text = advancedDataGridView_tuyentau.Rows[index].Cells["Ga kết thúc"].Value.ToString();
                 comboBox_ltt.Text = advancedDataGridView_tuyentau.Rows[index].Cells["Loại tuyến tàu"].Value.ToString();
+                textBox_giathuong.Text = advancedDataGridView_tuyentau.Rows[index].Cells["Giá vé thường"].Value.ToString();
+                textBox_giathang.Text = advancedDataGridView_tuyentau.Rows[index].Cells["Giá vé tháng"].Value.ToString();
 
                 textBox_ghichu.Text = advancedDataGridView_tuyentau.Rows[index].Cells["Ghi chú"].Value.ToString();
-                textBox_giave.Text = advancedDataGridView_tuyentau.Rows[index].Cells["Giá vé"].Value.ToString();
+               
                 textBox_tgcho.Text = advancedDataGridView_tuyentau.Rows[index].Cells["Thời gian chờ"].Value.ToString();
                 dateTimePicker_giobd.Value = DateTime.ParseExact(advancedDataGridView_tuyentau.Rows[index].Cells["Giờ bắt đầu"].Value.ToString(), "HH:mm",
                                           System.Globalization.CultureInfo.InvariantCulture);
@@ -334,10 +336,14 @@ namespace eMetro
             dts.Rows.Add(dr);
 
             dr = dts.NewRow(); // have new row on each iteration
-            dr["1"] = "giave";
-            dr["2"] = "Giá vé";
+            dr["1"] = "giavethuong";
+            dr["2"] = "Giá vé thường";
             dts.Rows.Add(dr);
 
+            dr = dts.NewRow(); // have new row on each iteration
+            dr["1"] = "giavethang";
+            dr["2"] = "Giá vé tháng";
+            dts.Rows.Add(dr);
 
             dr = dts.NewRow(); // have new row on each iteration
             dr["1"] = "giobd";
@@ -384,7 +390,8 @@ namespace eMetro
                         "or [Giờ bắt đầu] like '%" + textBox_search.Text + "%'" +
                         "or [Giờ kết thúc] like '%" + textBox_search.Text + "%'" +
                         "or [Tình trạng] like '%" + textBox_search.Text + "%'" +
-                        "or [Giá vé] = " + decimal.Parse(textBox_search.Text, CultureInfo.InvariantCulture) +
+                        "or [Giá vé thường] = " + decimal.Parse(textBox_search.Text, CultureInfo.InvariantCulture) +
+                        "or [Giá vé tháng] = " + decimal.Parse(textBox_search.Text, CultureInfo.InvariantCulture) +
                         "or [Thời gian chờ] = " + decimal.Parse(textBox_search.Text, CultureInfo.InvariantCulture);
                         advancedDataGridView_tuyentau.DataSource = bs;
                     }
@@ -410,12 +417,12 @@ namespace eMetro
                     advancedDataGridView_tuyentau.DataSource = bs;
                 }
             }
-            else if (comboBox_fieldsearch.Text != "Giá vé" && comboBox_fieldsearch.Text != "Thời gian chờ")
+            else if (comboBox_fieldsearch.Text != "Giá vé thường" && comboBox_fieldsearch.Text != "Giá vé tháng" && comboBox_fieldsearch.Text != "Thời gian chờ")
             {
                 bs.Filter = "[" + comboBox_fieldsearch.Text + "]" + " like '%" + textBox_search.Text + "%'";
                 advancedDataGridView_tuyentau.DataSource = bs;
             }
-            else if (comboBox_fieldsearch.Text == "Giá vé" || comboBox_fieldsearch.Text == "Thời gian chờ")
+            else if (comboBox_fieldsearch.Text == "Giá vé thường" || comboBox_fieldsearch.Text == "Giá vé tháng" || comboBox_fieldsearch.Text == "Thời gian chờ")
             {
                 if (textBox_search.Text != "")
                 {
@@ -432,7 +439,7 @@ namespace eMetro
 
         private void ComboBox_fieldsearch_TextChanged(object sender, EventArgs e)
         {
-            if (comboBox_fieldsearch.Text == "Giá vé" || comboBox_fieldsearch.Text == "Thời gian chờ" )
+            if (textBox_giathang.Text == "Giá vé" || textBox_giathuong.Text == "Giá vé" || comboBox_fieldsearch.Text == "Thời gian chờ" )
             {
                 check_num = true;
             }
@@ -590,7 +597,8 @@ namespace eMetro
                     tt.tengakt = comboBox_gakt.SelectedValue.ToString();
                     tt.tenltt = comboBox_ltt.SelectedValue.ToString();
                     tt.ghichu = textBox_ghichu.Text;
-                    tt.giave = decimal.Parse(textBox_giave.Text);
+                    tt.giavethuong = decimal.Parse(textBox_giathuong.Text);
+                    tt.giavethang = decimal.Parse(textBox_giathang.Text);
                     tt.giobd = dateTimePicker_giobd.Text;
                     tt.giokt = dateTimePicker_giokt.Text;
                     tt.thoigianchocb = textBox_tgcho.Text;
@@ -603,7 +611,9 @@ namespace eMetro
                         textBox_matt.Clear();
                         textBox_tentt.Clear();
                         textBox_ghichu.Clear();
-                        textBox_giave.Clear();
+                        textBox_giathuong.Clear();
+                        textBox_giathang.Clear();
+                     
                         textBox_tgcho.Clear();
                         //comboBox_tinhtrang.Clear();
 
@@ -627,7 +637,8 @@ namespace eMetro
                     tt.tengakt = comboBox_gakt.SelectedValue.ToString();
                     tt.tenltt = comboBox_ltt.SelectedValue.ToString();
                     tt.ghichu = textBox_ghichu.Text;
-                    tt.giave = decimal.Parse(textBox_giave.Text);
+                    tt.giavethuong = decimal.Parse(textBox_giathuong.Text);
+                    tt.giavethang = decimal.Parse(textBox_giathang.Text);
                     tt.giobd = dateTimePicker_giobd.Text;
                     tt.giokt = dateTimePicker_giokt.Text;
                     tt.thoigianchocb = textBox_tgcho.Text;
@@ -640,7 +651,8 @@ namespace eMetro
                         textBox_matt.Clear();
                         textBox_tentt.Clear();
                         textBox_ghichu.Clear();
-                        textBox_giave.Clear();
+                        textBox_giathuong.Clear();
+                        textBox_giathang.Clear();
                         textBox_tgcho.Clear();
                         //comboBox_tinhtrang.Clear();
 
@@ -661,8 +673,7 @@ namespace eMetro
         private bool CheckData()
         {
             //if (string.IsNullOrEmpty(textBox_masb.Text) || string.IsNullOrEmpty(textBox_tensb.Text))
-            if (string.IsNullOrEmpty(textBox_tentt.Text) || string.IsNullOrEmpty(textBox_ghichu.Text)
-                || string.IsNullOrEmpty(textBox_giave.Text) )
+            if (string.IsNullOrEmpty(textBox_tentt.Text) || string.IsNullOrEmpty(textBox_ghichu.Text))
             {
                 this.Alert("Thông tin nhập bị thiếu", Notification.Alert.enmType.Warning);
                 textBox_tentt.Focus(); //để con trỏ vào đây
@@ -684,7 +695,8 @@ namespace eMetro
                     tt.tengakt = comboBox_gakt.SelectedValue.ToString();
                     tt.tenltt = comboBox_ltt.SelectedValue.ToString();
                     tt.ghichu = textBox_ghichu.Text;
-                    tt.giave = decimal.Parse(textBox_giave.Text);
+                    tt.giavethuong = decimal.Parse(textBox_giathuong.Text);
+                    tt.giavethang = decimal.Parse(textBox_giathang.Text);
                     tt.giobd = dateTimePicker_giobd.Text;
                     tt.giokt = dateTimePicker_giokt.Text;
                     tt.thoigianchocb = textBox_tgcho.Text;
@@ -697,7 +709,8 @@ namespace eMetro
                         textBox_matt.Clear();
                         textBox_tentt.Clear();
                         textBox_ghichu.Clear();
-                        textBox_giave.Clear();
+                        textBox_giathuong.Clear();
+                        textBox_giathang.Clear();
                         textBox_tgcho.Clear();
                         //comboBox_tinhtrang.Clear();
                      
@@ -715,7 +728,9 @@ namespace eMetro
             }
         }
 
-        private void TextBox_giave_KeyPress(object sender, KeyPressEventArgs e)
+      
+
+        private void TextBox_tgcho_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -723,7 +738,15 @@ namespace eMetro
             }
         }
 
-        private void TextBox_tgcho_KeyPress(object sender, KeyPressEventArgs e)
+        private void TextBox_giathuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBox_giathang_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {

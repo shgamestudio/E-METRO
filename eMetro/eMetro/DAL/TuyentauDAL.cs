@@ -88,7 +88,7 @@ namespace eMetro.DAL
         {
             //B1: Tạo câu lệnh Sql để lấy toàn bộ sân bay
             //string sql = "SELECT * FROM SANBAY";
-            string sql = "SELECT TT.MATT[Mã tuyến tàu], TT.TENTT[Tên tuyến tàu], CT.TENCT[Tên công ty], G1.TENGA[Ga xuất phát], G2.TENGA[Ga kết thúc], LTT.TENLTT[Loại tuyến tàu], TT.GHICHU[Ghi chú], TT.GIAVE[Giá vé], TT.GIOBD[Giờ bắt đầu], TT.GIOKT[Giờ kết thúc], TT.THOIGIANCHO[Thời gian chờ], TT.TINHTRANG[Tình trạng] " +
+            string sql = "SELECT TT.MATT[Mã tuyến tàu], TT.TENTT[Tên tuyến tàu], CT.TENCT[Tên công ty], G1.TENGA[Ga xuất phát], G2.TENGA[Ga kết thúc], LTT.TENLTT[Loại tuyến tàu], TT.GHICHU[Ghi chú],  TT.GIOBD[Giờ bắt đầu], TT.GIOKT[Giờ kết thúc], TT.GIAVETHUONG[Giá vé thường],TT.GIAVETHANG[Giá vé tháng],TT.THOIGIANCHO[Thời gian chờ], TT.TINHTRANG[Tình trạng] " +
                 "FROM TUYENTAU TT " +
                 "INNER JOIN GA G1 ON TT.MAGAXP = G1.MAGA " +
                 "INNER JOIN GA G2 ON TT.MAGAKT = G2.MAGA " +
@@ -112,7 +112,7 @@ namespace eMetro.DAL
         {
             //B1: Tạo câu lệnh Sql để lấy toàn bộ sân bay
             //string sql = "SELECT * FROM SANBAY";
-            string sql = "SELECT p.MATT[Mã tuyến tàu], p.TENTT[Tên tuyến tàu], ct.TENCT[Tên công ty],G1.TENGA[Ga xuất phát], STUFF((SELECT ';' + b.TENGA FROM  CTTUYENTAU a INNER JOIN GA b ON a.MAGATG = b.MAGA WHERE a.MATT = p.MATT FOR XML PATH ('')), 1, 1, '')  AS [Ga trung gian],   G2.TENGA[Ga kết thúc], LTT.TENLTT[Loại tuyến tàu], p.GHICHU[Ghi chú], p.GIOBD[Giờ bắt đầu], p.GIOKT[Giờ kết thúc], p.THOIGIANCHO[Thời gian chờ] FROM TUYENTAU AS p JOIN CONGTY AS ct ON ct.MACT = p.MACT INNER JOIN GA G1 ON p.MAGAXP = G1.MAGA INNER JOIN GA G2 ON p.MAGAKT = G2.MAGA INNER JOIN LOAITUYENTAU LTT ON LTT.MALTT = p.MALTT WHERE p.TINHTRANG = N'Hoạt động' GROUP BY p.MATT, p.TENTT, p.THOIGIANCHO, ct.TENCT, G1.TENGA, G2.TENGA, LTT.TENLTT, p.GHICHU, p.GIOBD, p.GIOKT, p.THOIGIANCHO";
+            string sql = "SELECT p.MATT[Mã tuyến tàu], p.TENTT[Tên tuyến tàu], ct.TENCT[Tên công ty],G1.TENGA[Ga xuất phát], STUFF((SELECT ';' + b.TENGA FROM  CTTUYENTAU a INNER JOIN GA b ON a.MAGATG = b.MAGA WHERE a.MATT = p.MATT FOR XML PATH ('')), 1, 1, '')  AS [Ga trung gian],   G2.TENGA[Ga kết thúc], p.GIAVETHUONG[Giá vé thường],p.GIAVETHANG[Giá vé tháng] ,LTT.TENLTT[Loại tuyến tàu], p.GHICHU[Ghi chú], p.GIOBD[Giờ bắt đầu], p.GIOKT[Giờ kết thúc], p.THOIGIANCHO[Thời gian chờ] FROM TUYENTAU AS p JOIN CONGTY AS ct ON ct.MACT = p.MACT INNER JOIN GA G1 ON p.MAGAXP = G1.MAGA INNER JOIN GA G2 ON p.MAGAKT = G2.MAGA INNER JOIN LOAITUYENTAU LTT ON LTT.MALTT = p.MALTT WHERE p.TINHTRANG = N'Hoạt động' GROUP BY p.MATT, p.TENTT, p.THOIGIANCHO, ct.TENCT, G1.TENGA, G2.TENGA, LTT.TENLTT, p.GHICHU, p.GIOBD, p.GIOKT, p.THOIGIANCHO, p.GIAVETHUONG, p.GIAVETHANG";
             //B2: Tạo một kết nối đến Sql
             SqlConnection con = dc.GetConnect();
             //B3: Khởi tạo đối tượng của lớp SqlDataAdapter
@@ -181,7 +181,7 @@ namespace eMetro.DAL
             {
                 //cmd = new SqlCommand(sql, con);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO TUYENTAU(matt, mact, tentt, magaxp, magakt, maltt, ghichu, giave, giobd, giokt, thoigiancho, tinhtrang) VALUES(@MATT, @MACT, @TENTT, @MAGAXP, @MAGAKT, @MALTT, @GHICHU, @GIAVE, @GIOBD, @GIOKT, @THOIGIANCHO, @TINHTRANG)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO TUYENTAU(matt, mact, tentt, magaxp, magakt, maltt, ghichu,  giobd, giokt, giavethuong, giavethang ,thoigiancho, tinhtrang) VALUES(@MATT, @MACT, @TENTT, @MAGAXP, @MAGAKT, @MALTT, @GHICHU, @GIOBD, @GIOKT, @GIAVETHUONG, @GIAVETHANG ,@THOIGIANCHO, @TINHTRANG)", con);
                 cmd.Parameters.AddWithValue("@MATT", TaoMaTT());
                 cmd.Parameters.AddWithValue("@MACT", tt.tenct);
                 cmd.Parameters.AddWithValue("@TENTT", tt.tentt);
@@ -189,7 +189,8 @@ namespace eMetro.DAL
                 cmd.Parameters.AddWithValue("@MAGAKT", tt.tengakt);
                 cmd.Parameters.AddWithValue("@MALTT", tt.tenltt);
                 cmd.Parameters.AddWithValue("@GHICHU", tt.ghichu);
-                cmd.Parameters.AddWithValue("@GIAVE", tt.giave);
+                cmd.Parameters.AddWithValue("@GIAVETHUONG", tt.giavethuong);
+                cmd.Parameters.AddWithValue("@GIAVETHANG", tt.giavethang);
                 cmd.Parameters.AddWithValue("@GIOBD", tt.giobd);
                 cmd.Parameters.AddWithValue("@GIOKT", tt.giokt);
                 cmd.Parameters.AddWithValue("@THOIGIANCHO", tt.thoigianchocb);
@@ -213,7 +214,7 @@ namespace eMetro.DAL
             {
                 //cmd = new SqlCommand(sql, con);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE TUYENTAU SET tentt=@TENTT, mact=@MACT, magaxp=@MAGAXP, magakt=@MAGAKT, maltt=@MALTT, ghichu=@GHICHU, giave=@GIAVE, giobd=@GIOBD, giokt=@GIOKT, thoigiancho=@THOIGIANCHO, tinhtrang=@TINHTRANG WHERE matt=@MATT", con);
+                SqlCommand cmd = new SqlCommand("UPDATE TUYENTAU SET tentt=@TENTT, mact=@MACT, magaxp=@MAGAXP, magakt=@MAGAKT, maltt=@MALTT, ghichu=@GHICHU, giavethuong=@GIAVETHUONG, giavethang=@GIAVETHANG,giobd=@GIOBD, giokt=@GIOKT, thoigiancho=@THOIGIANCHO, tinhtrang=@TINHTRANG WHERE matt=@MATT", con);
                 cmd.Parameters.AddWithValue("@MATT", tt.matt);
                 cmd.Parameters.AddWithValue("@TENTT", tt.tentt);
                 cmd.Parameters.AddWithValue("@MACT", tt.tenct);
@@ -221,7 +222,8 @@ namespace eMetro.DAL
                 cmd.Parameters.AddWithValue("@MAGAKT", tt.tengakt);
                 cmd.Parameters.AddWithValue("@MALTT", tt.tenltt);
                 cmd.Parameters.AddWithValue("@GHICHU", tt.ghichu);
-                cmd.Parameters.AddWithValue("@GIAVE", tt.giave);
+                cmd.Parameters.AddWithValue("@GIAVETHUONG", tt.giavethuong);
+                cmd.Parameters.AddWithValue("@GIAVETHANG", tt.giavethang);
                 cmd.Parameters.AddWithValue("@GIOBD", tt.giobd);
                 cmd.Parameters.AddWithValue("@GIOKT", tt.giokt);
                 cmd.Parameters.AddWithValue("@THOIGIANCHO", tt.thoigianchocb);

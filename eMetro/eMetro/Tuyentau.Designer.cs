@@ -29,18 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox_giathang = new System.Windows.Forms.TextBox();
+            this.label_label_giavethang = new System.Windows.Forms.Label();
+            this.textBox_giathuong = new System.Windows.Forms.TextBox();
+            this.label_giavethuong = new System.Windows.Forms.Label();
             this.comboBox_congty = new System.Windows.Forms.ComboBox();
             this.comboBox_gaxp = new System.Windows.Forms.ComboBox();
             this.comboBox_ltt = new System.Windows.Forms.ComboBox();
             this.comboBox_gakt = new System.Windows.Forms.ComboBox();
             this.comboBox_tinhtrang = new System.Windows.Forms.ComboBox();
             this.textBox_tgcho = new System.Windows.Forms.TextBox();
-            this.textBox_giave = new System.Windows.Forms.TextBox();
             this.textBox_ghichu = new System.Windows.Forms.TextBox();
             this.textBox_tentt = new System.Windows.Forms.TextBox();
             this.textBox_matt = new System.Windows.Forms.TextBox();
@@ -50,7 +53,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label_giokt = new System.Windows.Forms.Label();
             this.label_giobd = new System.Windows.Forms.Label();
-            this.label_giave = new System.Windows.Forms.Label();
             this.label_ghichu = new System.Windows.Forms.Label();
             this.label_ltt = new System.Windows.Forms.Label();
             this.label_tengakt = new System.Windows.Forms.Label();
@@ -77,6 +79,7 @@
             this.iconButton_xoaCTTT = new FontAwesome.Sharp.IconButton();
             this.iconButton_luuCTTT = new FontAwesome.Sharp.IconButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.bunifuElipse_cttt = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView_tuyentau)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tUYENTAUBindingSource)).BeginInit();
@@ -89,13 +92,16 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.textBox_giathang);
+            this.groupBox1.Controls.Add(this.label_label_giavethang);
+            this.groupBox1.Controls.Add(this.textBox_giathuong);
+            this.groupBox1.Controls.Add(this.label_giavethuong);
             this.groupBox1.Controls.Add(this.comboBox_congty);
             this.groupBox1.Controls.Add(this.comboBox_gaxp);
             this.groupBox1.Controls.Add(this.comboBox_ltt);
             this.groupBox1.Controls.Add(this.comboBox_gakt);
             this.groupBox1.Controls.Add(this.comboBox_tinhtrang);
             this.groupBox1.Controls.Add(this.textBox_tgcho);
-            this.groupBox1.Controls.Add(this.textBox_giave);
             this.groupBox1.Controls.Add(this.textBox_ghichu);
             this.groupBox1.Controls.Add(this.textBox_tentt);
             this.groupBox1.Controls.Add(this.textBox_matt);
@@ -105,7 +111,6 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label_giokt);
             this.groupBox1.Controls.Add(this.label_giobd);
-            this.groupBox1.Controls.Add(this.label_giave);
             this.groupBox1.Controls.Add(this.label_ghichu);
             this.groupBox1.Controls.Add(this.label_ltt);
             this.groupBox1.Controls.Add(this.label_tengakt);
@@ -121,6 +126,48 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết tuyến tàu";
+            // 
+            // textBox_giathang
+            // 
+            this.textBox_giathang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.textBox_giathang.Location = new System.Drawing.Point(191, 473);
+            this.textBox_giathang.Name = "textBox_giathang";
+            this.textBox_giathang.Size = new System.Drawing.Size(190, 29);
+            this.textBox_giathang.TabIndex = 60;
+            this.textBox_giathang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_giathang_KeyPress);
+            // 
+            // label_label_giavethang
+            // 
+            this.label_label_giavethang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label_label_giavethang.AutoSize = true;
+            this.label_label_giavethang.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_label_giavethang.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label_label_giavethang.Location = new System.Drawing.Point(20, 477);
+            this.label_label_giavethang.Name = "label_label_giavethang";
+            this.label_label_giavethang.Size = new System.Drawing.Size(128, 25);
+            this.label_label_giavethang.TabIndex = 59;
+            this.label_label_giavethang.Text = "Giá vé tháng:";
+            // 
+            // textBox_giathuong
+            // 
+            this.textBox_giathuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.textBox_giathuong.Location = new System.Drawing.Point(191, 428);
+            this.textBox_giathuong.Name = "textBox_giathuong";
+            this.textBox_giathuong.Size = new System.Drawing.Size(190, 29);
+            this.textBox_giathuong.TabIndex = 58;
+            this.textBox_giathuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_giathuong_KeyPress);
+            // 
+            // label_giavethuong
+            // 
+            this.label_giavethuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label_giavethuong.AutoSize = true;
+            this.label_giavethuong.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_giavethuong.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label_giavethuong.Location = new System.Drawing.Point(20, 432);
+            this.label_giavethuong.Name = "label_giavethuong";
+            this.label_giavethuong.Size = new System.Drawing.Size(143, 25);
+            this.label_giavethuong.TabIndex = 57;
+            this.label_giavethuong.Text = "Giá vé thường:";
             // 
             // comboBox_congty
             // 
@@ -151,7 +198,7 @@
             this.comboBox_ltt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_ltt.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_ltt.FormattingEnabled = true;
-            this.comboBox_ltt.Location = new System.Drawing.Point(191, 313);
+            this.comboBox_ltt.Location = new System.Drawing.Point(191, 334);
             this.comboBox_ltt.Name = "comboBox_ltt";
             this.comboBox_ltt.Size = new System.Drawing.Size(190, 29);
             this.comboBox_ltt.TabIndex = 54;
@@ -177,7 +224,7 @@
             this.comboBox_tinhtrang.Items.AddRange(new object[] {
             "Hoạt động",
             "Không hoạt động"});
-            this.comboBox_tinhtrang.Location = new System.Drawing.Point(205, 649);
+            this.comboBox_tinhtrang.Location = new System.Drawing.Point(205, 680);
             this.comboBox_tinhtrang.Name = "comboBox_tinhtrang";
             this.comboBox_tinhtrang.Size = new System.Drawing.Size(176, 29);
             this.comboBox_tinhtrang.TabIndex = 51;
@@ -185,25 +232,16 @@
             // textBox_tgcho
             // 
             this.textBox_tgcho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.textBox_tgcho.Location = new System.Drawing.Point(205, 609);
+            this.textBox_tgcho.Location = new System.Drawing.Point(205, 640);
             this.textBox_tgcho.Name = "textBox_tgcho";
             this.textBox_tgcho.Size = new System.Drawing.Size(176, 29);
             this.textBox_tgcho.TabIndex = 50;
             this.textBox_tgcho.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_tgcho_KeyPress);
             // 
-            // textBox_giave
-            // 
-            this.textBox_giave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.textBox_giave.Location = new System.Drawing.Point(191, 437);
-            this.textBox_giave.Name = "textBox_giave";
-            this.textBox_giave.Size = new System.Drawing.Size(190, 29);
-            this.textBox_giave.TabIndex = 49;
-            this.textBox_giave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_giave_KeyPress);
-            // 
             // textBox_ghichu
             // 
             this.textBox_ghichu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.textBox_ghichu.Location = new System.Drawing.Point(191, 395);
+            this.textBox_ghichu.Location = new System.Drawing.Point(191, 374);
             this.textBox_ghichu.Name = "textBox_ghichu";
             this.textBox_ghichu.Size = new System.Drawing.Size(190, 29);
             this.textBox_ghichu.TabIndex = 48;
@@ -228,7 +266,7 @@
             this.dateTimePicker_giokt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dateTimePicker_giokt.CustomFormat = "HH:mm";
             this.dateTimePicker_giokt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_giokt.Location = new System.Drawing.Point(205, 569);
+            this.dateTimePicker_giokt.Location = new System.Drawing.Point(205, 581);
             this.dateTimePicker_giokt.Name = "dateTimePicker_giokt";
             this.dateTimePicker_giokt.ShowUpDown = true;
             this.dateTimePicker_giokt.Size = new System.Drawing.Size(176, 29);
@@ -239,7 +277,7 @@
             this.dateTimePicker_giobd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dateTimePicker_giobd.CustomFormat = "HH:mm";
             this.dateTimePicker_giobd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_giobd.Location = new System.Drawing.Point(205, 529);
+            this.dateTimePicker_giobd.Location = new System.Drawing.Point(205, 541);
             this.dateTimePicker_giobd.Name = "dateTimePicker_giobd";
             this.dateTimePicker_giobd.ShowUpDown = true;
             this.dateTimePicker_giobd.Size = new System.Drawing.Size(176, 29);
@@ -251,7 +289,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(20, 649);
+            this.label2.Location = new System.Drawing.Point(20, 680);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 25);
             this.label2.TabIndex = 36;
@@ -263,7 +301,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(20, 609);
+            this.label1.Location = new System.Drawing.Point(20, 640);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 25);
             this.label1.TabIndex = 35;
@@ -275,7 +313,7 @@
             this.label_giokt.AutoSize = true;
             this.label_giokt.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_giokt.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label_giokt.Location = new System.Drawing.Point(20, 572);
+            this.label_giokt.Location = new System.Drawing.Point(20, 584);
             this.label_giokt.Name = "label_giokt";
             this.label_giokt.Size = new System.Drawing.Size(125, 25);
             this.label_giokt.TabIndex = 34;
@@ -287,23 +325,11 @@
             this.label_giobd.AutoSize = true;
             this.label_giobd.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_giobd.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label_giobd.Location = new System.Drawing.Point(20, 532);
+            this.label_giobd.Location = new System.Drawing.Point(20, 544);
             this.label_giobd.Name = "label_giobd";
             this.label_giobd.Size = new System.Drawing.Size(121, 25);
             this.label_giobd.TabIndex = 33;
             this.label_giobd.Text = "Giờ bắt đầu:";
-            // 
-            // label_giave
-            // 
-            this.label_giave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label_giave.AutoSize = true;
-            this.label_giave.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_giave.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label_giave.Location = new System.Drawing.Point(20, 441);
-            this.label_giave.Name = "label_giave";
-            this.label_giave.Size = new System.Drawing.Size(71, 25);
-            this.label_giave.TabIndex = 32;
-            this.label_giave.Text = "Giá vé:";
             // 
             // label_ghichu
             // 
@@ -311,7 +337,7 @@
             this.label_ghichu.AutoSize = true;
             this.label_ghichu.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_ghichu.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label_ghichu.Location = new System.Drawing.Point(20, 399);
+            this.label_ghichu.Location = new System.Drawing.Point(20, 378);
             this.label_ghichu.Name = "label_ghichu";
             this.label_ghichu.Size = new System.Drawing.Size(84, 25);
             this.label_ghichu.TabIndex = 31;
@@ -323,7 +349,7 @@
             this.label_ltt.AutoSize = true;
             this.label_ltt.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_ltt.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label_ltt.Location = new System.Drawing.Point(20, 313);
+            this.label_ltt.Location = new System.Drawing.Point(20, 334);
             this.label_ltt.Name = "label_ltt";
             this.label_ltt.Size = new System.Drawing.Size(144, 25);
             this.label_ltt.TabIndex = 30;
@@ -502,8 +528,8 @@
             this.bunifuCustomDataGrid_CTTUYENTAU.AllowUserToAddRows = false;
             this.bunifuCustomDataGrid_CTTUYENTAU.AllowUserToDeleteRows = false;
             this.bunifuCustomDataGrid_CTTUYENTAU.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.bunifuCustomDataGrid_CTTUYENTAU.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.bunifuCustomDataGrid_CTTUYENTAU.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.bunifuCustomDataGrid_CTTUYENTAU.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -512,14 +538,14 @@
             this.bunifuCustomDataGrid_CTTUYENTAU.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGrid_CTTUYENTAU.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.bunifuCustomDataGrid_CTTUYENTAU.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid_CTTUYENTAU.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGrid_CTTUYENTAU.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.bunifuCustomDataGrid_CTTUYENTAU.ColumnHeadersHeight = 50;
             this.bunifuCustomDataGrid_CTTUYENTAU.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.bunifuCustomDataGrid_CTTUYENTAU.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -529,14 +555,14 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.bunifuCustomDataGrid_CTTUYENTAU.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.bunifuCustomDataGrid_CTTUYENTAU.DefaultCellStyle = dataGridViewCellStyle7;
             this.bunifuCustomDataGrid_CTTUYENTAU.DoubleBuffered = true;
             this.bunifuCustomDataGrid_CTTUYENTAU.EnableHeadersVisualStyles = false;
             this.bunifuCustomDataGrid_CTTUYENTAU.GridColor = System.Drawing.Color.WhiteSmoke;
@@ -547,10 +573,10 @@
             this.bunifuCustomDataGrid_CTTUYENTAU.Name = "bunifuCustomDataGrid_CTTUYENTAU";
             this.bunifuCustomDataGrid_CTTUYENTAU.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.bunifuCustomDataGrid_CTTUYENTAU.RowHeadersVisible = false;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.bunifuCustomDataGrid_CTTUYENTAU.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            this.bunifuCustomDataGrid_CTTUYENTAU.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.bunifuCustomDataGrid_CTTUYENTAU.RowTemplate.DividerHeight = 2;
             this.bunifuCustomDataGrid_CTTUYENTAU.RowTemplate.Height = 30;
             this.bunifuCustomDataGrid_CTTUYENTAU.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -694,6 +720,11 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ga trung gian";
             // 
+            // bunifuElipse_cttt
+            // 
+            this.bunifuElipse_cttt.ElipseRadius = 20;
+            this.bunifuElipse_cttt.TargetControl = this.bunifuCustomDataGrid_CTTUYENTAU;
+            // 
             // Tuyentau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -727,7 +758,6 @@
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label_giobd;
-        private System.Windows.Forms.Label label_giave;
         private System.Windows.Forms.Label label_ghichu;
         private System.Windows.Forms.Label label_ltt;
         private System.Windows.Forms.Label label_tengakt;
@@ -748,7 +778,6 @@
         private EMETRODataSetTableAdapters.TUYENTAUTableAdapter tUYENTAUTableAdapter;
         private System.Windows.Forms.TextBox textBox_matt;
         private System.Windows.Forms.TextBox textBox_tgcho;
-        private System.Windows.Forms.TextBox textBox_giave;
         private System.Windows.Forms.TextBox textBox_ghichu;
         private System.Windows.Forms.TextBox textBox_tentt;
         private System.Windows.Forms.ComboBox comboBox_tinhtrang;
@@ -762,12 +791,17 @@
         private FontAwesome.Sharp.IconButton iconButton_themCTTT;
         private FontAwesome.Sharp.IconButton iconButton_xoaCTTT;
         private FontAwesome.Sharp.IconButton iconButton_luuCTTT;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse_cttt;
         private System.Windows.Forms.DataGridViewCheckBoxColumn select;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBox_giathang;
+        private System.Windows.Forms.Label label_label_giavethang;
+        private System.Windows.Forms.TextBox textBox_giathuong;
+        private System.Windows.Forms.Label label_giavethuong;
     }
 }

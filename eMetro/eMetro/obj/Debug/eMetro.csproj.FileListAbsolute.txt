@@ -32,3 +32,4 @@ G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.Notification.Alert.resource
 G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.Ga.resources
 G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.Tuyentau.resources
 G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.Banve.resources
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\QRCoder.dll

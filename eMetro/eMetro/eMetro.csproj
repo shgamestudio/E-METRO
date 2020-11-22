@@ -43,6 +43,11 @@
       <HintPath>..\packages\FontAwesome.Sharp.5.15.1\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.4.1\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -55,6 +60,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banve.cs">
@@ -67,6 +73,7 @@
     <Compile Include="BLL\CTTuyentauBLL.cs" />
     <Compile Include="BLL\GaBLL.cs" />
     <Compile Include="BLL\TuyentauBLL.cs" />
+    <Compile Include="BLL\VeBLL.cs" />
     <Compile Include="Congty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +85,7 @@
     <Compile Include="DAL\DataConnection.cs" />
     <Compile Include="DAL\GaDAL.cs" />
     <Compile Include="DAL\TuyentauDAL.cs" />
+    <Compile Include="DAL\VeDAL.cs" />
     <Compile Include="DTO\Congty.cs" />
     <Compile Include="DTO\CTTuyentau.cs" />
     <Compile Include="DTO\Ga.cs" />
@@ -87,6 +95,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EMETRODataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EMETRODataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EMETRODataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EMETRODataSet_TT.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EMETRODataSet_TT.xsd</DependentUpon>
     </Compile>
     <Compile Include="Ga.cs">
       <SubType>Form</SubType>
@@ -176,6 +194,28 @@
     <None Include="EMETRODataSet.xss">
       <DependentUpon>EMETRODataSet.xsd</DependentUpon>
     </None>
+    <None Include="EMETRODataSet1.xsc">
+      <DependentUpon>EMETRODataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="EMETRODataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EMETRODataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EMETRODataSet1.xss">
+      <DependentUpon>EMETRODataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="EMETRODataSet_TT.xsc">
+      <DependentUpon>EMETRODataSet_TT.xsd</DependentUpon>
+    </None>
+    <None Include="EMETRODataSet_TT.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EMETRODataSet_TT.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EMETRODataSet_TT.xss">
+      <DependentUpon>EMETRODataSet_TT.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -215,6 +255,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\50471.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

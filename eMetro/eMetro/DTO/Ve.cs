@@ -8,10 +8,11 @@ namespace eMetro.DTO
 {
     class Ve
     {
-        public string maga { set; get; }
-        public string tenga { set; get; }
-        public string motavitri { set; get; }
-        public byte[] bando { set; get; }
+        public string mave { set; get; }
+        public string malv { set; get; }
+        public string matt { set; get; }
+        public decimal giave { set; get; }
+        public DateTime ngaymua { set; get; }
         public string tinhtrang { set; get; }
     }
 }

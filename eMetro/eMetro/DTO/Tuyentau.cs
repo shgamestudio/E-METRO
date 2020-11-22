@@ -15,7 +15,8 @@ namespace eMetro.DTO
         public string tengakt { set; get; }
         public string tenltt { set; get; }
         public string ghichu { set; get; }
-        public decimal giave { set; get; }
+        public decimal giavethuong { set; get; }
+        public decimal giavethang { set; get; }
         public string giobd { set; get; }
         public string giokt { set; get; }
         public string thoigianchocb { set; get; }
