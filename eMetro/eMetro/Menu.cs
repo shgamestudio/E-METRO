@@ -197,7 +197,10 @@ namespace eMetro
 
         private void PictureBox_close_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
+            var dn = new Dangnhap();
+            dn.Closed += (s, args) => this.Close();
+            dn.Show();
         }
 
         private void PictureBox_restore_Click(object sender, EventArgs e)

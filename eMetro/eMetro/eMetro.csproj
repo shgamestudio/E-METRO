@@ -42,6 +42,9 @@
     <Reference Include="FontAwesome.Sharp, Version=5.15.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.1\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>D:\1A-----MUST\New folder\_Getintopc.com_Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -72,6 +75,7 @@
     <Compile Include="BLL\CongtyBLL.cs" />
     <Compile Include="BLL\CTTuyentauBLL.cs" />
     <Compile Include="BLL\GaBLL.cs" />
+    <Compile Include="BLL\NhanvienBLL.cs" />
     <Compile Include="BLL\TuyentauBLL.cs" />
     <Compile Include="BLL\VeBLL.cs" />
     <Compile Include="Congty.cs">
@@ -84,11 +88,19 @@
     <Compile Include="DAL\CTTuyentauDAL.cs" />
     <Compile Include="DAL\DataConnection.cs" />
     <Compile Include="DAL\GaDAL.cs" />
+    <Compile Include="DAL\NhanvienDAL.cs" />
     <Compile Include="DAL\TuyentauDAL.cs" />
     <Compile Include="DAL\VeDAL.cs" />
+    <Compile Include="Dangnhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dangnhap.Designer.cs">
+      <DependentUpon>Dangnhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="DTO\Congty.cs" />
     <Compile Include="DTO\CTTuyentau.cs" />
     <Compile Include="DTO\Ga.cs" />
+    <Compile Include="DTO\Nhanvien.cs" />
     <Compile Include="DTO\Tuyentau.cs" />
     <Compile Include="DTO\Ve.cs" />
     <Compile Include="EMETRODataSet.Designer.cs">
@@ -154,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Congty.resx">
       <DependentUpon>Congty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dangnhap.resx">
+      <DependentUpon>Dangnhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ga.resx">
       <DependentUpon>Ga.cs</DependentUpon>

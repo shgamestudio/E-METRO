@@ -40,7 +40,7 @@ namespace eMetro
 
             this.tUYENTAUBindingSource.DataSource = bllTT.gettuyentau();
             this.advancedDataGridView_tuyentau.DataSource = this.tUYENTAUBindingSource;
-
+            bunifuCustomDataGrid_CTTUYENTAU.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
       

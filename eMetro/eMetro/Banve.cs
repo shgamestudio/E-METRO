@@ -107,7 +107,8 @@ namespace eMetro
             DataGridViewColumn column = advancedDataGridView_tuyentau.Columns[4];
             column.Width = 200;
             advancedDataGridView_tuyentau.Rows[0].Selected = true;
-            
+            bunifuCustomDataGrid_CTTUYENTAU.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
         }
 
         private void TextBox_search_TextChanged(object sender, EventArgs e)
@@ -203,6 +204,8 @@ namespace eMetro
                 //bunifuCustomDataGrid_CTTUYENTAU.DataSource = bllCTTT.getAllCTTuyentau(advancedDataGridView_tuyentau.Rows[index].Cells["Mã tuyến tàu"].Value.ToString());   *tam cmd lại
 
                 bunifuCustomDataGrid_CTTUYENTAU.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                bunifuCustomDataGrid_CTTUYENTAU.RowHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+             
                 bunifuCustomDataGrid_CTTUYENTAU.Rows.Clear();
                 bunifuCustomDataGrid_CTTUYENTAU.Refresh();
 
