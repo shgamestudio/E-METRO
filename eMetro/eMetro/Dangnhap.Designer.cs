@@ -43,6 +43,8 @@
             this.gunaImageButton_exit = new Guna.UI.WinForms.GunaImageButton();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
             this.textBox_password = new System.Windows.Forms.TextBox();
+            this.label_fail_count = new System.Windows.Forms.Label();
+            this.timer_checkSignin = new System.Windows.Forms.Timer(this.components);
             this.bunifuGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -120,7 +122,7 @@
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(370, 72);
+            this.bunifuSeparator1.Location = new System.Drawing.Point(374, 72);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(165, 49);
             this.bunifuSeparator1.TabIndex = 27;
@@ -181,7 +183,7 @@
             this.gunaGradientButton_dangnhap.OnPressedColor = System.Drawing.Color.Black;
             this.gunaGradientButton_dangnhap.Radius = 15;
             this.gunaGradientButton_dangnhap.Size = new System.Drawing.Size(159, 44);
-            this.gunaGradientButton_dangnhap.TabIndex = 36;
+            this.gunaGradientButton_dangnhap.TabIndex = 30;
             this.gunaGradientButton_dangnhap.Text = "Đăng nhập";
             this.gunaGradientButton_dangnhap.Click += new System.EventHandler(this.GunaGradientButton_dangnhap_Click);
             // 
@@ -202,7 +204,7 @@
             // bunifuSeparator2
             // 
             this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator2.LineColor = System.Drawing.Color.Gray;
+            this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.bunifuSeparator2.LineThickness = 4;
             this.bunifuSeparator2.Location = new System.Drawing.Point(334, 199);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
@@ -210,6 +212,8 @@
             this.bunifuSeparator2.TabIndex = 38;
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = false;
+            this.bunifuSeparator2.MouseEnter += new System.EventHandler(this.BunifuSeparator2_MouseEnter);
+            this.bunifuSeparator2.MouseLeave += new System.EventHandler(this.BunifuSeparator2_MouseLeave);
             // 
             // textBox_password
             // 
@@ -222,6 +226,26 @@
             this.textBox_password.Text = "password";
             this.textBox_password.UseSystemPasswordChar = true;
             this.textBox_password.Click += new System.EventHandler(this.TextBox_password_Click);
+            this.textBox_password.MouseEnter += new System.EventHandler(this.TextBox_password_MouseEnter);
+            this.textBox_password.MouseLeave += new System.EventHandler(this.TextBox_password_MouseLeave);
+            // 
+            // label_fail_count
+            // 
+            this.label_fail_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label_fail_count.AutoSize = true;
+            this.label_fail_count.BackColor = System.Drawing.Color.Transparent;
+            this.label_fail_count.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_fail_count.ForeColor = System.Drawing.Color.Red;
+            this.label_fail_count.Location = new System.Drawing.Point(350, 227);
+            this.label_fail_count.Name = "label_fail_count";
+            this.label_fail_count.Size = new System.Drawing.Size(25, 20);
+            this.label_fail_count.TabIndex = 39;
+            this.label_fail_count.Text = "30";
+            this.label_fail_count.Visible = false;
+            // 
+            // timer_checkSignin
+            // 
+            this.timer_checkSignin.Tick += new System.EventHandler(this.Timer_checkSignin_Tick);
             // 
             // Dangnhap
             // 
@@ -229,6 +253,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(630, 343);
+            this.Controls.Add(this.label_fail_count);
             this.Controls.Add(this.bunifuSeparator2);
             this.Controls.Add(this.textBox_password);
             this.Controls.Add(this.gunaImageButton_exit);
@@ -265,5 +290,7 @@
         private Guna.UI.WinForms.GunaImageButton gunaImageButton_exit;
         private System.Windows.Forms.TextBox textBox_password;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator2;
+        private System.Windows.Forms.Label label_fail_count;
+        private System.Windows.Forms.Timer timer_checkSignin;
     }
 }

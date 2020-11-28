@@ -39,5 +39,54 @@ namespace eMetro.DAL
             return result.Rows.Count > 0;
         }
 
+        public string GetManv(string userName, string passWord)
+        {
+            //SqlConnection con = dc.GetConnect();
+
+            //DataTable dt = new DataTable();
+            //string sqlQuery = string.Format("SELECT MANV FROM NHANVIEN WHERE MALTT='{0}' ", str);
+            //SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            //da.Fill(dt);
+            //return (String)dt.Rows[0][0];
+            string query = "USP_Login @username , @passWord";
+            DataTable result = DataConnection.Instance.ExecuteQuery(query, new object[] { userName, passWord });
+
+            return (String)result.Rows[0][0];
+        }
+
+        public string GetLoainv(string manv)
+        {
+            SqlConnection con = dc.GetConnect();
+
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format("SELECT LOAINV FROM NHANVIEN WHERE MANV='{0}' ", manv);
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            return (String)dt.Rows[0][0];
+        }
+
+        public string GetTennv(string manv)
+        {
+            SqlConnection con = dc.GetConnect();
+
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format("SELECT TENNV FROM NHANVIEN WHERE MANV='{0}' ", manv);
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            return (String)dt.Rows[0][0];
+        }
+
+        public string GetCongtynv(string manv)
+        {
+            SqlConnection con = dc.GetConnect();
+
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format("SELECT MACT FROM NHANVIEN WHERE MANV='{0}' ", manv);
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            return (String)dt.Rows[0][0];
+        }
+
+
     }
 }

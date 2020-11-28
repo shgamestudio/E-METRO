@@ -16,13 +16,14 @@ namespace eMetro
     public partial class Menu : Form
     {
         //Fields
+        string manhanvien;
         private IconButton currentBtn;
         private IconButton clickedBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
         private bool minim = false;
         private bool hometrig = true;
-
+        BLL.NhanvienBLL bllNV;
         //Struct
         private struct RGBColors
         {
@@ -38,9 +39,11 @@ namespace eMetro
 
        
 
-        public Menu()
+        public Menu(string manv)
         {
             InitializeComponent();
+            manhanvien = manv;
+            bllNV = new BLL.NhanvienBLL();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             leftBorderBtn.Visible = false;
@@ -123,6 +126,8 @@ namespace eMetro
             {
                 iconButton_homebtn.FlatAppearance.MouseDownBackColor = iconButton_homebtn.BackColor;
             };
+            bunifuCustomLabel_tennv.Text = bllNV.GetTennv(manv);
+
             #endregion
         }
 
@@ -197,10 +202,16 @@ namespace eMetro
 
         private void PictureBox_close_Click(object sender, EventArgs e)
         {
+            //this.Hide();
+            //var dn = new Dangnhap();
+            //dn.Closed += (s, args) => this.Close();
+            //dn.Show();
+            //notifyIcon_metro.Icon = System.Drawing.Icon.FromHandle(Properties.Resources._50471).ToBitmap();
+            notifyIcon_metro.BalloonTipText = "Ứng dụng đã được ẩn vào taskbar";
+            notifyIcon_metro.ShowBalloonTip(1000);
+            this.ShowInTaskbar = false;
             this.Hide();
-            var dn = new Dangnhap();
-            dn.Closed += (s, args) => this.Close();
-            dn.Show();
+            notifyIcon_metro.Visible = true;
         }
 
         private void PictureBox_restore_Click(object sender, EventArgs e)
@@ -273,7 +284,7 @@ namespace eMetro
                 IconButton theBtn = (IconButton)sender;
                 clickedBtn = theBtn;
             }
-            OpenChildForm(new Tuyentau(), iconButton_QLTT.Text);
+            OpenChildForm(new Tuyentau(manhanvien), iconButton_QLTT.Text);
             label_showform.Text = "Quản lý tuyến tàu";
         }
 
@@ -392,6 +403,16 @@ namespace eMetro
         private void PictureBox_menusidebar_Click(object sender, EventArgs e)
         {
             minim = !minim;
+            if(gunaGradient2Panel_namecard.Location.X == 104)
+            {   
+                gunaGradient2Panel_namecard.Visible = false;
+                gunaGradient2Panel_namecard.Location = new Point(121,15);
+                bunifuTransition_sidebar.Show(gunaGradient2Panel_namecard);
+            }
+            else
+            {
+                gunaGradient2Panel_namecard.Location = new Point(104, 15);
+            }
             if(bunifuGradientPanel_menu.Width == 270)
             {
                 //
@@ -523,6 +544,71 @@ namespace eMetro
             }
         }
 
-      
+        private void NotifyIcon_metro_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.ShowInTaskbar = true;
+            this.Show();
+            notifyIcon_metro.Visible = false;
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            //if(bllNV.GetLoainv(manhanvien)==)
+            //{
+
+            //}
+            bunifuCustomLabel_loainv.Text = bllNV.GetLoainv(manhanvien);
+            switch (bllNV.GetLoainv(manhanvien))
+            {
+                case "Nhân viên bán vé":
+                    iconButton_QLCT.Enabled = false;
+                    iconButton_QLG.Enabled = false;
+                    iconButton_QLTT.Enabled = false;
+                    break;
+                case "Nhân viên sở GT":
+                    iconButton_BDK.Enabled = false;
+                    iconButton_QLTT.Enabled = false;                  
+                    break;
+                case "Nhân viên công ty":
+                    iconButton_BDK.Enabled = false;
+                    iconButton_QLCT.Enabled = false;
+                    iconButton_QLG.Enabled = false;
+                    break;
+            }
+        }
+
+        private void GunaGradientButton_dangxuat_Click(object sender, EventArgs e)
+        {
+            //Dangnhap dn = new Dangnhap();
+            //this.();
+
+            //dn.Show();
+            this.Hide();
+            notifyIcon_metro.Visible = false;
+            var dangnhap = new Dangnhap();
+            dangnhap.Closed += (s, args) => this.Close();
+            dangnhap.Show();
+        }
+
+        private void ThoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ĐăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            notifyIcon_metro.Visible = false;
+            var dangnhap = new Dangnhap();
+            dangnhap.Closed += (s, args) => this.Close();
+            dangnhap.Show();
+        }
+
+        private void KhôiPhụcCửaSổChínhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ShowInTaskbar = true;
+            this.Show();
+            notifyIcon_metro.Visible = false;
+        }
     }
 }

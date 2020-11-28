@@ -126,7 +126,7 @@ namespace eMetro.DAL
             string sql;
 
 
-            if (field_search == "Tất cả")
+            if (field_search == "       Tất cả")
             {
                 if (g == "Tìm kiếm")
                 {

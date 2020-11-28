@@ -41,9 +41,9 @@ namespace eMetro.BLL
             return dalTT.Search_MACTbyTenCT(str);
         }
 
-        public DataTable gettuyentau()
+        public DataTable gettuyentau(string mact)
         {
-            return dalTT.gettuyentau();
+            return dalTT.gettuyentau(mact);
         }
         public bool Check_Exist_Tuyentau_CT(string xp, string kt)
         {

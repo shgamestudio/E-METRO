@@ -84,7 +84,7 @@ namespace eMetro.DAL
             return (String)dt.Rows[0][0];
         }
 
-        public DataTable gettuyentau()
+        public DataTable gettuyentau(string mact)
         {
             //B1: Tạo câu lệnh Sql để lấy toàn bộ sân bay
             //string sql = "SELECT * FROM SANBAY";
@@ -93,7 +93,7 @@ namespace eMetro.DAL
                 "INNER JOIN GA G1 ON TT.MAGAXP = G1.MAGA " +
                 "INNER JOIN GA G2 ON TT.MAGAKT = G2.MAGA " +
                 "INNER JOIN CONGTY CT ON TT.MACT = CT.MACT " +
-                "INNER JOIN LOAITUYENTAU LTT ON LTT.MALTT = TT.MALTT";
+                "INNER JOIN LOAITUYENTAU LTT ON LTT.MALTT = TT.MALTT WHERE TT.MACT = "+"'"+mact+"'";
             //B2: Tạo một kết nối đến Sql
             SqlConnection con = dc.GetConnect();
             //B3: Khởi tạo đối tượng của lớp SqlDataAdapter

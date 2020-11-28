@@ -18,5 +18,26 @@ namespace eMetro.BLL
         {
             return dalNV.Login(userName, passWord);
         }
+
+        public string GetManv(string userName, string passWord)
+        {
+            return dalNV.GetManv(userName, passWord);
+        }
+
+        public string GetTennv(string manv)
+        {
+            return dalNV.GetTennv(manv);
+        }
+
+        public string GetLoainv(string manv)
+        {
+            return dalNV.GetLoainv(manv);
+        }
+
+        public string GetCongtynv(string manv)
+        {
+            return dalNV.GetCongtynv(manv);
+        }
+
     }
 }

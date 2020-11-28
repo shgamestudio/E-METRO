@@ -36,10 +36,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation5 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation6 = new BunifuAnimatorNS.Animation();
             this.panel_top = new System.Windows.Forms.Panel();
+            this.gunaGradient2Panel_namecard = new Guna.UI.WinForms.GunaGradient2Panel();
+            this.bunifuCustomLabel_tennv = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel_loainv = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.gunaCirclePictureBox1 = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.label_showform = new System.Windows.Forms.Label();
             this.iconPictureBox_showform = new FontAwesome.Sharp.IconPictureBox();
             this.pictureBox_restore = new System.Windows.Forms.PictureBox();
@@ -49,6 +53,7 @@
             this.pictureBox_menusidebar = new System.Windows.Forms.PictureBox();
             this.panel_sidebar = new System.Windows.Forms.Panel();
             this.bunifuGradientPanel_menu = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.gunaGradientButton_dangxuat = new Guna.UI.WinForms.GunaGradientButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.iconButton_homebtn = new FontAwesome.Sharp.IconButton();
             this.iconButton_QLTT = new FontAwesome.Sharp.IconButton();
@@ -66,7 +71,15 @@
             this.bunifuElipse_home_btn = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse_homebtn = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl_move_form = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.gunaElipse2 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.notifyIcon_metro = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip_minimize = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.khôiPhụcCửaSổChínhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_top.SuspendLayout();
+            this.gunaGradient2Panel_namecard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox_showform)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_restore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_hide)).BeginInit();
@@ -77,11 +90,13 @@
             this.bunifuGradientPanel_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_wrapper.SuspendLayout();
+            this.contextMenuStrip_minimize.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_top
             // 
             this.panel_top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.panel_top.Controls.Add(this.gunaGradient2Panel_namecard);
             this.panel_top.Controls.Add(this.label_showform);
             this.panel_top.Controls.Add(this.iconPictureBox_showform);
             this.panel_top.Controls.Add(this.pictureBox_restore);
@@ -94,9 +109,64 @@
             this.panel_top.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_top.Location = new System.Drawing.Point(0, 0);
             this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(1400, 80);
+            this.panel_top.Size = new System.Drawing.Size(1400, 94);
             this.panel_top.TabIndex = 0;
             this.panel_top.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_top_MouseDown);
+            // 
+            // gunaGradient2Panel_namecard
+            // 
+            this.gunaGradient2Panel_namecard.BackColor = System.Drawing.Color.Transparent;
+            this.gunaGradient2Panel_namecard.Controls.Add(this.bunifuCustomLabel_tennv);
+            this.gunaGradient2Panel_namecard.Controls.Add(this.bunifuCustomLabel_loainv);
+            this.gunaGradient2Panel_namecard.Controls.Add(this.gunaCirclePictureBox1);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.gunaGradient2Panel_namecard, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.gunaGradient2Panel_namecard, BunifuAnimatorNS.DecorationType.None);
+            this.gunaGradient2Panel_namecard.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(120)))));
+            this.gunaGradient2Panel_namecard.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
+            this.gunaGradient2Panel_namecard.Location = new System.Drawing.Point(104, 15);
+            this.gunaGradient2Panel_namecard.Name = "gunaGradient2Panel_namecard";
+            this.gunaGradient2Panel_namecard.Size = new System.Drawing.Size(308, 79);
+            this.gunaGradient2Panel_namecard.TabIndex = 10;
+            // 
+            // bunifuCustomLabel_tennv
+            // 
+            this.bunifuCustomLabel_tennv.AutoSize = true;
+            this.bunifuTransition_sidebar.SetDecoration(this.bunifuCustomLabel_tennv, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.bunifuCustomLabel_tennv, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuCustomLabel_tennv.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel_tennv.ForeColor = System.Drawing.SystemColors.Control;
+            this.bunifuCustomLabel_tennv.Location = new System.Drawing.Point(97, 11);
+            this.bunifuCustomLabel_tennv.Name = "bunifuCustomLabel_tennv";
+            this.bunifuCustomLabel_tennv.Size = new System.Drawing.Size(129, 21);
+            this.bunifuCustomLabel_tennv.TabIndex = 9;
+            this.bunifuCustomLabel_tennv.Text = "Đặng Vĩnh Siêu";
+            // 
+            // bunifuCustomLabel_loainv
+            // 
+            this.bunifuCustomLabel_loainv.AutoSize = true;
+            this.bunifuTransition_sidebar.SetDecoration(this.bunifuCustomLabel_loainv, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.bunifuCustomLabel_loainv, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuCustomLabel_loainv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel_loainv.ForeColor = System.Drawing.Color.Gold;
+            this.bunifuCustomLabel_loainv.Location = new System.Drawing.Point(104, 39);
+            this.bunifuCustomLabel_loainv.Name = "bunifuCustomLabel_loainv";
+            this.bunifuCustomLabel_loainv.Size = new System.Drawing.Size(82, 21);
+            this.bunifuCustomLabel_loainv.TabIndex = 10;
+            this.bunifuCustomLabel_loainv.Text = "Nhân viên";
+            // 
+            // gunaCirclePictureBox1
+            // 
+            this.gunaCirclePictureBox1.BaseColor = System.Drawing.Color.White;
+            this.bunifuTransition_sidebar_back.SetDecoration(this.gunaCirclePictureBox1, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.gunaCirclePictureBox1, BunifuAnimatorNS.DecorationType.None);
+            this.gunaCirclePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaCirclePictureBox1.Image")));
+            this.gunaCirclePictureBox1.Location = new System.Drawing.Point(18, 4);
+            this.gunaCirclePictureBox1.Name = "gunaCirclePictureBox1";
+            this.gunaCirclePictureBox1.Size = new System.Drawing.Size(70, 69);
+            this.gunaCirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gunaCirclePictureBox1.TabIndex = 8;
+            this.gunaCirclePictureBox1.TabStop = false;
+            this.gunaCirclePictureBox1.UseTransfarantBackground = false;
             // 
             // label_showform
             // 
@@ -104,11 +174,11 @@
             this.label_showform.AutoSize = true;
             this.bunifuTransition_sidebar.SetDecoration(this.label_showform, BunifuAnimatorNS.DecorationType.None);
             this.bunifuTransition_sidebar_back.SetDecoration(this.label_showform, BunifuAnimatorNS.DecorationType.None);
-            this.label_showform.Font = new System.Drawing.Font("Cambria", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_showform.Font = new System.Drawing.Font("Cambria", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_showform.ForeColor = System.Drawing.Color.Gainsboro;
             this.label_showform.Location = new System.Drawing.Point(732, 31);
             this.label_showform.Name = "label_showform";
-            this.label_showform.Size = new System.Drawing.Size(138, 32);
+            this.label_showform.Size = new System.Drawing.Size(163, 37);
             this.label_showform.TabIndex = 7;
             this.label_showform.Text = "Trang chủ";
             // 
@@ -122,10 +192,10 @@
             this.iconPictureBox_showform.IconChar = FontAwesome.Sharp.IconChar.Home;
             this.iconPictureBox_showform.IconColor = System.Drawing.Color.Gainsboro;
             this.iconPictureBox_showform.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox_showform.IconSize = 48;
-            this.iconPictureBox_showform.Location = new System.Drawing.Point(678, 24);
+            this.iconPictureBox_showform.IconSize = 55;
+            this.iconPictureBox_showform.Location = new System.Drawing.Point(670, 25);
             this.iconPictureBox_showform.Name = "iconPictureBox_showform";
-            this.iconPictureBox_showform.Size = new System.Drawing.Size(48, 54);
+            this.iconPictureBox_showform.Size = new System.Drawing.Size(58, 55);
             this.iconPictureBox_showform.TabIndex = 6;
             this.iconPictureBox_showform.TabStop = false;
             // 
@@ -135,7 +205,7 @@
             this.bunifuTransition_sidebar.SetDecoration(this.pictureBox_restore, BunifuAnimatorNS.DecorationType.None);
             this.bunifuTransition_sidebar_back.SetDecoration(this.pictureBox_restore, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox_restore.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_restore.Image")));
-            this.pictureBox_restore.Location = new System.Drawing.Point(1310, 20);
+            this.pictureBox_restore.Location = new System.Drawing.Point(1310, 18);
             this.pictureBox_restore.Name = "pictureBox_restore";
             this.pictureBox_restore.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_restore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -150,7 +220,7 @@
             this.bunifuTransition_sidebar.SetDecoration(this.pictureBox_hide, BunifuAnimatorNS.DecorationType.None);
             this.bunifuTransition_sidebar_back.SetDecoration(this.pictureBox_hide, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox_hide.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_hide.Image")));
-            this.pictureBox_hide.Location = new System.Drawing.Point(1274, 20);
+            this.pictureBox_hide.Location = new System.Drawing.Point(1274, 18);
             this.pictureBox_hide.Name = "pictureBox_hide";
             this.pictureBox_hide.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_hide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -164,7 +234,7 @@
             this.bunifuTransition_sidebar.SetDecoration(this.pictureBox_maximize, BunifuAnimatorNS.DecorationType.None);
             this.bunifuTransition_sidebar_back.SetDecoration(this.pictureBox_maximize, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox_maximize.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_maximize.Image")));
-            this.pictureBox_maximize.Location = new System.Drawing.Point(1310, 20);
+            this.pictureBox_maximize.Location = new System.Drawing.Point(1310, 18);
             this.pictureBox_maximize.Name = "pictureBox_maximize";
             this.pictureBox_maximize.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_maximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -178,7 +248,7 @@
             this.bunifuTransition_sidebar.SetDecoration(this.pictureBox_close, BunifuAnimatorNS.DecorationType.None);
             this.bunifuTransition_sidebar_back.SetDecoration(this.pictureBox_close, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox_close.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_close.Image")));
-            this.pictureBox_close.Location = new System.Drawing.Point(1346, 20);
+            this.pictureBox_close.Location = new System.Drawing.Point(1346, 18);
             this.pictureBox_close.Name = "pictureBox_close";
             this.pictureBox_close.Size = new System.Drawing.Size(30, 30);
             this.pictureBox_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -191,9 +261,9 @@
             this.bunifuTransition_sidebar.SetDecoration(this.pictureBox_menusidebar, BunifuAnimatorNS.DecorationType.None);
             this.bunifuTransition_sidebar_back.SetDecoration(this.pictureBox_menusidebar, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox_menusidebar.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_menusidebar.Image")));
-            this.pictureBox_menusidebar.Location = new System.Drawing.Point(30, 20);
+            this.pictureBox_menusidebar.Location = new System.Drawing.Point(22, 24);
             this.pictureBox_menusidebar.Name = "pictureBox_menusidebar";
-            this.pictureBox_menusidebar.Size = new System.Drawing.Size(49, 45);
+            this.pictureBox_menusidebar.Size = new System.Drawing.Size(57, 55);
             this.pictureBox_menusidebar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_menusidebar.TabIndex = 0;
             this.pictureBox_menusidebar.TabStop = false;
@@ -206,9 +276,9 @@
             this.bunifuTransition_sidebar_back.SetDecoration(this.panel_sidebar, BunifuAnimatorNS.DecorationType.None);
             this.bunifuTransition_sidebar.SetDecoration(this.panel_sidebar, BunifuAnimatorNS.DecorationType.None);
             this.panel_sidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel_sidebar.Location = new System.Drawing.Point(0, 80);
+            this.panel_sidebar.Location = new System.Drawing.Point(0, 94);
             this.panel_sidebar.Name = "panel_sidebar";
-            this.panel_sidebar.Size = new System.Drawing.Size(300, 820);
+            this.panel_sidebar.Size = new System.Drawing.Size(300, 806);
             this.panel_sidebar.TabIndex = 1;
             // 
             // bunifuGradientPanel_menu
@@ -217,6 +287,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.bunifuGradientPanel_menu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel_menu.BackgroundImage")));
             this.bunifuGradientPanel_menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuGradientPanel_menu.Controls.Add(this.gunaGradientButton_dangxuat);
             this.bunifuGradientPanel_menu.Controls.Add(this.pictureBox1);
             this.bunifuGradientPanel_menu.Controls.Add(this.iconButton_homebtn);
             this.bunifuGradientPanel_menu.Controls.Add(this.iconButton_QLTT);
@@ -230,11 +301,42 @@
             this.bunifuGradientPanel_menu.GradientBottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
             this.bunifuGradientPanel_menu.GradientTopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
             this.bunifuGradientPanel_menu.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(46)))));
-            this.bunifuGradientPanel_menu.Location = new System.Drawing.Point(22, 20);
+            this.bunifuGradientPanel_menu.Location = new System.Drawing.Point(22, 14);
             this.bunifuGradientPanel_menu.Name = "bunifuGradientPanel_menu";
             this.bunifuGradientPanel_menu.Quality = 10;
             this.bunifuGradientPanel_menu.Size = new System.Drawing.Size(270, 774);
             this.bunifuGradientPanel_menu.TabIndex = 0;
+            // 
+            // gunaGradientButton_dangxuat
+            // 
+            this.gunaGradientButton_dangxuat.AnimationHoverSpeed = 0.07F;
+            this.gunaGradientButton_dangxuat.AnimationSpeed = 0.03F;
+            this.gunaGradientButton_dangxuat.BackColor = System.Drawing.Color.Transparent;
+            this.gunaGradientButton_dangxuat.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
+            this.gunaGradientButton_dangxuat.BaseColor2 = System.Drawing.Color.Indigo;
+            this.gunaGradientButton_dangxuat.BorderColor = System.Drawing.Color.Black;
+            this.gunaGradientButton_dangxuat.BorderSize = 1;
+            this.bunifuTransition_sidebar_back.SetDecoration(this.gunaGradientButton_dangxuat, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.gunaGradientButton_dangxuat, BunifuAnimatorNS.DecorationType.None);
+            this.gunaGradientButton_dangxuat.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaGradientButton_dangxuat.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaGradientButton_dangxuat.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaGradientButton_dangxuat.ForeColor = System.Drawing.Color.White;
+            this.gunaGradientButton_dangxuat.Image = ((System.Drawing.Image)(resources.GetObject("gunaGradientButton_dangxuat.Image")));
+            this.gunaGradientButton_dangxuat.ImageSize = new System.Drawing.Size(20, 20);
+            this.gunaGradientButton_dangxuat.Location = new System.Drawing.Point(55, 700);
+            this.gunaGradientButton_dangxuat.Name = "gunaGradientButton_dangxuat";
+            this.gunaGradientButton_dangxuat.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(31)))), ((int)(((byte)(111)))));
+            this.gunaGradientButton_dangxuat.OnHoverBaseColor2 = System.Drawing.Color.Indigo;
+            this.gunaGradientButton_dangxuat.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaGradientButton_dangxuat.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaGradientButton_dangxuat.OnHoverImage = null;
+            this.gunaGradientButton_dangxuat.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaGradientButton_dangxuat.Radius = 15;
+            this.gunaGradientButton_dangxuat.Size = new System.Drawing.Size(159, 44);
+            this.gunaGradientButton_dangxuat.TabIndex = 31;
+            this.gunaGradientButton_dangxuat.Text = "Đăng xuất";
+            this.gunaGradientButton_dangxuat.Click += new System.EventHandler(this.GunaGradientButton_dangxuat_Click);
             // 
             // pictureBox1
             // 
@@ -416,9 +518,9 @@
             this.bunifuTransition_sidebar_back.SetDecoration(this.panel_wrapper, BunifuAnimatorNS.DecorationType.None);
             this.bunifuTransition_sidebar.SetDecoration(this.panel_wrapper, BunifuAnimatorNS.DecorationType.None);
             this.panel_wrapper.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_wrapper.Location = new System.Drawing.Point(300, 80);
+            this.panel_wrapper.Location = new System.Drawing.Point(300, 94);
             this.panel_wrapper.Name = "panel_wrapper";
-            this.panel_wrapper.Size = new System.Drawing.Size(1100, 820);
+            this.panel_wrapper.Size = new System.Drawing.Size(1100, 806);
             this.panel_wrapper.TabIndex = 2;
             // 
             // panel_wrapperform
@@ -429,7 +531,7 @@
             this.panel_wrapperform.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.bunifuTransition_sidebar_back.SetDecoration(this.panel_wrapperform, BunifuAnimatorNS.DecorationType.None);
             this.bunifuTransition_sidebar.SetDecoration(this.panel_wrapperform, BunifuAnimatorNS.DecorationType.None);
-            this.panel_wrapperform.Location = new System.Drawing.Point(6, 20);
+            this.panel_wrapperform.Location = new System.Drawing.Point(6, 14);
             this.panel_wrapperform.Name = "panel_wrapperform";
             this.panel_wrapperform.Size = new System.Drawing.Size(1070, 774);
             this.panel_wrapperform.TabIndex = 0;
@@ -443,43 +545,43 @@
             // 
             this.bunifuTransition_sidebar.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.bunifuTransition_sidebar.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 1;
-            animation1.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 2F;
-            animation1.TransparencyCoeff = 0F;
-            this.bunifuTransition_sidebar.DefaultAnimation = animation1;
+            animation5.AnimateOnlyDifferences = true;
+            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
+            animation5.LeafCoeff = 0F;
+            animation5.MaxTime = 1F;
+            animation5.MinTime = 0F;
+            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
+            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
+            animation5.MosaicSize = 1;
+            animation5.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation5.RotateCoeff = 0F;
+            animation5.RotateLimit = 0F;
+            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
+            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
+            animation5.TimeCoeff = 2F;
+            animation5.TransparencyCoeff = 0F;
+            this.bunifuTransition_sidebar.DefaultAnimation = animation5;
             // 
             // bunifuTransition_sidebar_back
             // 
             this.bunifuTransition_sidebar_back.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.bunifuTransition_sidebar_back.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.bunifuTransition_sidebar_back.DefaultAnimation = animation2;
+            animation6.AnimateOnlyDifferences = true;
+            animation6.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.BlindCoeff")));
+            animation6.LeafCoeff = 0F;
+            animation6.MaxTime = 1F;
+            animation6.MinTime = 0F;
+            animation6.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicCoeff")));
+            animation6.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicShift")));
+            animation6.MosaicSize = 0;
+            animation6.Padding = new System.Windows.Forms.Padding(0);
+            animation6.RotateCoeff = 0F;
+            animation6.RotateLimit = 0F;
+            animation6.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.ScaleCoeff")));
+            animation6.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.SlideCoeff")));
+            animation6.TimeCoeff = 0F;
+            animation6.TransparencyCoeff = 0F;
+            this.bunifuTransition_sidebar_back.DefaultAnimation = animation6;
             // 
             // bunifuElipse_wrapperform
             // 
@@ -508,6 +610,50 @@
             this.bunifuDragControl_move_form.TargetControl = this.panel_top;
             this.bunifuDragControl_move_form.Vertical = true;
             // 
+            // gunaElipse2
+            // 
+            this.gunaElipse2.Radius = 21;
+            this.gunaElipse2.TargetControl = this.gunaGradient2Panel_namecard;
+            // 
+            // notifyIcon_metro
+            // 
+            this.notifyIcon_metro.ContextMenuStrip = this.contextMenuStrip_minimize;
+            this.notifyIcon_metro.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon_metro.Icon")));
+            this.notifyIcon_metro.Text = "e-Metro Subway";
+            this.notifyIcon_metro.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon_metro_MouseDoubleClick);
+            // 
+            // contextMenuStrip_minimize
+            // 
+            this.bunifuTransition_sidebar_back.SetDecoration(this.contextMenuStrip_minimize, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.contextMenuStrip_minimize, BunifuAnimatorNS.DecorationType.None);
+            this.contextMenuStrip_minimize.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.khôiPhụcCửaSổChínhToolStripMenuItem,
+            this.đăngXuấtToolStripMenuItem,
+            this.thoátToolStripMenuItem});
+            this.contextMenuStrip_minimize.Name = "contextMenuStrip_minimize";
+            this.contextMenuStrip_minimize.Size = new System.Drawing.Size(199, 70);
+            // 
+            // khôiPhụcCửaSổChínhToolStripMenuItem
+            // 
+            this.khôiPhụcCửaSổChínhToolStripMenuItem.Name = "khôiPhụcCửaSổChínhToolStripMenuItem";
+            this.khôiPhụcCửaSổChínhToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.khôiPhụcCửaSổChínhToolStripMenuItem.Text = "Khôi phục cửa sổ chính";
+            this.khôiPhụcCửaSổChínhToolStripMenuItem.Click += new System.EventHandler(this.KhôiPhụcCửaSổChínhToolStripMenuItem_Click);
+            // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.ĐăngXuấtToolStripMenuItem_Click);
+            // 
+            // thoátToolStripMenuItem
+            // 
+            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.thoátToolStripMenuItem.Text = "Thoát";
+            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.ThoátToolStripMenuItem_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -523,8 +669,12 @@
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Menu_Load);
             this.panel_top.ResumeLayout(false);
             this.panel_top.PerformLayout();
+            this.gunaGradient2Panel_namecard.ResumeLayout(false);
+            this.gunaGradient2Panel_namecard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox_showform)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_restore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_hide)).EndInit();
@@ -535,6 +685,7 @@
             this.bunifuGradientPanel_menu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_wrapper.ResumeLayout(false);
+            this.contextMenuStrip_minimize.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -568,6 +719,17 @@
         private System.Windows.Forms.Label label_showform;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox_showform;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl_move_form;
+        private Guna.UI.WinForms.GunaCirclePictureBox gunaCirclePictureBox1;
+        private Guna.UI.WinForms.GunaGradient2Panel gunaGradient2Panel_namecard;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel_tennv;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel_loainv;
+        private Guna.UI.WinForms.GunaElipse gunaElipse2;
+        private System.Windows.Forms.NotifyIcon notifyIcon_metro;
+        private Guna.UI.WinForms.GunaGradientButton gunaGradientButton_dangxuat;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip_minimize;
+        private System.Windows.Forms.ToolStripMenuItem khôiPhụcCửaSổChínhToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
     }
 }
 

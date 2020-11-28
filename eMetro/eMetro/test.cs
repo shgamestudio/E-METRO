@@ -21,5 +21,17 @@ namespace eMetro
         {
 
         }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            if(textBox1.Text == "admin")
+            {
+                MessageBox.Show("ssssss");
+            }
+            else
+            {
+                MessageBox.Show("aaaaaaaaaaaaaaaaa");
+            }
+        }
     }
 }

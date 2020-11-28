@@ -82,6 +82,9 @@ namespace eMetro
         private void Ga_Load(object sender, EventArgs e)
         {
             ShowAllGa();
+            bunifuCustomDataGrid_ga.Visible = false;
+            bunifuTransition_ga.Show(bunifuCustomDataGrid_ga);
+            
         }
 
         public void Alert(string msg, Notification.Alert.enmType type)
@@ -233,7 +236,7 @@ namespace eMetro
             switch (bunifuDropdown_filter.selectedIndex)
             {
                 case 0:
-                    field_search = "Tất cả";
+                    field_search = "       Tất cả";
                     break;
                 case 1:
                     field_search = "maga";

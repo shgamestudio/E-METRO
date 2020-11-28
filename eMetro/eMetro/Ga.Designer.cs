@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            BunifuAnimatorNS.Animation animation6 = new BunifuAnimatorNS.Animation();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ga));
             this.bunifuCustomDataGrid_ga = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.bunifuElipse_form = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse_datagrid = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -64,6 +66,7 @@
             this.bunifuElipse_capnhat = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse_chonanh = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.iconButton_chonanh = new FontAwesome.Sharp.IconButton();
+            this.bunifuTransition_ga = new BunifuAnimatorNS.BunifuTransition(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid_ga)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bando)).BeginInit();
             this.groupBox_chitiet.SuspendLayout();
@@ -75,8 +78,8 @@
             this.bunifuCustomDataGrid_ga.AllowUserToAddRows = false;
             this.bunifuCustomDataGrid_ga.AllowUserToDeleteRows = false;
             this.bunifuCustomDataGrid_ga.AllowUserToResizeRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            this.bunifuCustomDataGrid_ga.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            this.bunifuCustomDataGrid_ga.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.bunifuCustomDataGrid_ga.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -85,24 +88,25 @@
             this.bunifuCustomDataGrid_ga.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGrid_ga.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.bunifuCustomDataGrid_ga.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid_ga.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGrid_ga.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.bunifuCustomDataGrid_ga.ColumnHeadersHeight = 50;
             this.bunifuCustomDataGrid_ga.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.bunifuCustomDataGrid_ga.DefaultCellStyle = dataGridViewCellStyle21;
+            this.bunifuTransition_ga.SetDecoration(this.bunifuCustomDataGrid_ga, BunifuAnimatorNS.DecorationType.None);
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Semibold", 12.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.bunifuCustomDataGrid_ga.DefaultCellStyle = dataGridViewCellStyle18;
             this.bunifuCustomDataGrid_ga.DoubleBuffered = true;
             this.bunifuCustomDataGrid_ga.EnableHeadersVisualStyles = false;
             this.bunifuCustomDataGrid_ga.GridColor = System.Drawing.Color.WhiteSmoke;
@@ -137,6 +141,7 @@
             this.pictureBox_bando.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox_bando.BackColor = System.Drawing.Color.Gainsboro;
+            this.bunifuTransition_ga.SetDecoration(this.pictureBox_bando, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox_bando.Location = new System.Drawing.Point(646, 1);
             this.pictureBox_bando.Name = "pictureBox_bando";
             this.pictureBox_bando.Size = new System.Drawing.Size(394, 308);
@@ -148,6 +153,7 @@
             // 
             this.label_tinhtrang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label_tinhtrang.AutoSize = true;
+            this.bunifuTransition_ga.SetDecoration(this.label_tinhtrang, BunifuAnimatorNS.DecorationType.None);
             this.label_tinhtrang.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_tinhtrang.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label_tinhtrang.Location = new System.Drawing.Point(803, 312);
@@ -168,6 +174,7 @@
             this.groupBox_chitiet.Controls.Add(this.label_tenct);
             this.groupBox_chitiet.Controls.Add(this.label1);
             this.groupBox_chitiet.Controls.Add(this.label_mact);
+            this.bunifuTransition_ga.SetDecoration(this.groupBox_chitiet, BunifuAnimatorNS.DecorationType.None);
             this.groupBox_chitiet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_chitiet.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox_chitiet.Location = new System.Drawing.Point(12, 377);
@@ -179,7 +186,10 @@
             // 
             // richTextBox_motavitri
             // 
-            this.richTextBox_motavitri.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.richTextBox_motavitri.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuTransition_ga.SetDecoration(this.richTextBox_motavitri, BunifuAnimatorNS.DecorationType.None);
             this.richTextBox_motavitri.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox_motavitri.Location = new System.Drawing.Point(364, 28);
             this.richTextBox_motavitri.Name = "richTextBox_motavitri";
@@ -189,7 +199,9 @@
             // 
             // comboBox_tinhtrang
             // 
-            this.comboBox_tinhtrang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comboBox_tinhtrang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.bunifuTransition_ga.SetDecoration(this.comboBox_tinhtrang, BunifuAnimatorNS.DecorationType.None);
             this.comboBox_tinhtrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_tinhtrang.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_tinhtrang.FormattingEnabled = true;
@@ -203,7 +215,9 @@
             // 
             // textBox_tenga
             // 
-            this.textBox_tenga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.textBox_tenga.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.bunifuTransition_ga.SetDecoration(this.textBox_tenga, BunifuAnimatorNS.DecorationType.None);
             this.textBox_tenga.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_tenga.Location = new System.Drawing.Point(99, 74);
             this.textBox_tenga.Multiline = true;
@@ -213,7 +227,9 @@
             // 
             // textBox_maga
             // 
-            this.textBox_maga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.textBox_maga.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.bunifuTransition_ga.SetDecoration(this.textBox_maga, BunifuAnimatorNS.DecorationType.None);
             this.textBox_maga.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_maga.Location = new System.Drawing.Point(99, 28);
             this.textBox_maga.Multiline = true;
@@ -224,8 +240,10 @@
             // 
             // label_diachiwebct
             // 
-            this.label_diachiwebct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label_diachiwebct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label_diachiwebct.AutoSize = true;
+            this.bunifuTransition_ga.SetDecoration(this.label_diachiwebct, BunifuAnimatorNS.DecorationType.None);
             this.label_diachiwebct.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_diachiwebct.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label_diachiwebct.Location = new System.Drawing.Point(227, 28);
@@ -236,8 +254,10 @@
             // 
             // label_tenct
             // 
-            this.label_tenct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label_tenct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label_tenct.AutoSize = true;
+            this.bunifuTransition_ga.SetDecoration(this.label_tenct, BunifuAnimatorNS.DecorationType.None);
             this.label_tenct.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_tenct.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label_tenct.Location = new System.Drawing.Point(12, 74);
@@ -248,8 +268,10 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
+            this.bunifuTransition_ga.SetDecoration(this.label1, BunifuAnimatorNS.DecorationType.None);
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label1.Location = new System.Drawing.Point(15, 125);
@@ -260,8 +282,10 @@
             // 
             // label_mact
             // 
-            this.label_mact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label_mact.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label_mact.AutoSize = true;
+            this.bunifuTransition_ga.SetDecoration(this.label_mact, BunifuAnimatorNS.DecorationType.None);
             this.label_mact.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_mact.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label_mact.Location = new System.Drawing.Point(15, 28);
@@ -280,6 +304,7 @@
             this.groupBox_thaotac.Controls.Add(this.label_cot);
             this.groupBox_thaotac.Controls.Add(this.textBox_search);
             this.groupBox_thaotac.Controls.Add(this.bunifuDropdown_filter);
+            this.bunifuTransition_ga.SetDecoration(this.groupBox_thaotac, BunifuAnimatorNS.DecorationType.None);
             this.groupBox_thaotac.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_thaotac.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox_thaotac.Location = new System.Drawing.Point(12, 555);
@@ -293,6 +318,7 @@
             // 
             this.iconButton_tracuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.iconButton_tracuu.BackColor = System.Drawing.Color.SeaGreen;
+            this.bunifuTransition_ga.SetDecoration(this.iconButton_tracuu, BunifuAnimatorNS.DecorationType.None);
             this.iconButton_tracuu.FlatAppearance.BorderSize = 0;
             this.iconButton_tracuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton_tracuu.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -320,6 +346,7 @@
             // 
             this.iconButton_capnhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.iconButton_capnhat.BackColor = System.Drawing.Color.SeaGreen;
+            this.bunifuTransition_ga.SetDecoration(this.iconButton_capnhat, BunifuAnimatorNS.DecorationType.None);
             this.iconButton_capnhat.FlatAppearance.BorderSize = 0;
             this.iconButton_capnhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton_capnhat.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -346,6 +373,7 @@
             // 
             this.iconButton_themga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.iconButton_themga.BackColor = System.Drawing.Color.SeaGreen;
+            this.bunifuTransition_ga.SetDecoration(this.iconButton_themga, BunifuAnimatorNS.DecorationType.None);
             this.iconButton_themga.FlatAppearance.BorderSize = 0;
             this.iconButton_themga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton_themga.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -371,6 +399,7 @@
             // label_cot
             // 
             this.label_cot.AutoSize = true;
+            this.bunifuTransition_ga.SetDecoration(this.label_cot, BunifuAnimatorNS.DecorationType.None);
             this.label_cot.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_cot.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label_cot.Location = new System.Drawing.Point(25, 29);
@@ -384,6 +413,7 @@
             this.textBox_search.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuTransition_ga.SetDecoration(this.textBox_search, BunifuAnimatorNS.DecorationType.None);
             this.textBox_search.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_search.ForeColor = System.Drawing.Color.DarkGray;
             this.textBox_search.Location = new System.Drawing.Point(284, 23);
@@ -401,21 +431,21 @@
             this.bunifuDropdown_filter.BackColor = System.Drawing.Color.Transparent;
             this.bunifuDropdown_filter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.bunifuDropdown_filter.BorderRadius = 3;
+            this.bunifuTransition_ga.SetDecoration(this.bunifuDropdown_filter, BunifuAnimatorNS.DecorationType.None);
             this.bunifuDropdown_filter.DisabledColor = System.Drawing.Color.Gray;
             this.bunifuDropdown_filter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuDropdown_filter.ForeColor = System.Drawing.Color.White;
             this.bunifuDropdown_filter.Items = new string[] {
-        "Tất cả",
-        "Mã ga",
-        "Tên ga",
-        "Mô tả vị trí",
-        "Tình trạng"};
+        "       Tất cả",
+        "       Mã ga",
+        "       Tên ga",
+        "       Mô tả vị trí",
+        "       Tình trạng"};
             this.bunifuDropdown_filter.Location = new System.Drawing.Point(99, 23);
             this.bunifuDropdown_filter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuDropdown_filter.Name = "bunifuDropdown_filter";
             this.bunifuDropdown_filter.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.bunifuDropdown_filter.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuDropdown_filter.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuDropdown_filter.selectedIndex = 0;
             this.bunifuDropdown_filter.Size = new System.Drawing.Size(168, 40);
             this.bunifuDropdown_filter.TabIndex = 25;
@@ -474,6 +504,7 @@
             // 
             this.iconButton_chonanh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.iconButton_chonanh.BackColor = System.Drawing.Color.SeaGreen;
+            this.bunifuTransition_ga.SetDecoration(this.iconButton_chonanh, BunifuAnimatorNS.DecorationType.None);
             this.iconButton_chonanh.FlatAppearance.BorderSize = 0;
             this.iconButton_chonanh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton_chonanh.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
@@ -496,6 +527,27 @@
             this.iconButton_chonanh.UseVisualStyleBackColor = false;
             this.iconButton_chonanh.Click += new System.EventHandler(this.IconButton_chonanh_Click);
             // 
+            // bunifuTransition_ga
+            // 
+            this.bunifuTransition_ga.AnimationType = BunifuAnimatorNS.AnimationType.ScaleAndHorizSlide;
+            this.bunifuTransition_ga.Cursor = null;
+            animation6.AnimateOnlyDifferences = true;
+            animation6.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.BlindCoeff")));
+            animation6.LeafCoeff = 0F;
+            animation6.MaxTime = 1F;
+            animation6.MinTime = 0F;
+            animation6.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicCoeff")));
+            animation6.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicShift")));
+            animation6.MosaicSize = 0;
+            animation6.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            animation6.RotateCoeff = 0F;
+            animation6.RotateLimit = 0F;
+            animation6.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.ScaleCoeff")));
+            animation6.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.SlideCoeff")));
+            animation6.TimeCoeff = 0F;
+            animation6.TransparencyCoeff = 0F;
+            this.bunifuTransition_ga.DefaultAnimation = animation6;
+            // 
             // Ga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -508,6 +560,7 @@
             this.Controls.Add(this.label_tinhtrang);
             this.Controls.Add(this.pictureBox_bando);
             this.Controls.Add(this.bunifuCustomDataGrid_ga);
+            this.bunifuTransition_ga.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Ga";
             this.Text = "Ga";
@@ -557,5 +610,6 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse_capnhat;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse_chonanh;
         private FontAwesome.Sharp.IconButton iconButton_chonanh;
+        private BunifuAnimatorNS.BunifuTransition bunifuTransition_ga;
     }
 }

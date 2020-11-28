@@ -21,10 +21,12 @@ namespace eMetro
         SqlDataAdapter da;
         BLL.TuyentauBLL bllTT;
         BLL.CTTuyentauBLL bllCTTT;
+        BLL.NhanvienBLL bllNV;
         DataTable dty;
         bool check_num = false;
         DTO.CTTuyentau dtoCTTuyentau;
-        public Tuyentau()
+        string manhanvien;
+        public Tuyentau(string manv)
         {
             InitializeComponent();
             dc = new DAL.DataConnection();
@@ -32,13 +34,15 @@ namespace eMetro
             bllCTTT = new BLL.CTTuyentauBLL();
             dty = new DataTable();
             dtoCTTuyentau = new DTO.CTTuyentau();
+            manhanvien = manv;
+            bllNV = new BLL.NhanvienBLL();
         }
 
         private void Tuyentau_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'eMETRODataSet.TUYENTAU' table. You can move, or remove it, as needed.      
 
-            this.tUYENTAUBindingSource.DataSource = bllTT.gettuyentau();
+            this.tUYENTAUBindingSource.DataSource = bllTT.gettuyentau(bllNV.GetCongtynv(manhanvien));
             this.advancedDataGridView_tuyentau.DataSource = this.tUYENTAUBindingSource;
             bunifuCustomDataGrid_CTTUYENTAU.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
@@ -606,7 +610,7 @@ namespace eMetro
 
                     if (bllTT.UpdateTuyentau(tt))
                     {
-                        this.tUYENTAUBindingSource.DataSource = bllTT.gettuyentau();
+                        this.tUYENTAUBindingSource.DataSource = bllTT.gettuyentau(bllNV.GetCongtynv(manhanvien));
                         this.advancedDataGridView_tuyentau.DataSource = this.tUYENTAUBindingSource;
                         textBox_matt.Clear();
                         textBox_tentt.Clear();
@@ -646,7 +650,7 @@ namespace eMetro
 
                     if (bllTT.UpdateTuyentau(tt))
                     {
-                        this.tUYENTAUBindingSource.DataSource = bllTT.gettuyentau();
+                        this.tUYENTAUBindingSource.DataSource = bllTT.gettuyentau(bllNV.GetCongtynv(manhanvien));
                         this.advancedDataGridView_tuyentau.DataSource = this.tUYENTAUBindingSource;
                         textBox_matt.Clear();
                         textBox_tentt.Clear();
@@ -704,7 +708,7 @@ namespace eMetro
 
                     if (bllTT.InsertTuyenTau(tt))
                     {
-                        this.tUYENTAUBindingSource.DataSource = bllTT.gettuyentau();
+                        this.tUYENTAUBindingSource.DataSource = bllTT.gettuyentau(bllNV.GetCongtynv(manhanvien));
                         this.advancedDataGridView_tuyentau.DataSource = this.tUYENTAUBindingSource;
                         textBox_matt.Clear();
                         textBox_tentt.Clear();
