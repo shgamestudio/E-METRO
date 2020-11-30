@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
@@ -10,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace eMetro
 {
@@ -24,6 +26,7 @@ namespace eMetro
         private bool minim = false;
         private bool hometrig = true;
         BLL.NhanvienBLL bllNV;
+        BLL.VeBLL bllVE;
         //Struct
         private struct RGBColors
         {
@@ -44,6 +47,7 @@ namespace eMetro
             InitializeComponent();
             manhanvien = manv;
             bllNV = new BLL.NhanvienBLL();
+            bllVE = new BLL.VeBLL();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             leftBorderBtn.Visible = false;
@@ -514,6 +518,32 @@ namespace eMetro
                 IconButton theBtn = (IconButton)sender;
                 clickedBtn = theBtn;
             }
+            currentChildForm.Close();
+
+            this.Chart_DT.DataSource = bllVE.Getdoanhthu();
+            Chart_DT.Series["ChartLinea"].XValueMember = "Ngày";
+            Chart_DT.Series["ChartLinea"].YValueMembers = "Doanh Thu";
+            Chart_DT.ChartAreas[0].AxisY.LabelStyle.Format = "{0:n0}";
+            Chart_DT.DataBind();
+
+            //this.Chart_TT.DataSource = bllVE.Gettansuattt();
+            //Chart_TT.Series["Pie"].XValueMember = "Tên tuyến tàu";
+            //Chart_TT.Series["Pie"].YValueMembers = "Số vé";
+            //Chart_TT.DataBind();
+
+            Chart_TT.Titles.Add("Vé bán trong ngày");
+            Chart_TT.Series.Add("Pie");
+            Chart_TT.Series["Pie"].ChartType = SeriesChartType.Pie;
+
+            DataTable dt = bllVE.Gettansuattt();
+            foreach (DataRow dtRow in dt.Rows)
+            {
+                Chart_TT.Series["Pie"].Points.AddXY(dtRow[1].ToString(), dtRow[0].ToString());
+            }
+            //Add some datapoints so the series. in this case you can pass the values to this method
+            //Chart_TT.Series["Pie"].Points.AddXY("MyPointName", "5");
+            //Chart_TT.Series["Pie"].Points.AddXY("MyPointName1", "11");
+            //Chart_TT.Series["Pie"].Points.AddXY("MyPointName2", "20");
         }
 
         private void IconButton_homebtn_MouseEnter(object sender, EventArgs e)
@@ -551,12 +581,12 @@ namespace eMetro
             notifyIcon_metro.Visible = false;
         }
 
+       
+      
+
         private void Menu_Load(object sender, EventArgs e)
         {
-            //if(bllNV.GetLoainv(manhanvien)==)
-            //{
 
-            //}
             bunifuCustomLabel_loainv.Text = bllNV.GetLoainv(manhanvien);
             switch (bllNV.GetLoainv(manhanvien))
             {
@@ -575,6 +605,32 @@ namespace eMetro
                     iconButton_QLG.Enabled = false;
                     break;
             }
+
+            //this.Chart_DT.Series["ChartLinea"].Points.AddXY("AAA", 10);
+            //this.Chart_DT.Series["ChartLinea"].Points.AddXY("BBA", 20);
+            //this.Chart_DT.Series["ChartLinea"].Points.AddXY("AQA", 30);
+            //this.Chart_DT.Series["ChartLinea"].Points.AddXY("PLA", 20);
+            this.Chart_DT.DataSource = bllVE.Getdoanhthu();
+            Chart_DT.Series["ChartLinea"].XValueMember = "Ngày";
+            Chart_DT.Series["ChartLinea"].YValueMembers = "Doanh Thu";
+            Chart_DT.ChartAreas[0].AxisY.LabelStyle.Format = "{0:n0}";
+            Chart_DT.DataBind();
+
+            //Chart_DT.SeriesDataMember = "Month";
+            //Chart_DT.SeriesTemplate.ArgumentDataMember = "Section";
+            //Chart_DT.SeriesTemplate.ValueDataMembers.AddRange(new string[] { "Value" });
+            Chart_TT.Titles.Add("Vé bán trong ngày");
+            Chart_TT.Series.Add("Pie");
+            Chart_TT.Series["Pie"].ChartType = SeriesChartType.Pie;
+
+            DataTable dt = bllVE.Gettansuattt();
+            foreach (DataRow dtRow in dt.Rows)
+            {
+                Chart_TT.Series["Pie"].Points.AddXY(dtRow[1].ToString(), dtRow[0].ToString());
+            }
+                //Add some datapoints so the series. in this case you can pass the values to this method
+                //Chart_TT.Series["Pie"].Points.AddXY("MyPointName", "5");
+            
         }
 
         private void GunaGradientButton_dangxuat_Click(object sender, EventArgs e)

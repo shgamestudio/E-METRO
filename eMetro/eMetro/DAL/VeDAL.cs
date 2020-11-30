@@ -79,7 +79,43 @@ namespace eMetro.DAL
         }
 
 
+        public DataTable Getdoanhthu()
+        {
+            //B1: Tạo câu lệnh Sql để lấy toàn bộ sân bay
+            //string sql = "SELECT * FROM SANBAY";
+            string sql = "select sum(GIAVE)[Doanh Thu], DS.ngay[Ngày] from VE V right outer join (SELECT CAST( GETDATE()-6 AS Date )[ngay] union SELECT CAST( GETDATE()-5 AS Date ) union SELECT CAST( GETDATE()-4 AS Date ) union SELECT CAST( GETDATE()-3 AS Date ) union SELECT CAST( GETDATE()-2 AS Date ) union SELECT CAST( GETDATE()-1 AS Date ) union SELECT CAST( GETDATE() AS Date )) DS ON DS.ngay = V.NGAYMUA group by V.GIAVE, DS.ngay";
+            //B2: Tạo một kết nối đến Sql
+            SqlConnection con = dc.GetConnect();
+            //B3: Khởi tạo đối tượng của lớp SqlDataAdapter
+            da = new SqlDataAdapter(sql, con);
+            //B4: Mở kết nối
+            con.Open();
+            //B5: Đổ dữ liệu từ SqlDataAdapter vào DataTable
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            //B6: Đóng kết nối
+            con.Close();
+            return dt;
+        }
 
+        public DataTable Gettansuattt()
+        {
+            //B1: Tạo câu lệnh Sql để lấy toàn bộ sân bay
+            //string sql = "SELECT * FROM SANBAY";
+            string sql = "select count(V.matt)[Số vé], TT.TENTT[Tên tuyến tàu] from VE V join TUYENTAU TT on TT.MATT = V.MATT where NGAYMUA =  CAST( GETDATE() AS Date ) group by V.MATT, TT.TENTT";
+            //B2: Tạo một kết nối đến Sql
+            SqlConnection con = dc.GetConnect();
+            //B3: Khởi tạo đối tượng của lớp SqlDataAdapter
+            da = new SqlDataAdapter(sql, con);
+            //B4: Mở kết nối
+            con.Open();
+            //B5: Đổ dữ liệu từ SqlDataAdapter vào DataTable
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            //B6: Đóng kết nối
+            con.Close();
+            return dt;
+        }
 
     }
 }

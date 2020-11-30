@@ -40,6 +40,7 @@ namespace eMetro
 
         private void Tuyentau_Load(object sender, EventArgs e)
         {
+            String.Format("{0:n0}", textBox_giathuong.Text);
             // TODO: This line of code loads data into the 'eMETRODataSet.TUYENTAU' table. You can move, or remove it, as needed.      
 
             this.tUYENTAUBindingSource.DataSource = bllTT.gettuyentau(bllNV.GetCongtynv(manhanvien));

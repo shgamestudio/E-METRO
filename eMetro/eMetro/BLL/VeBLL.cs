@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,16 @@ namespace eMetro.BLL
         public bool InsertVe(DTO.Ve ve)
         {
             return dalVE.InsertVe(ve);
+        }
+
+        public DataTable Getdoanhthu()
+        {
+            return dalVE.Getdoanhthu();
+        }
+
+        public DataTable Gettansuattt()
+        {
+            return dalVE.Gettansuattt();
         }
     }
 }

@@ -36,9 +36,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation5 = new BunifuAnimatorNS.Animation();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
-            BunifuAnimatorNS.Animation animation6 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel_top = new System.Windows.Forms.Panel();
             this.gunaGradient2Panel_namecard = new Guna.UI.WinForms.GunaGradient2Panel();
             this.bunifuCustomLabel_tennv = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -63,8 +69,17 @@
             this.bunifuSeparator_linesidebar = new Bunifu.Framework.UI.BunifuSeparator();
             this.panel_wrapper = new System.Windows.Forms.Panel();
             this.panel_wrapperform = new System.Windows.Forms.Panel();
+            this.bunifuGradientPanel4 = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.Chart_DT = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.bunifuGradientPanel3 = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.bunifuGradientPanel2 = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.bunifuGradientPanel1 = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.bunifuElipse_sidebar = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuTransition_sidebar = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.contextMenuStrip_minimize = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.khôiPhụcCửaSổChínhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bunifuTransition_sidebar_back = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.bunifuElipse_wrapperform = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuElipse_form = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -73,10 +88,8 @@
             this.bunifuDragControl_move_form = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.gunaElipse2 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.notifyIcon_metro = new System.Windows.Forms.NotifyIcon(this.components);
-            this.contextMenuStrip_minimize = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.khôiPhụcCửaSổChínhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label_doanhthu = new System.Windows.Forms.Label();
+            this.Chart_TT = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel_top.SuspendLayout();
             this.gunaGradient2Panel_namecard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).BeginInit();
@@ -90,7 +103,12 @@
             this.bunifuGradientPanel_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_wrapper.SuspendLayout();
+            this.panel_wrapperform.SuspendLayout();
+            this.bunifuGradientPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Chart_DT)).BeginInit();
+            this.bunifuGradientPanel3.SuspendLayout();
             this.contextMenuStrip_minimize.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Chart_TT)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_top
@@ -529,12 +547,125 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_wrapperform.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.panel_wrapperform.Controls.Add(this.bunifuGradientPanel4);
+            this.panel_wrapperform.Controls.Add(this.bunifuGradientPanel3);
+            this.panel_wrapperform.Controls.Add(this.bunifuGradientPanel2);
+            this.panel_wrapperform.Controls.Add(this.bunifuGradientPanel1);
             this.bunifuTransition_sidebar_back.SetDecoration(this.panel_wrapperform, BunifuAnimatorNS.DecorationType.None);
             this.bunifuTransition_sidebar.SetDecoration(this.panel_wrapperform, BunifuAnimatorNS.DecorationType.None);
             this.panel_wrapperform.Location = new System.Drawing.Point(6, 14);
             this.panel_wrapperform.Name = "panel_wrapperform";
             this.panel_wrapperform.Size = new System.Drawing.Size(1070, 774);
             this.panel_wrapperform.TabIndex = 0;
+            // 
+            // bunifuGradientPanel4
+            // 
+            this.bunifuGradientPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuGradientPanel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel4.BackgroundImage")));
+            this.bunifuGradientPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuGradientPanel4.Controls.Add(this.label_doanhthu);
+            this.bunifuGradientPanel4.Controls.Add(this.Chart_DT);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.bunifuGradientPanel4, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.bunifuGradientPanel4, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuGradientPanel4.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.bunifuGradientPanel4.GradientBottomRight = System.Drawing.Color.MediumTurquoise;
+            this.bunifuGradientPanel4.GradientTopLeft = System.Drawing.Color.MidnightBlue;
+            this.bunifuGradientPanel4.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.bunifuGradientPanel4.Location = new System.Drawing.Point(47, 367);
+            this.bunifuGradientPanel4.Name = "bunifuGradientPanel4";
+            this.bunifuGradientPanel4.Quality = 10;
+            this.bunifuGradientPanel4.Size = new System.Drawing.Size(982, 377);
+            this.bunifuGradientPanel4.TabIndex = 5;
+            // 
+            // Chart_DT
+            // 
+            this.Chart_DT.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Chart_DT.BackColor = System.Drawing.Color.Transparent;
+            this.Chart_DT.BorderlineWidth = 0;
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisY.IsLabelAutoFit = false;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Transparent;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.Chart_DT.ChartAreas.Add(chartArea1);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.Chart_DT, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.Chart_DT, BunifuAnimatorNS.DecorationType.None);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.Chart_DT.Legends.Add(legend1);
+            this.Chart_DT.Location = new System.Drawing.Point(-5, 39);
+            this.Chart_DT.Name = "Chart_DT";
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.Orange;
+            series1.Legend = "Legend1";
+            series1.Name = "ChartLinea";
+            this.Chart_DT.Series.Add(series1);
+            this.Chart_DT.Size = new System.Drawing.Size(976, 328);
+            this.Chart_DT.TabIndex = 4;
+            // 
+            // bunifuGradientPanel3
+            // 
+            this.bunifuGradientPanel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel3.BackgroundImage")));
+            this.bunifuGradientPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuGradientPanel3.Controls.Add(this.Chart_TT);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.bunifuGradientPanel3, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.bunifuGradientPanel3, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuGradientPanel3.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.bunifuGradientPanel3.GradientBottomRight = System.Drawing.Color.MediumAquamarine;
+            this.bunifuGradientPanel3.GradientTopLeft = System.Drawing.Color.MidnightBlue;
+            this.bunifuGradientPanel3.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.bunifuGradientPanel3.Location = new System.Drawing.Point(342, 34);
+            this.bunifuGradientPanel3.Name = "bunifuGradientPanel3";
+            this.bunifuGradientPanel3.Quality = 10;
+            this.bunifuGradientPanel3.Size = new System.Drawing.Size(687, 313);
+            this.bunifuGradientPanel3.TabIndex = 2;
+            // 
+            // bunifuGradientPanel2
+            // 
+            this.bunifuGradientPanel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel2.BackgroundImage")));
+            this.bunifuGradientPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuTransition_sidebar_back.SetDecoration(this.bunifuGradientPanel2, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.bunifuGradientPanel2, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuGradientPanel2.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.bunifuGradientPanel2.GradientBottomRight = System.Drawing.Color.MediumAquamarine;
+            this.bunifuGradientPanel2.GradientTopLeft = System.Drawing.Color.MidnightBlue;
+            this.bunifuGradientPanel2.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.bunifuGradientPanel2.Location = new System.Drawing.Point(47, 199);
+            this.bunifuGradientPanel2.Name = "bunifuGradientPanel2";
+            this.bunifuGradientPanel2.Quality = 10;
+            this.bunifuGradientPanel2.Size = new System.Drawing.Size(266, 148);
+            this.bunifuGradientPanel2.TabIndex = 1;
+            // 
+            // bunifuGradientPanel1
+            // 
+            this.bunifuGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel1.BackgroundImage")));
+            this.bunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuTransition_sidebar_back.SetDecoration(this.bunifuGradientPanel1, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.bunifuGradientPanel1, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuGradientPanel1.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.bunifuGradientPanel1.GradientBottomRight = System.Drawing.Color.MediumAquamarine;
+            this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.MidnightBlue;
+            this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.bunifuGradientPanel1.Location = new System.Drawing.Point(47, 34);
+            this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
+            this.bunifuGradientPanel1.Quality = 10;
+            this.bunifuGradientPanel1.Size = new System.Drawing.Size(266, 141);
+            this.bunifuGradientPanel1.TabIndex = 0;
             // 
             // bunifuElipse_sidebar
             // 
@@ -545,43 +676,75 @@
             // 
             this.bunifuTransition_sidebar.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.bunifuTransition_sidebar.Cursor = null;
-            animation5.AnimateOnlyDifferences = true;
-            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
-            animation5.LeafCoeff = 0F;
-            animation5.MaxTime = 1F;
-            animation5.MinTime = 0F;
-            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
-            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
-            animation5.MosaicSize = 1;
-            animation5.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation5.RotateCoeff = 0F;
-            animation5.RotateLimit = 0F;
-            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
-            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
-            animation5.TimeCoeff = 2F;
-            animation5.TransparencyCoeff = 0F;
-            this.bunifuTransition_sidebar.DefaultAnimation = animation5;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 1;
+            animation1.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 2F;
+            animation1.TransparencyCoeff = 0F;
+            this.bunifuTransition_sidebar.DefaultAnimation = animation1;
+            // 
+            // contextMenuStrip_minimize
+            // 
+            this.bunifuTransition_sidebar_back.SetDecoration(this.contextMenuStrip_minimize, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.contextMenuStrip_minimize, BunifuAnimatorNS.DecorationType.None);
+            this.contextMenuStrip_minimize.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.khôiPhụcCửaSổChínhToolStripMenuItem,
+            this.đăngXuấtToolStripMenuItem,
+            this.thoátToolStripMenuItem});
+            this.contextMenuStrip_minimize.Name = "contextMenuStrip_minimize";
+            this.contextMenuStrip_minimize.Size = new System.Drawing.Size(199, 70);
+            // 
+            // khôiPhụcCửaSổChínhToolStripMenuItem
+            // 
+            this.khôiPhụcCửaSổChínhToolStripMenuItem.Name = "khôiPhụcCửaSổChínhToolStripMenuItem";
+            this.khôiPhụcCửaSổChínhToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.khôiPhụcCửaSổChínhToolStripMenuItem.Text = "Khôi phục cửa sổ chính";
+            this.khôiPhụcCửaSổChínhToolStripMenuItem.Click += new System.EventHandler(this.KhôiPhụcCửaSổChínhToolStripMenuItem_Click);
+            // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.ĐăngXuấtToolStripMenuItem_Click);
+            // 
+            // thoátToolStripMenuItem
+            // 
+            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.thoátToolStripMenuItem.Text = "Thoát";
+            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.ThoátToolStripMenuItem_Click);
             // 
             // bunifuTransition_sidebar_back
             // 
             this.bunifuTransition_sidebar_back.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.bunifuTransition_sidebar_back.Cursor = null;
-            animation6.AnimateOnlyDifferences = true;
-            animation6.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.BlindCoeff")));
-            animation6.LeafCoeff = 0F;
-            animation6.MaxTime = 1F;
-            animation6.MinTime = 0F;
-            animation6.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicCoeff")));
-            animation6.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicShift")));
-            animation6.MosaicSize = 0;
-            animation6.Padding = new System.Windows.Forms.Padding(0);
-            animation6.RotateCoeff = 0F;
-            animation6.RotateLimit = 0F;
-            animation6.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.ScaleCoeff")));
-            animation6.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.SlideCoeff")));
-            animation6.TimeCoeff = 0F;
-            animation6.TransparencyCoeff = 0F;
-            this.bunifuTransition_sidebar_back.DefaultAnimation = animation6;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.bunifuTransition_sidebar_back.DefaultAnimation = animation2;
             // 
             // bunifuElipse_wrapperform
             // 
@@ -622,37 +785,46 @@
             this.notifyIcon_metro.Text = "e-Metro Subway";
             this.notifyIcon_metro.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon_metro_MouseDoubleClick);
             // 
-            // contextMenuStrip_minimize
+            // label_doanhthu
             // 
-            this.bunifuTransition_sidebar_back.SetDecoration(this.contextMenuStrip_minimize, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuTransition_sidebar.SetDecoration(this.contextMenuStrip_minimize, BunifuAnimatorNS.DecorationType.None);
-            this.contextMenuStrip_minimize.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.khôiPhụcCửaSổChínhToolStripMenuItem,
-            this.đăngXuấtToolStripMenuItem,
-            this.thoátToolStripMenuItem});
-            this.contextMenuStrip_minimize.Name = "contextMenuStrip_minimize";
-            this.contextMenuStrip_minimize.Size = new System.Drawing.Size(199, 70);
+            this.label_doanhthu.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label_doanhthu.AutoSize = true;
+            this.label_doanhthu.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuTransition_sidebar.SetDecoration(this.label_doanhthu, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.label_doanhthu, BunifuAnimatorNS.DecorationType.None);
+            this.label_doanhthu.Font = new System.Drawing.Font("Cambria", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_doanhthu.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label_doanhthu.Location = new System.Drawing.Point(333, 18);
+            this.label_doanhthu.Name = "label_doanhthu";
+            this.label_doanhthu.Size = new System.Drawing.Size(340, 32);
+            this.label_doanhthu.TabIndex = 8;
+            this.label_doanhthu.Text = "Doanh thu 7 ngày gần nhất";
             // 
-            // khôiPhụcCửaSổChínhToolStripMenuItem
+            // Chart_TT
             // 
-            this.khôiPhụcCửaSổChínhToolStripMenuItem.Name = "khôiPhụcCửaSổChínhToolStripMenuItem";
-            this.khôiPhụcCửaSổChínhToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.khôiPhụcCửaSổChínhToolStripMenuItem.Text = "Khôi phục cửa sổ chính";
-            this.khôiPhụcCửaSổChínhToolStripMenuItem.Click += new System.EventHandler(this.KhôiPhụcCửaSổChínhToolStripMenuItem_Click);
-            // 
-            // đăngXuấtToolStripMenuItem
-            // 
-            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
-            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.ĐăngXuấtToolStripMenuItem_Click);
-            // 
-            // thoátToolStripMenuItem
-            // 
-            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.thoátToolStripMenuItem.Text = "Thoát";
-            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.ThoátToolStripMenuItem_Click);
+            this.Chart_TT.BackColor = System.Drawing.Color.Transparent;
+            this.Chart_TT.BorderlineColor = System.Drawing.Color.Transparent;
+            this.Chart_TT.BorderlineWidth = 0;
+            chartArea2.AxisX.InterlacedColor = System.Drawing.Color.Transparent;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.Chart_TT.ChartAreas.Add(chartArea2);
+            this.bunifuTransition_sidebar_back.SetDecoration(this.Chart_TT, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuTransition_sidebar.SetDecoration(this.Chart_TT, BunifuAnimatorNS.DecorationType.None);
+            legend2.Name = "Legend1";
+            this.Chart_TT.Legends.Add(legend2);
+            this.Chart_TT.Location = new System.Drawing.Point(8, 3);
+            this.Chart_TT.Name = "Chart_TT";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Color = System.Drawing.Color.Black;
+            series2.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.Chart_TT.Series.Add(series2);
+            this.Chart_TT.Size = new System.Drawing.Size(676, 307);
+            this.Chart_TT.TabIndex = 0;
+            this.Chart_TT.Text = "chart1";
             // 
             // Menu
             // 
@@ -685,7 +857,13 @@
             this.bunifuGradientPanel_menu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_wrapper.ResumeLayout(false);
+            this.panel_wrapperform.ResumeLayout(false);
+            this.bunifuGradientPanel4.ResumeLayout(false);
+            this.bunifuGradientPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Chart_DT)).EndInit();
+            this.bunifuGradientPanel3.ResumeLayout(false);
             this.contextMenuStrip_minimize.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Chart_TT)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -730,6 +908,13 @@
         private System.Windows.Forms.ToolStripMenuItem khôiPhụcCửaSổChínhToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
+        private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel2;
+        private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel1;
+        private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Chart_DT;
+        private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel3;
+        private System.Windows.Forms.Label label_doanhthu;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Chart_TT;
     }
 }
 
