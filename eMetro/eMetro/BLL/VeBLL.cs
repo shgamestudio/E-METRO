@@ -29,5 +29,10 @@ namespace eMetro.BLL
         {
             return dalVE.Gettansuattt();
         }
+
+        public DataTable Getdoanhthu_thang()
+        {
+            return dalVE.Getdoanhthu_thang();
+        }
     }
 }

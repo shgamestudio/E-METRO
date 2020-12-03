@@ -117,5 +117,24 @@ namespace eMetro.DAL
             return dt;
         }
 
+        public DataTable Getdoanhthu_thang()
+        {
+            //B1: Tạo câu lệnh Sql để lấy toàn bộ sân bay
+            //string sql = "SELECT * FROM SANBAY";
+            string sql = "select sum(giave)[Doanh Thu], DS.thang[Tháng] from VE V right outer join ( SELECT MONTH(CAST( GETDATE() AS Date ))[thang] union SELECT MONTH(CAST( GETDATE() AS Date ))-1 union SELECT MONTH(CAST( GETDATE() AS Date ))-2 union SELECT MONTH(CAST( GETDATE() AS Date ))-3 union SELECT MONTH(CAST( GETDATE() AS Date ))-4 union SELECT MONTH(CAST( GETDATE() AS Date ))-5 union SELECT MONTH(CAST( GETDATE() AS Date ))-6 union SELECT MONTH(CAST( GETDATE() AS Date ))-7 union SELECT MONTH(CAST( GETDATE() AS Date ))-8 union SELECT MONTH(CAST( GETDATE() AS Date ))-9 union SELECT MONTH(CAST( GETDATE() AS Date ))-10 union SELECT MONTH(CAST( GETDATE() AS Date ))-11) DS ON DS.thang = MONTH(V.NGAYMUA) group by DS.thang";
+            //B2: Tạo một kết nối đến Sql
+            SqlConnection con = dc.GetConnect();
+            //B3: Khởi tạo đối tượng của lớp SqlDataAdapter
+            da = new SqlDataAdapter(sql, con);
+            //B4: Mở kết nối
+            con.Open();
+            //B5: Đổ dữ liệu từ SqlDataAdapter vào DataTable
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            //B6: Đóng kết nối
+            con.Close();
+            return dt;
+        }
+
     }
 }

@@ -518,21 +518,42 @@ namespace eMetro
                 IconButton theBtn = (IconButton)sender;
                 clickedBtn = theBtn;
             }
-            currentChildForm.Close();
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            //Line Chart
+            //this.Chart_DT.DataSource = bllVE.Getdoanhthu();
+            //Chart_DT.Series["ChartLinea"].XValueMember = "Ngày";
+            //Chart_DT.Series["ChartLinea"].YValueMembers = "Doanh Thu";
+            //Chart_DT.ChartAreas[0].AxisY.LabelStyle.Format = "{0:n0}";
+            //Chart_DT.DataBind();
 
-            this.Chart_DT.DataSource = bllVE.Getdoanhthu();
-            Chart_DT.Series["ChartLinea"].XValueMember = "Ngày";
-            Chart_DT.Series["ChartLinea"].YValueMembers = "Doanh Thu";
+            foreach (var series in Chart_DT.Series)
+            {
+                series.Points.Clear();
+
+
+            }
+            foreach (DataRow dtaRow in bllVE.Getdoanhthu().Rows)
+            {
+
+                string kt = Convert.ToDateTime(dtaRow[1].ToString()).ToString("dd-MM-yyyy");
+                Chart_DT.Series["ChartLinea"].Points.AddXY(kt, dtaRow[0].ToString());
+
+            }
             Chart_DT.ChartAreas[0].AxisY.LabelStyle.Format = "{0:n0}";
-            Chart_DT.DataBind();
 
-            //this.Chart_TT.DataSource = bllVE.Gettansuattt();
-            //Chart_TT.Series["Pie"].XValueMember = "Tên tuyến tàu";
-            //Chart_TT.Series["Pie"].YValueMembers = "Số vé";
-            //Chart_TT.DataBind();
 
-            Chart_TT.Titles.Add("Vé bán trong ngày");
-            Chart_TT.Series.Add("Pie");
+            //Pie CHart
+            foreach (var series in Chart_TT.Series)
+            {
+                series.Points.Clear();
+                
+                
+            }
+
+          
             Chart_TT.Series["Pie"].ChartType = SeriesChartType.Pie;
 
             DataTable dt = bllVE.Gettansuattt();
@@ -540,10 +561,22 @@ namespace eMetro
             {
                 Chart_TT.Series["Pie"].Points.AddXY(dtRow[1].ToString(), dtRow[0].ToString());
             }
-            //Add some datapoints so the series. in this case you can pass the values to this method
-            //Chart_TT.Series["Pie"].Points.AddXY("MyPointName", "5");
-            //Chart_TT.Series["Pie"].Points.AddXY("MyPointName1", "11");
-            //Chart_TT.Series["Pie"].Points.AddXY("MyPointName2", "20");
+            
+
+            //Pine Chart
+            foreach (var series in chart_dtthang.Series)
+            {
+                series.Points.Clear();
+            }
+            this.chart_dtthang.DataSource = bllVE.Getdoanhthu_thang();
+            
+
+            foreach (DataRow dtaRow in bllVE.Getdoanhthu_thang().Rows)
+            {
+                chart_dtthang.Series["Pine"].Points.AddXY(dtaRow[1].ToString(), dtaRow[0].ToString());
+            }
+            chart_dtthang.ChartAreas[0].AxisX.Interval = 1;
+            chart_dtthang.ChartAreas[0].AxisY.LabelStyle.Format = "{0:n0}";
         }
 
         private void IconButton_homebtn_MouseEnter(object sender, EventArgs e)
@@ -606,20 +639,32 @@ namespace eMetro
                     break;
             }
 
-            //this.Chart_DT.Series["ChartLinea"].Points.AddXY("AAA", 10);
-            //this.Chart_DT.Series["ChartLinea"].Points.AddXY("BBA", 20);
-            //this.Chart_DT.Series["ChartLinea"].Points.AddXY("AQA", 30);
-            //this.Chart_DT.Series["ChartLinea"].Points.AddXY("PLA", 20);
-            this.Chart_DT.DataSource = bllVE.Getdoanhthu();
-            Chart_DT.Series["ChartLinea"].XValueMember = "Ngày";
-            Chart_DT.Series["ChartLinea"].YValueMembers = "Doanh Thu";
-            Chart_DT.ChartAreas[0].AxisY.LabelStyle.Format = "{0:n0}";
-            Chart_DT.DataBind();
+            //Line chart
+            //this.Chart_DT.DataSource = bllVE.Getdoanhthu();
+            //Chart_DT.Series["ChartLinea"].XValueMember = "Ngày";
+            //Chart_DT.Series["ChartLinea"].YValueMembers = "Doanh Thu";
+            //Chart_DT.ChartAreas[0].AxisY.LabelStyle.Format = "{0:n0}";
+            //Chart_DT.DataBind();
 
-            //Chart_DT.SeriesDataMember = "Month";
-            //Chart_DT.SeriesTemplate.ArgumentDataMember = "Section";
-            //Chart_DT.SeriesTemplate.ValueDataMembers.AddRange(new string[] { "Value" });
-            Chart_TT.Titles.Add("Vé bán trong ngày");
+
+            //Chart_DT.Series.Add("ChartLinea");
+            foreach (DataRow dtaRow in bllVE.Getdoanhthu().Rows)
+            {
+                
+                string kt = Convert.ToDateTime(dtaRow[1].ToString()).ToString("dd-MM-yyyy");
+                Chart_DT.Series["ChartLinea"].Points.AddXY(kt, dtaRow[0].ToString());
+                
+            }
+            Chart_DT.ChartAreas[0].AxisY.LabelStyle.Format = "{0:n0}";
+
+
+            //Pie chart
+            foreach (var series in Chart_TT.Series)
+            {
+                series.Points.Clear();
+                
+            }
+            //Chart_TT.Titles.Add("Vé bán trong ngày");
             Chart_TT.Series.Add("Pie");
             Chart_TT.Series["Pie"].ChartType = SeriesChartType.Pie;
 
@@ -628,9 +673,20 @@ namespace eMetro
             {
                 Chart_TT.Series["Pie"].Points.AddXY(dtRow[1].ToString(), dtRow[0].ToString());
             }
-                //Add some datapoints so the series. in this case you can pass the values to this method
-                //Chart_TT.Series["Pie"].Points.AddXY("MyPointName", "5");
+            Chart_TT.Series["Pie"]["PieLabelStyle"] = "Disabled";
             
+
+            //Pine Chart
+            this.chart_dtthang.DataSource = bllVE.Getdoanhthu_thang();
+            chart_dtthang.Series.Add("Pine");
+           
+            foreach(DataRow dtaRow in bllVE.Getdoanhthu_thang().Rows)
+            {
+                chart_dtthang.Series["Pine"].Points.AddXY(dtaRow[1].ToString(), dtaRow[0].ToString());
+            }
+            chart_dtthang.ChartAreas[0].AxisX.Interval = 1;
+            chart_dtthang.ChartAreas[0].AxisY.LabelStyle.Format = "{0:n0}";
+
         }
 
         private void GunaGradientButton_dangxuat_Click(object sender, EventArgs e)
@@ -665,6 +721,18 @@ namespace eMetro
             this.ShowInTaskbar = true;
             this.Show();
             notifyIcon_metro.Visible = false;
+        }
+
+        private void Timer_cpu_Tick(object sender, EventArgs e)
+        {
+            float fcpu = performanceCounter_CPU.NextValue();
+            float fram = performanceCounter_RAM.NextValue();
+            circularProgressBar_cpu.Value = (int)fcpu;
+            circularProgressBar_cpu.Text = string.Format("{0:0}%",fcpu);
+
+            circularProgressBar_ram.Value = (int)fram;
+            circularProgressBar_ram.Text = string.Format("{0:0}%", fram);
+
         }
     }
 }
