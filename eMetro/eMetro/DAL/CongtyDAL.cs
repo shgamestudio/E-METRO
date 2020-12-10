@@ -155,6 +155,15 @@ namespace eMetro.DAL
             con.Close();
             return dt;
         }
+        public string GetSLCongty()
+        {
+            SqlConnection con = dc.GetConnect();
 
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format("SELECT COUNT(MACT) FROM CONGTY WHERE TINHTRANG=N'Hoạt động'");
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            return (String)dt.Rows[0][0].ToString();
+        }
     }
 }

@@ -38,3 +38,12 @@ G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\Guna.UI.dll
 G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\CircularProgressBar.dll
 G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\WinFormAnimation.dll
 G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\CircularProgressBar.xml
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\obj\Debug\eMetro.Baocao.resources
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\ClosedXML.dll
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\DocumentFormat.OpenXml.dll
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\ExcelNumberFormat.dll
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\System.IO.Packaging.dll
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\ClosedXML.pdb
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\ClosedXML.xml
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\DocumentFormat.OpenXml.xml
+G:\DA_E_METRO\E-METRO\eMetro\eMetro\bin\Debug\ExcelNumberFormat.xml

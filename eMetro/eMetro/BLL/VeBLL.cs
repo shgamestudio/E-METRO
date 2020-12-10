@@ -34,5 +34,17 @@ namespace eMetro.BLL
         {
             return dalVE.Getdoanhthu_thang();
         }
+        public string GetSLVe()
+        {
+            return dalVE.GetSLVe();
+        }
+        public DataTable GetBaoCao(int thang, int nam)
+        {
+            return dalVE.GetBaoCao(thang, nam);
+        }
+        public string GetTongDoanhSo(int thang, int nam)
+        {
+            return dalVE.GetTongDoanhSo(thang, nam);
+        }
     }
 }

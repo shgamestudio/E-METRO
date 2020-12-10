@@ -39,5 +39,6 @@ namespace eMetro.BLL
             return dalNV.GetCongtynv(manv);
         }
 
+       
     }
 }

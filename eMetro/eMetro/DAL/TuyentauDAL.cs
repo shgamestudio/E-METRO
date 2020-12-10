@@ -270,6 +270,15 @@ namespace eMetro.DAL
             }
             return "TT" + strSoKhong + count;
         }
+        public string GetSLTuyentau()
+        {
+            SqlConnection con = dc.GetConnect();
 
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format("SELECT COUNT(MATT) FROM TUYENTAU WHERE TINHTRANG=N'Hoạt động'");
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            return (String)dt.Rows[0][0].ToString();
+        }
     }
 }

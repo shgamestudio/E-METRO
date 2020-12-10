@@ -27,6 +27,9 @@ namespace eMetro
         private bool hometrig = true;
         BLL.NhanvienBLL bllNV;
         BLL.VeBLL bllVE;
+        BLL.GaBLL bllGA;
+        BLL.CongtyBLL bllCT;
+        BLL.TuyentauBLL bllTT;
         //Struct
         private struct RGBColors
         {
@@ -48,6 +51,11 @@ namespace eMetro
             manhanvien = manv;
             bllNV = new BLL.NhanvienBLL();
             bllVE = new BLL.VeBLL();
+            bllCT = new BLL.CongtyBLL();
+            bllGA = new BLL.GaBLL();
+            bllTT = new BLL.TuyentauBLL();
+
+
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             leftBorderBtn.Visible = false;
@@ -506,6 +514,7 @@ namespace eMetro
 
         private void IconButton_homebtn_Click(object sender, EventArgs e)
         {
+            GetInfo();
             hometrig = true;
             ActivateButton(sender, RGBColors.color3);
 
@@ -619,7 +628,8 @@ namespace eMetro
 
         private void Menu_Load(object sender, EventArgs e)
         {
-
+            GetInfo();
+            timer_cpu.Enabled = true;
             bunifuCustomLabel_loainv.Text = bllNV.GetLoainv(manhanvien);
             switch (bllNV.GetLoainv(manhanvien))
             {
@@ -630,12 +640,14 @@ namespace eMetro
                     break;
                 case "Nhân viên sở GT":
                     iconButton_BDK.Enabled = false;
-                    iconButton_QLTT.Enabled = false;                  
+                    iconButton_QLTT.Enabled = false;
+                    iconButton_BC.Enabled = false;
                     break;
                 case "Nhân viên công ty":
                     iconButton_BDK.Enabled = false;
                     iconButton_QLCT.Enabled = false;
                     iconButton_QLG.Enabled = false;
+                    iconButton_BC.Enabled = false;
                     break;
             }
 
@@ -733,6 +745,46 @@ namespace eMetro
             circularProgressBar_ram.Value = (int)fram;
             circularProgressBar_ram.Text = string.Format("{0:0}%", fram);
 
+        }
+
+        public void GetInfo()
+        {
+            label_CTHD.Text = bllCT.GetSLCongty().ToString();
+            label_GAHD.Text = bllGA.GetSLGa().ToString();
+            label_TTHD.Text = bllTT.GetSLTuyentau().ToString();
+            label_VEB.Text = bllVE.GetSLVe().ToString();
+        }
+
+        private void IconButton_BC_Click(object sender, EventArgs e)
+        {
+            hometrig = false;
+            if (clickedBtn != (IconButton)sender)                         //thêm dòng if là oke
+            {
+                ActivateButton(sender, RGBColors.color3);
+                setColor();
+                IconButton theBtn = (IconButton)sender;
+                clickedBtn = theBtn;
+            }
+            OpenChildForm(new Baocao(), iconButton_BC.Text);
+            label_showform.Text = "Xuất báo cáo";
+        }
+
+        private void IconButton_BC_MouseEnter(object sender, EventArgs e)
+        {
+            IconButton theBtn = (IconButton)sender;
+            if (theBtn != clickedBtn)
+            {
+                theBtn.BackColor = Color.FromArgb(165, 21, 80);
+            }
+        }
+
+        private void IconButton_BC_MouseLeave(object sender, EventArgs e)
+        {
+            IconButton theBtn = (IconButton)sender;
+            if (theBtn != clickedBtn)
+            {
+                theBtn.BackColor = Color.Transparent;
+            }
         }
     }
 }

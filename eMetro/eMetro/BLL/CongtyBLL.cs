@@ -31,5 +31,10 @@ namespace eMetro.BLL
         {
             return dalCT.FindCongty(ct,field_search);
         }
+
+        public string GetSLCongty()
+        {
+            return dalCT.GetSLCongty();
+        }
     }
 }

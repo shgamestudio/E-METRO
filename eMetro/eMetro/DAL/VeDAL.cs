@@ -135,6 +135,39 @@ namespace eMetro.DAL
             con.Close();
             return dt;
         }
+        public string GetSLVe()
+        {
+            SqlConnection con = dc.GetConnect();
+
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format("SELECT COUNT(MAVE) FROM VE WHERE NGAYMUA = CONVERT(date, getdate())");
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            return (String)dt.Rows[0][0].ToString();
+        }
+
+        public DataTable GetBaoCao(int thang, int nam)
+        {
+            SqlConnection con = dc.GetConnect();
+
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format("DECLARE @Month INT = '{0}', @Year INT = '{1}' ;WITH MonthDays_CTE(DayNum) AS (SELECT DATEFROMPARTS(@Year, @Month, 1) AS DayNum UNION ALL SELECT DATEADD(DAY, 1, DayNum) FROM MonthDays_CTE WHERE DayNum < EOMONTH(DATEFROMPARTS(@Year, @Month, 1))) SELECT ROW_NUMBER()OVER(ORDER BY DayNum)[STT], DayNum[Ngày], COALESCE(sum(V.GIAVE),0)[Doanh Thu],COUNT(V.MAVE)[Số lượng vé],COUNT(case V.MALV when 'LV00002' then 1 else null end)[Số lượng vé tháng], COUNT(case V.MALV when 'LV00001' then 1 else null end)[Số lượng vé ngày] from VE V right outer join MonthDays_CTE DS ON DS.DayNum = V.NGAYMUA group by NGAYMUA,DayNum", thang, nam);
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            return dt;
+        }
+
+
+        public string GetTongDoanhSo(int thang, int nam)
+        {
+            SqlConnection con = dc.GetConnect();
+
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format("DECLARE @Month INT = 12, @Year INT = 2020 ;WITH MonthDays_CTE(DayNum) AS (SELECT DATEFROMPARTS(@Year, @Month, 1) AS DayNum UNION ALL SELECT DATEADD(DAY, 1, DayNum) FROM MonthDays_CTE WHERE DayNum < EOMONTH(DATEFROMPARTS(@Year, @Month, 1))) SELECT SUM(V.GIAVE) from VE V right outer join MonthDays_CTE DS ON DS.DayNum = V.NGAYMUA", thang, nam);
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            return (String)dt.Rows[0][0].ToString();
+        }
 
     }
 }

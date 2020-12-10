@@ -65,5 +65,9 @@ namespace eMetro.BLL
         {
             return dalTT.gettuyentau_banve();
         }
+        public string GetSLTuyentau()
+        {
+            return dalTT.GetSLTuyentau();
+        }
     }
 }

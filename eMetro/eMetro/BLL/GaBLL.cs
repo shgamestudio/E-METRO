@@ -31,5 +31,9 @@ namespace eMetro.BLL
         {
             return dalGA.FindGa(ct, field_search);
         }
+        public string GetSLGa()
+        {
+            return dalGA.GetSLGa();
+        }
     }
 }
