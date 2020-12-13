@@ -46,5 +46,17 @@ namespace eMetro.BLL
         {
             return dalVE.GetTongDoanhSo(thang, nam);
         }
+        public DataTable GetDoanhSo(int mon, int year)
+        {
+            return dalVE.GetDoanhSo(mon, year);
+        }
+        public DataTable GetDoanhSoNam(int year)
+        {
+            return dalVE.GetDoanhSoNam(year);
+        }
+        public DataTable GetTongDoanhSoNam(int year)
+        {
+            return dalVE.GetTongDoanhSoNam(year);
+        }
     }
 }

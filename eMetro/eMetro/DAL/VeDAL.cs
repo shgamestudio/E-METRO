@@ -169,5 +169,38 @@ namespace eMetro.DAL
             return (String)dt.Rows[0][0].ToString();
         }
 
+        public DataTable GetDoanhSo(int thang, int nam )
+        {
+            SqlConnection con = dc.GetConnect();
+
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format("DECLARE @Month INT = '{0}', @Year INT = '{1}' ;WITH MonthDays_CTE(DayNum) AS (SELECT DATEFROMPARTS(@Year, @Month, 1) AS DayNum UNION ALL SELECT DATEADD(DAY, 1, DayNum) FROM MonthDays_CTE WHERE DayNum < EOMONTH(DATEFROMPARTS(@Year, @Month, 1))) SELECT SUM(V.GIAVE)[Tổng doanh thu] from VE V right outer join MonthDays_CTE DS ON DS.DayNum = V.NGAYMUA", thang, nam);
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            return dt;
+        }
+
+        public DataTable GetDoanhSoNam(int year)
+        {
+            SqlConnection con = dc.GetConnect();
+
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format(";WITH months(MonthNumber) AS (SELECT 1 UNION ALL SELECT MonthNumber+1 FROM months WHERE MonthNumber < 12) select ROW_NUMBER()OVER(ORDER BY MonthNumber)[STT], m.MonthNumber[Tháng], COALESCE(sum(V.GIAVE),0)[Doanh Thu],COUNT(V.MAVE)[Số lượng vé],COUNT(case V.MALV when 'LV00002' then 1 else null end)[Số lượng vé tháng], COUNT(case V.MALV when 'LV00001' then 1 else null end)[Số lượng vé ngày] from months M left outer join (select * from ve where YEAR(NGAYMUA) = '{0}') as V on M.MonthNumber = Month(NGAYMUA) group by M.MonthNumber", year);
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            return dt;
+        }
+
+        public DataTable GetTongDoanhSoNam(int year)
+        {
+            SqlConnection con = dc.GetConnect();
+
+            DataTable dt = new DataTable();
+            string sqlQuery = string.Format("select sum(GIAVE)[Tổng doanh thu năm] from ve where YEAR(NGAYMUA) = '{0}'", year);
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            da.Fill(dt);
+            return dt;
+        }
+
     }
 }

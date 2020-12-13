@@ -399,8 +399,8 @@
             this.gunaGradientButton_dangxuat.AnimationHoverSpeed = 0.07F;
             this.gunaGradientButton_dangxuat.AnimationSpeed = 0.03F;
             this.gunaGradientButton_dangxuat.BackColor = System.Drawing.Color.Transparent;
-            this.gunaGradientButton_dangxuat.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(21)))), ((int)(((byte)(80)))));
-            this.gunaGradientButton_dangxuat.BaseColor2 = System.Drawing.Color.Indigo;
+            this.gunaGradientButton_dangxuat.BaseColor1 = System.Drawing.Color.SeaGreen;
+            this.gunaGradientButton_dangxuat.BaseColor2 = System.Drawing.Color.LightSeaGreen;
             this.gunaGradientButton_dangxuat.BorderColor = System.Drawing.Color.Black;
             this.gunaGradientButton_dangxuat.BorderSize = 1;
             this.bunifuTransition_sidebar_back.SetDecoration(this.gunaGradientButton_dangxuat, BunifuAnimatorNS.DecorationType.None);
@@ -413,8 +413,8 @@
             this.gunaGradientButton_dangxuat.ImageSize = new System.Drawing.Size(20, 20);
             this.gunaGradientButton_dangxuat.Location = new System.Drawing.Point(55, 700);
             this.gunaGradientButton_dangxuat.Name = "gunaGradientButton_dangxuat";
-            this.gunaGradientButton_dangxuat.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(31)))), ((int)(((byte)(111)))));
-            this.gunaGradientButton_dangxuat.OnHoverBaseColor2 = System.Drawing.Color.Indigo;
+            this.gunaGradientButton_dangxuat.OnHoverBaseColor1 = System.Drawing.Color.DarkMagenta;
+            this.gunaGradientButton_dangxuat.OnHoverBaseColor2 = System.Drawing.Color.Teal;
             this.gunaGradientButton_dangxuat.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaGradientButton_dangxuat.OnHoverForeColor = System.Drawing.Color.White;
             this.gunaGradientButton_dangxuat.OnHoverImage = null;

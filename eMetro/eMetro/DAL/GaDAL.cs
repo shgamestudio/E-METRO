@@ -59,11 +59,12 @@ namespace eMetro.DAL
             {
                 //cmd = new SqlCommand(sql, con);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO GA(maga, tenga, motavitri, bando, tinhtrang) VALUES(@MAGA, @TENGA, @MOTAVITRI, @BANDO, @TINHTRANG)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO GA(maga, tenga, motavitri, tinhtrang, bandoga) VALUES(@MAGA, @TENGA, @MOTAVITRI, @TINHTRANG, @BANDOGA)", con);
                 cmd.Parameters.AddWithValue("@MAGA", TaoMaGa());
                 cmd.Parameters.AddWithValue("@TENGA",  ga.tenga);
                 cmd.Parameters.AddWithValue("@MOTAVITRI", ga.motavitri);
-                cmd.Parameters.AddWithValue("@BANDO",ga.bando);
+              
+                cmd.Parameters.AddWithValue("@BANDOGA", TaoMaGa()+"_bdo.jpg");
                 cmd.Parameters.AddWithValue("@TINHTRANG",  ga.tinhtrang);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -84,11 +85,12 @@ namespace eMetro.DAL
             {
                 //cmd = new SqlCommand(sql, con);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE GA SET tenga=@TENGA, motavitri=@MOTAVITRI, bando=@BANDO, tinhtrang=@TINHTRANG WHERE maga=@MAGA", con);
+                SqlCommand cmd = new SqlCommand("UPDATE GA SET tenga=@TENGA, motavitri=@MOTAVITRI, tinhtrang=@TINHTRANG, bandoga=@BANDOGA WHERE maga=@MAGA", con);
                 cmd.Parameters.AddWithValue("@MAGA", ga.maga);
                 cmd.Parameters.AddWithValue("@TENGA", ga.tenga);
                 cmd.Parameters.AddWithValue("@MOTAVITRI", ga.motavitri);
-                cmd.Parameters.AddWithValue("@BANDO", ga.bando);
+    
+                cmd.Parameters.AddWithValue("@BANDOGA", ga.maga + "_bdo.jpg");
                 cmd.Parameters.AddWithValue("@TINHTRANG", ga.tinhtrang);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -104,7 +106,7 @@ namespace eMetro.DAL
         {
             //B1: Tạo câu lệnh Sql để lấy toàn bộ sân bay
             //string sql = "SELECT * FROM SANBAY";
-            string sql = "SELECT maga[Mã ga], tenga[Tên ga], motavitri[Mô tả vị trí], bando[Bản đồ], tinhtrang[Tình trạng] FROM GA";
+            string sql = "SELECT maga[Mã ga], tenga[Tên ga], motavitri[Mô tả vị trí], bandoga[Bản đồ], tinhtrang[Tình trạng] FROM GA";
             //B2: Tạo một kết nối đến Sql
             SqlConnection con = dc.GetConnect();
             //B3: Khởi tạo đối tượng của lớp SqlDataAdapter
@@ -132,12 +134,12 @@ namespace eMetro.DAL
                 {
                     g = "";
                 }
-                sql = "SELECT maga[Mã ga], tenga[Tên ga], motavitri[Mô tả vị trí], bando[Bản đồ], tinhtrang[Tình trạng] FROM GA WHERE MAGA like N'%" + g + "%' OR TENGA like N'%" + g + "%' OR MOTAVITRI like N'%" + g + "%' " +
+                sql = "SELECT maga[Mã ga], tenga[Tên ga], motavitri[Mô tả vị trí], bandoga[Bản đồ], tinhtrang[Tình trạng] FROM GA WHERE MAGA like N'%" + g + "%' OR TENGA like N'%" + g + "%' OR MOTAVITRI like N'%" + g + "%' " +
                     "OR tinhtrang like N'%" + g + "%'";
             }
             else
             {
-                sql = "SELECT maga[Mã ga], tenga[Tên ga],  motavitri[Mô tả vị trí], bando[Bản đồ], tinhtrang[Tình trạng] FROM GA WHERE " + field_search + " like N'%" + g + "%' ";
+                sql = "SELECT maga[Mã ga], tenga[Tên ga],  motavitri[Mô tả vị trí], bandoga[Bản đồ], tinhtrang[Tình trạng] FROM GA WHERE " + field_search + " like N'%" + g + "%' ";
             }
 
 

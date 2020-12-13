@@ -12,6 +12,7 @@ namespace eMetro.DTO
         public string tenga { set; get; }
         public string motavitri { set; get; }
         public byte[] bando { set; get; }
+        public string bandoga { set; get; }
         public string tinhtrang { set; get; }
     }
 }

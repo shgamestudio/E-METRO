@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox_giathang = new System.Windows.Forms.TextBox();
             this.label_label_giavethang = new System.Windows.Forms.Label();
@@ -80,6 +80,11 @@
             this.iconButton_luuCTTT = new FontAwesome.Sharp.IconButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.bunifuElipse_cttt = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse_themgatg = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse_xoagatg = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse_them = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuElipse_capnhat = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.label_tracuu = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView_tuyentau)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tUYENTAUBindingSource)).BeginInit();
@@ -417,6 +422,7 @@
             // 
             // iconButton_capnhatTT
             // 
+            this.iconButton_capnhatTT.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.iconButton_capnhatTT.BackColor = System.Drawing.Color.SeaGreen;
             this.iconButton_capnhatTT.FlatAppearance.BorderSize = 0;
             this.iconButton_capnhatTT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -442,6 +448,7 @@
             // 
             // iconButton_themTT
             // 
+            this.iconButton_themTT.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.iconButton_themTT.BackColor = System.Drawing.Color.SeaGreen;
             this.iconButton_themTT.FlatAppearance.BorderSize = 0;
             this.iconButton_themTT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -504,7 +511,7 @@
             this.comboBox_fieldsearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_fieldsearch.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_fieldsearch.FormattingEnabled = true;
-            this.comboBox_fieldsearch.Location = new System.Drawing.Point(462, 279);
+            this.comboBox_fieldsearch.Location = new System.Drawing.Point(547, 279);
             this.comboBox_fieldsearch.Name = "comboBox_fieldsearch";
             this.comboBox_fieldsearch.Size = new System.Drawing.Size(147, 29);
             this.comboBox_fieldsearch.TabIndex = 56;
@@ -515,10 +522,10 @@
             this.textBox_search.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_search.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_search.Location = new System.Drawing.Point(627, 279);
+            this.textBox_search.Location = new System.Drawing.Point(700, 279);
             this.textBox_search.Multiline = true;
             this.textBox_search.Name = "textBox_search";
-            this.textBox_search.Size = new System.Drawing.Size(416, 29);
+            this.textBox_search.Size = new System.Drawing.Size(343, 29);
             this.textBox_search.TabIndex = 57;
             this.textBox_search.TextChanged += new System.EventHandler(this.TextBox_search_TextChanged);
             this.textBox_search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_search_KeyPress);
@@ -528,8 +535,8 @@
             this.bunifuCustomDataGrid_CTTUYENTAU.AllowUserToAddRows = false;
             this.bunifuCustomDataGrid_CTTUYENTAU.AllowUserToDeleteRows = false;
             this.bunifuCustomDataGrid_CTTUYENTAU.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.bunifuCustomDataGrid_CTTUYENTAU.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.bunifuCustomDataGrid_CTTUYENTAU.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.bunifuCustomDataGrid_CTTUYENTAU.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -538,14 +545,14 @@
             this.bunifuCustomDataGrid_CTTUYENTAU.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bunifuCustomDataGrid_CTTUYENTAU.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.bunifuCustomDataGrid_CTTUYENTAU.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid_CTTUYENTAU.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(163)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bunifuCustomDataGrid_CTTUYENTAU.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.bunifuCustomDataGrid_CTTUYENTAU.ColumnHeadersHeight = 50;
             this.bunifuCustomDataGrid_CTTUYENTAU.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.bunifuCustomDataGrid_CTTUYENTAU.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -555,14 +562,14 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.bunifuCustomDataGrid_CTTUYENTAU.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.bunifuCustomDataGrid_CTTUYENTAU.DefaultCellStyle = dataGridViewCellStyle15;
             this.bunifuCustomDataGrid_CTTUYENTAU.DoubleBuffered = true;
             this.bunifuCustomDataGrid_CTTUYENTAU.EnableHeadersVisualStyles = false;
             this.bunifuCustomDataGrid_CTTUYENTAU.GridColor = System.Drawing.Color.WhiteSmoke;
@@ -573,10 +580,10 @@
             this.bunifuCustomDataGrid_CTTUYENTAU.Name = "bunifuCustomDataGrid_CTTUYENTAU";
             this.bunifuCustomDataGrid_CTTUYENTAU.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.bunifuCustomDataGrid_CTTUYENTAU.RowHeadersVisible = false;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.bunifuCustomDataGrid_CTTUYENTAU.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            this.bunifuCustomDataGrid_CTTUYENTAU.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.bunifuCustomDataGrid_CTTUYENTAU.RowTemplate.DividerHeight = 2;
             this.bunifuCustomDataGrid_CTTUYENTAU.RowTemplate.Height = 30;
             this.bunifuCustomDataGrid_CTTUYENTAU.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -726,12 +733,46 @@
             this.bunifuElipse_cttt.ElipseRadius = 20;
             this.bunifuElipse_cttt.TargetControl = this.bunifuCustomDataGrid_CTTUYENTAU;
             // 
+            // bunifuElipse_themgatg
+            // 
+            this.bunifuElipse_themgatg.ElipseRadius = 10;
+            this.bunifuElipse_themgatg.TargetControl = this.iconButton_themCTTT;
+            // 
+            // bunifuElipse_xoagatg
+            // 
+            this.bunifuElipse_xoagatg.ElipseRadius = 10;
+            this.bunifuElipse_xoagatg.TargetControl = this.iconButton_xoaCTTT;
+            // 
+            // bunifuElipse_them
+            // 
+            this.bunifuElipse_them.ElipseRadius = 10;
+            this.bunifuElipse_them.TargetControl = this.iconButton_themTT;
+            // 
+            // bunifuElipse_capnhat
+            // 
+            this.bunifuElipse_capnhat.ElipseRadius = 10;
+            this.bunifuElipse_capnhat.TargetControl = this.iconButton_capnhatTT;
+            // 
+            // label_tracuu
+            // 
+            this.label_tracuu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_tracuu.AutoSize = true;
+            this.label_tracuu.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_tracuu.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label_tracuu.Location = new System.Drawing.Point(457, 283);
+            this.label_tracuu.Name = "label_tracuu";
+            this.label_tracuu.Size = new System.Drawing.Size(84, 25);
+            this.label_tracuu.TabIndex = 63;
+            this.label_tracuu.Text = "Tra cứu:";
+            // 
             // Tuyentau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(1070, 774);
+            this.Controls.Add(this.label_tracuu);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textBox_search);
             this.Controls.Add(this.comboBox_fieldsearch);
@@ -804,5 +845,10 @@
         private System.Windows.Forms.Label label_label_giavethang;
         private System.Windows.Forms.TextBox textBox_giathuong;
         private System.Windows.Forms.Label label_giavethuong;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse_themgatg;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse_xoagatg;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse_them;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse_capnhat;
+        private System.Windows.Forms.Label label_tracuu;
     }
 }

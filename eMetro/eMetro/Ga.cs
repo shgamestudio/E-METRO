@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,12 +15,15 @@ namespace eMetro
 {
     public partial class Ga : Form
     {
+        DAL.DataConnection dc;
+        SqlDataAdapter da;
         BLL.GaBLL bllGA;
         string imageUrl = null;
         public Ga()
         {
             InitializeComponent();
             bllGA = new BLL.GaBLL();
+            dc = new DAL.DataConnection();
         }
 
        
@@ -109,12 +114,46 @@ namespace eMetro
             }
         }
 
+        public DataTable GetAndSortDesc()
+        {
+            SqlConnection con = dc.GetConnect();
+            string sqlQuery = "SELECT maga, tenga FROM GA ORDER BY maga DESC";
+            SqlDataAdapter da = new SqlDataAdapter(sqlQuery, con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+        private string TaoMaGa()
+        {
+            DataTable dt = this.GetAndSortDesc();
+            if (dt.Rows.Count == 0)
+                return "GA0000" + dt.Rows.Count;
+            DataRow row = dt.Rows[0];
+            string maTuyenBay = row[0].ToString().Substring(2);
+            int count = int.Parse(maTuyenBay) + 1;
+            int temp = count;
+            string strSoKhong = "";
+            int dem = 0;
+            while (temp > 0)
+            {
+                temp /= 10;
+                dem++;
+            }
+            for (int i = 0; i < 5 - dem; i++)
+            {
+                strSoKhong += "0";
+            }
+            return "GA" + strSoKhong + count;
+        }
+
+
         private void IconButton_themga_Click(object sender, EventArgs e)
         {
             if (CheckData())
             {
 
-                Image img = pictureBox_bando.Image;
+                //Image img = pictureBox_bando.Image;
                 //byte[] arr;
                 //ImageConverter converter = new ImageConverter();
                 //arr = (byte[])converter.ConvertTo(img, typeof(byte[]));
@@ -123,9 +162,9 @@ namespace eMetro
                 DTO.Ga ga = new DTO.Ga();
                 ga.tenga = textBox_tenga.Text;
                 ga.motavitri = richTextBox_motavitri.Text;
-                ga.bando = ConvertImageToBytes(img);
+                //ga.bando = ConvertImageToBytes(img);
                 ga.tinhtrang = comboBox_tinhtrang.Text;
-
+                string tmp_bdoname = TaoMaGa();
 
                 if (bllGA.InsertGa(ga))
                 {
@@ -134,9 +173,18 @@ namespace eMetro
                     textBox_tenga.Clear();
                     //comboBox_tinhtrang.Clear();
 
-                    richTextBox_motavitri.Clear();
-                    pictureBox_bando.Image.Dispose();
+
+                    //Copy hình
+                    string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                    string filePath = Path.Combine(projectPath, "StationMap");
+                    pictureBox_bando.Image.Save(@"" + filePath + @"\" + tmp_bdoname+"_bdo.jpg", ImageFormat.Jpeg);
+                    //
+                    //pictureBox_bando.Dispose();
                     pictureBox_bando.Image = null;
+
+                    richTextBox_motavitri.Clear();
+                    //pictureBox_bando.Image.Dispose();
+                    //pictureBox_bando.Image = null;
                     this.Alert("Thêm thành công", Notification.Alert.enmType.Success);
                 }
                 else
@@ -160,8 +208,30 @@ namespace eMetro
                 textBox_tenga.Text = bunifuCustomDataGrid_ga.Rows[index].Cells["Tên ga"].Value.ToString();
                 richTextBox_motavitri.Text = bunifuCustomDataGrid_ga.Rows[index].Cells["Mô tả vị trí"].Value.ToString();
                 //textBox_diachitrusoct.Text = bunifuCustomDataGrid_congty.Rows[index].Cells["Địa chỉ"].Value.ToString();
-                pictureBox_bando.Image = ConvertByteArrayToImage((byte[])rowga["Bản đồ"]);
+                //pictureBox_bando.Image = ConvertByteArrayToImage((byte[])rowga["Bản đồ"]);
                 comboBox_tinhtrang.Text = bunifuCustomDataGrid_ga.Rows[index].Cells["Tình trạng"].Value.ToString();
+
+                string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                string filePath = Path.Combine(projectPath, "StationMap");
+                string path = @"" + filePath + @"\" + bunifuCustomDataGrid_ga.Rows[index].Cells["Mã ga"].Value.ToString() + "_bdo.jpg";
+
+                if (File.Exists(path))
+                {
+                    //show ảnh
+                    using (FileStream fs = new FileStream(@"" + filePath + @"\" + bunifuCustomDataGrid_ga.Rows[index].Cells["Mã ga"].Value.ToString() + "_bdo.jpg", FileMode.Open))
+                    {
+                        pictureBox_bando.Image = Image.FromStream(fs);
+                        fs.Close();
+                    }
+                    //pictureBox_bando.Image = Image.FromFile(@"" + filePath + @"\" + bunifuCustomDataGrid_ga.Rows[index].Cells["Mã ga"].Value.ToString() + "_bdo.jpg");
+                }
+                else
+                {
+
+                    pictureBox_bando.Image = null;
+                }
+
+               
             }
         }
 
@@ -169,31 +239,54 @@ namespace eMetro
         {
             if (CheckData())
             {
-
-                Image img = pictureBox_bando.Image;
+               
+                //Image img = pictureBox_bando.Image;
                 DTO.Ga ct = new DTO.Ga();
 
                 ct.maga = textBox_maga.Text;
                 ct.tenga = textBox_tenga.Text;
                 ct.tinhtrang = comboBox_tinhtrang.Text;
                 ct.motavitri = richTextBox_motavitri.Text;
-                ct.bando = ConvertImageToBytes(img);
-
+                //ct.bando = ConvertImageToBytes(img);
+                string tmp_bdoname = ct.maga;
 
                 if (bllGA.UpdateGa(ct))
                 {
                     ShowAllGa();
                     textBox_maga.Clear();
                     textBox_tenga.Clear();
-                    richTextBox_motavitri.Clear();
-                    pictureBox_bando.Image.Dispose();
+                    ////Copy hình
+                    //string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                    //string filePath = Path.Combine(projectPath, "StationMap");
+
+                    //if (System.IO.File.Exists(@"" + filePath + @"\" + tmp_bdoname + "_bdo.jpg"))
+                    //{
+                    //    System.IO.File.Delete(@"" + filePath + @"\" + tmp_bdoname + "_bdo.jpg");
+                    //}
+
+                    //pictureBox_bando.Image.Save(@"" + filePath + @"\" + tmp_bdoname + "_bdo.jpg", ImageFormat.Jpeg);
+                    //
+
+                    //Lưu ảnh vào folder
+                    string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                    string filePath = Path.Combine(projectPath, "StationMap");
+                    pictureBox_bando.Image.Save(@"" + filePath + @"\" + tmp_bdoname + "_bdo.jpg", ImageFormat.Jpeg);
+
+
+
+                    //pictureBox_bando.Dispose();
                     pictureBox_bando.Image = null;
-                    this.Alert("Thêm thành công", Notification.Alert.enmType.Success);
+                    richTextBox_motavitri.Clear();
+                    
+
+                    //pictureBox_bando.Image.Dispose();
+                    //pictureBox_bando.Image = null;
+                    this.Alert("Cập nhật thành công", Notification.Alert.enmType.Success);
 
                 }
                 else
                 {
-                    this.Alert("Thêm thất bại", Notification.Alert.enmType.Error);
+                    this.Alert("Cập nhật thất bại", Notification.Alert.enmType.Error);
                 }
             }
         }
@@ -271,5 +364,20 @@ namespace eMetro
 
             }
         }
+
+        private void IconButton_image_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Image files(*.jpg;*.jpeg)|*.jpg;*.jpeg", Multiselect = false })
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    imageUrl = ofd.FileName;
+                    pictureBox_bando.Image = Image.FromFile(ofd.FileName);
+                }
+            }
+        }
+
+
+
     }
 }

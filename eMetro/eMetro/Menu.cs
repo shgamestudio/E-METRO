@@ -415,6 +415,19 @@ namespace eMetro
         private void PictureBox_menusidebar_Click(object sender, EventArgs e)
         {
             minim = !minim;
+            if(gunaGradientButton_dangxuat.Size.Width == 159)
+            {
+                gunaGradientButton_dangxuat.Size = new Size(41,44);
+                gunaGradientButton_dangxuat.Text = "";
+                gunaGradientButton_dangxuat.Location = new Point(18,700);
+            }
+            else
+            {
+                gunaGradientButton_dangxuat.Size = new Size(159, 44);
+                gunaGradientButton_dangxuat.Text = "Đăng xuất";
+                gunaGradientButton_dangxuat.Location = new Point(55, 700);
+            }
+
             if(gunaGradient2Panel_namecard.Location.X == 104)
             {   
                 gunaGradient2Panel_namecard.Visible = false;
@@ -635,19 +648,36 @@ namespace eMetro
             {
                 case "Nhân viên bán vé":
                     iconButton_QLCT.Enabled = false;
+                    iconButton_QLCT.IconColor = Color.DimGray;
+
                     iconButton_QLG.Enabled = false;
+                    iconButton_QLG.IconColor = Color.DimGray;
+
                     iconButton_QLTT.Enabled = false;
+                    iconButton_QLTT.IconColor = Color.DimGray;
                     break;
                 case "Nhân viên sở GT":
                     iconButton_BDK.Enabled = false;
+                    iconButton_BDK.IconColor = Color.DimGray;
+
                     iconButton_QLTT.Enabled = false;
+                    iconButton_QLTT.IconColor = Color.DimGray;
+
                     iconButton_BC.Enabled = false;
+                    iconButton_BC.IconColor = Color.DimGray;
                     break;
                 case "Nhân viên công ty":
                     iconButton_BDK.Enabled = false;
+                    iconButton_BDK.IconColor = Color.DimGray;
+
                     iconButton_QLCT.Enabled = false;
+                    iconButton_QLCT.IconColor = Color.DimGray;
+
                     iconButton_QLG.Enabled = false;
+                    iconButton_QLG.IconColor = Color.DimGray;
+
                     iconButton_BC.Enabled = false;
+                    iconButton_BC.IconColor = Color.DimGray;
                     break;
             }
 
